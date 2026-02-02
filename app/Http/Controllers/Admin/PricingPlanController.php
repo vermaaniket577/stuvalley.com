@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\PricingPlan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class PricingPlanController extends Controller
 {
@@ -35,14 +36,8 @@ class PricingPlanController extends Controller
             'price' => 'required|string|max:255',
             'currency' => 'nullable|string|max:10',
             'tag_text' => 'nullable|string|max:255',
-            'is_popular' => 'boolean',
-            'is_light' => 'boolean',
             'features' => 'nullable|array',
-            'features.*' => 'string', // Simple array of strings for now? Or complex objects?
-            // Let's assume we handle complex feature objects (text, active) via JSON or separate inputs logic.
-            // For simplicity in form, we might send array of strings. 
-            // BUT existing UI has checked/unchecked. 
-            // Let's adapt: 'features' => array of ['text' => string, 'active' => bool]
+            'features.*' => 'nullable|string',
             'button_text' => 'nullable|string',
             'button_link' => 'nullable|string',
             'sort_order' => 'integer',
@@ -53,6 +48,7 @@ class PricingPlanController extends Controller
         $data['is_light'] = $request->has('is_light');
 
         PricingPlan::create($data);
+        Cache::forget('home_pricing');
         return redirect()->route('admin.pricing.index')->with('success', 'Plan created successfully.');
     }
 
@@ -67,25 +63,23 @@ class PricingPlanController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(PricingPlan $pricingPlan)
+    public function edit(PricingPlan $pricing)
     {
-        return view('admin.pricing.edit', ['plan' => $pricingPlan]);
+        return view('admin.pricing.edit', ['plan' => $pricing]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PricingPlan $pricingPlan)
+    public function update(Request $request, PricingPlan $pricing)
     {
         $data = $request->validate([
             'title' => 'required|string|max:255',
             'price' => 'required|string|max:255',
             'currency' => 'nullable|string|max:10',
             'tag_text' => 'nullable|string|max:255',
-            'is_popular' => 'boolean', // Validation handles '1', 'true', 'on'
-            'is_light' => 'boolean',
             'features' => 'nullable|array',
-            'features.*' => 'string',
+            'features.*' => 'nullable|string',
             'button_text' => 'nullable|string',
             'button_link' => 'nullable|string',
             'sort_order' => 'integer',
@@ -97,16 +91,18 @@ class PricingPlanController extends Controller
         $data['is_popular'] = $request->has('is_popular');
         $data['is_light'] = $request->has('is_light');
 
-        $pricingPlan->update($data);
+        $pricing->update($data);
+        Cache::forget('home_pricing');
         return redirect()->route('admin.pricing.index')->with('success', 'Plan updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PricingPlan $pricingPlan)
+    public function destroy(PricingPlan $pricing)
     {
-        $pricingPlan->delete();
+        $pricing->delete();
+        Cache::forget('home_pricing');
         return redirect()->route('admin.pricing.index')->with('success', 'Plan deleted successfully.');
     }
 }

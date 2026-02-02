@@ -61,8 +61,8 @@
     .success-modal-pro {
         max-width: 480px !important;
         width: 90% !important;
-        background: linear-gradient(165deg, #0f172a 0%, #020617 100%) !important;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: #ffffff !important;
+        border: 1px solid #e2e8f0;
         border-radius: 24px !important;
         padding: 0 !important;
         text-align: center;
@@ -70,6 +70,7 @@
         position: relative;
         transform: scale(0.9);
         transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     }
 
     #successModal.active .success-modal-pro {
@@ -78,6 +79,22 @@
 
     .success-content {
         padding: 50px 40px;
+    }
+
+    .modal-title {
+        color: #0f172a;
+        font-size: 2rem;
+        font-weight: 800;
+        margin-bottom: 12px;
+        font-family: 'Outfit', sans-serif;
+    }
+
+    .modal-subtitle {
+        color: #475569;
+        font-size: 1.05rem;
+        line-height: 1.6;
+        font-weight: 500;
+        margin-bottom: 0;
     }
 
     .success-icon-badge {
@@ -125,9 +142,9 @@
     }
 
     .voice-btn-pro {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        color: #f8fafc;
+        background: #f1f5f9;
+        border: 1px solid #e2e8f0;
+        color: #475569;
         padding: 12px 24px;
         border-radius: 12px;
         cursor: pointer;
@@ -140,7 +157,7 @@
     }
 
     .voice-btn-pro:hover {
-        background: rgba(255, 255, 255, 0.07);
+        background: #e2e8f0;
         border-color: #3b82f6;
         color: #3b82f6;
     }
@@ -153,25 +170,50 @@
 
     .btn-finish-pro {
         width: 100%;
-        background: #f8fafc;
-        color: #0f172a;
+        background: #0f172a;
+        color: #ffffff;
         border: none;
-        padding: 16px;
+        padding: 18px;
         border-radius: 14px;
         font-weight: 800;
-        font-size: 0.95rem;
+        font-size: 1rem;
         cursor: pointer;
         transition: all 0.3s;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 10px;
+        box-shadow: 0 10px 20px -5px rgba(15, 23, 42, 0.3);
     }
 
     .btn-finish-pro:hover {
-        background: #fff;
+        background: #1e293b;
         transform: translateY(-2px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 12px 24px -5px rgba(15, 23, 42, 0.4);
+    }
+
+    .modal-close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: #f1f5f9;
+        border: none;
+        color: #64748b;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+        z-index: 10;
+    }
+
+    .modal-close-btn:hover {
+        background: #e2e8f0;
+        color: #0f172a;
+        transform: rotate(90deg);
     }
 </style>
 

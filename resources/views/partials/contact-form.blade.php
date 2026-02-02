@@ -72,7 +72,6 @@
         padding: 0 !important;
         margin: 0 !important;
         background: #ffffff !important;
-        /* Light background for the whole section */
         z-index: 10 !important;
         display: block !important;
         width: 100%;
@@ -84,16 +83,16 @@
         grid-template-columns: 1fr 1fr;
         max-width: 100%;
         margin: 0;
-        min-height: 620px;
-        /* More compact grid */
+        min-height: 700px;
         align-items: stretch;
     }
 
-    /* Left Side - Visual */
+    /* Left Side - Visual (Dark Blue) */
     .contact-visual {
-        background: linear-gradient(135deg, #001e3c 0%, #003366 100%);
+        background: #001f3f;
+        /* Deep navy blue */
+        background: linear-gradient(135deg, #001529 0%, #001f3f 100%);
         padding: 80px 10%;
-        /* Reduced padding */
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -102,120 +101,92 @@
         overflow: hidden;
     }
 
-    /* World Map Overlay */
-    .contact-visual::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_blank_gray_outline.svg');
-        background-size: 150%;
-        background-position: center;
-        opacity: 0.08;
-        filter: invert(1);
-        /* Make it white */
-        mix-blend-mode: screen;
-        pointer-events: none;
-    }
-
     .visual-content {
         position: relative;
         z-index: 2;
+        max-width: 550px;
     }
 
     .contact-tagline {
-        font-size: 0.75rem;
-        font-weight: 800;
-        letter-spacing: 2px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 2.5px;
         text-transform: uppercase;
-        margin-bottom: 30px;
-        color: #60a5fa;
+        margin-bottom: 25px;
+        color: #fff;
         display: inline-flex;
         align-items: center;
         gap: 12px;
+        opacity: 0.8;
     }
 
     .tagline-pipe {
-        width: 3px;
-        height: 14px;
-        background: #60a5fa;
+        width: 2px;
+        height: 18px;
+        background: #3b82f6;
         border-radius: 2px;
     }
 
     .contact-heading {
-        font-size: clamp(2.2rem, 3.5vw, 3.2rem);
-        /* Slightly smaller for better fit */
+        font-size: clamp(2.5rem, 4.5vw, 3.8rem);
         font-weight: 700;
         line-height: 1.1;
-        margin-bottom: 25px;
-        font-family: 'Playfair Display', "Georgia", serif;
+        margin-bottom: 30px;
+        font-family: 'Playfair Display', serif;
         color: #ffffff;
+        letter-spacing: -1px;
     }
 
     .contact-desc {
-        font-size: 1.15rem;
+        font-size: 1.2rem;
         line-height: 1.7;
-        opacity: 0.9;
+        opacity: 0.85;
         max-width: 500px;
         font-weight: 400;
         color: #cbd5e1;
+        font-family: 'Manrope', sans-serif;
     }
 
-    /* Right Side - Form */
+    /* Right Side - Form (White) */
     .contact-form-wrapper {
         background: #ffffff;
-        padding: 60px 5%;
-        /* Tightened padding */
+        padding: 80px 5%;
         display: flex;
         align-items: center;
         justify-content: center;
         position: relative;
     }
 
-    /* Background noise/pattern for light side */
-    .contact-form-wrapper::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
-        pointer-events: none;
-    }
-
     .premium-form-card {
         background: #ffffff;
-        padding: 40px;
-        /* Reduced from 50px */
+        padding: 50px;
         border-radius: 24px;
-        box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.08);
         width: 100%;
-        max-width: 520px;
-        border: 1px solid rgba(0, 0, 0, 0.03);
+        max-width: 600px;
+        border: 1px solid #f1f5f9;
         position: relative;
         z-index: 2;
     }
 
     .pfc-header {
-        margin-bottom: 40px;
+        margin-bottom: 45px;
     }
 
     .pfc-title {
-        font-size: 2.2rem;
-        font-weight: 900;
-        /* Max boldness */
+        font-size: 2.8rem;
+        font-weight: 800;
         color: #0f172a;
         margin-bottom: 12px;
-        letter-spacing: -1px;
-        /* Tighter for professional look */
+        letter-spacing: -1.5px;
         font-family: 'Outfit', sans-serif;
-        /* Use modern Outfit font */
     }
 
     .pfc-header p {
-        font-size: 1rem;
+        font-size: 1.1rem;
         color: #64748b;
         font-weight: 500;
+        line-height: 1.5;
     }
 
     /* Form Fields */
@@ -233,11 +204,12 @@
     .form-select,
     .form-textarea {
         width: 100%;
-        padding: 16px 20px;
-        border: 1.5px solid #f1f5f9;
+        padding: 18px 24px;
+        border: 2px solid transparent;
         border-radius: 12px;
-        font-size: 0.95rem;
-        background: #f8fafc;
+        font-size: 1rem;
+        background: #f4f7fa;
+        /* Light gray background as in image */
         color: #0f172a;
         font-weight: 500;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -263,32 +235,35 @@
         appearance: none;
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
         background-repeat: no-repeat;
-        background-position: right 18px center;
-        background-size: 18px;
+        background-position: right 24px center;
+        background-size: 20px;
     }
 
     .btn-submit-premium {
         width: 100%;
-        padding: 18px;
-        background: #2563eb;
+        padding: 20px;
+        background: #3b82f6;
+        /* Solid bright blue from image */
         color: #fff;
         border: none;
         border-radius: 12px;
-        font-size: 1rem;
+        font-size: 1.1rem;
         font-weight: 800;
         cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 8px 25px -8px rgba(37, 99, 235, 0.5);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 12px 30px -10px rgba(59, 130, 246, 0.5);
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
+        gap: 12px;
+        text-transform: none;
+        margin-top: 10px;
     }
 
     .btn-submit-premium:hover {
-        background: #1d4ed8;
-        transform: translateY(-2px);
-        box-shadow: 0 12px 30px -10px rgba(37, 99, 235, 0.6);
+        background: #2563eb;
+        transform: translateY(-3px);
+        box-shadow: 0 15px 40px -12px rgba(37, 99, 235, 0.6);
     }
 
     .loading-spinner {
@@ -314,7 +289,7 @@
         }
 
         .contact-visual {
-            padding: 80px 5%;
+            padding: 100px 5%;
             text-align: center;
         }
 
@@ -323,11 +298,11 @@
         }
 
         .contact-form-wrapper {
-            padding: 60px 5%;
+            padding: 80px 5%;
         }
 
         .premium-form-card {
-            padding: 40px 25px;
+            padding: 40px 30px;
         }
     }
 
@@ -338,7 +313,11 @@
         }
 
         .pfc-title {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
+        }
+
+        .contact-heading {
+            font-size: 2.5rem;
         }
     }
 </style>

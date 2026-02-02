@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Solution;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Cache;
 
 class SolutionController extends Controller
 {
@@ -27,6 +28,7 @@ class SolutionController extends Controller
         // real app might upload file. We will keep it simple.
 
         Solution::create($data);
+        Cache::forget('home_solutions');
 
         return redirect()->back()->with('success', 'Solution added successfully.');
     }
@@ -38,6 +40,7 @@ class SolutionController extends Controller
         ]);
 
         $solution->update($request->all());
+        Cache::forget('home_solutions');
 
         return redirect()->back()->with('success', 'Solution updated successfully.');
     }
@@ -45,6 +48,7 @@ class SolutionController extends Controller
     public function destroy(Solution $solution)
     {
         $solution->delete();
+        Cache::forget('home_solutions');
         return redirect()->back()->with('success', 'Solution deleted successfully.');
     }
 }

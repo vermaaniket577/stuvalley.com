@@ -6,26 +6,24 @@
     <style>
         /* Premium Blog Detail Styles */
         :root {
-            --blog-accent: #3b82f6;
+            --blog-accent: #2563eb;
             --blog-dark: #0f172a;
             --text-color: #334155;
-            --heading-color: #1e293b;
+            --heading-color: #0f172a;
         }
 
         /* Hero Section */
         .blog-hero {
             position: relative;
-            height: 60vh;
-            min-height: 400px;
+            min-height: 600px;
             width: 100%;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: -80px;
-            /* Offset fixed header if transparent, assuming standard layout */
-            padding-top: 80px;
-            /* Compensation */
+            margin-top: -120px;
+            padding-top: 140px;
+            padding-bottom: 100px;
         }
 
         .blog-hero-bg {
@@ -34,160 +32,177 @@
             background-size: cover;
             background-position: center;
             z-index: 0;
-            transform: scale(1);
+            transform: scale(1.05);
             transition: transform 10s ease;
-            /* Subtle zoom effect */
         }
 
         .blog-hero-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.3) 0%, rgba(15, 23, 42, 0.8) 100%);
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.4) 0%, rgba(15, 23, 42, 0.9) 100%);
             z-index: 1;
         }
 
         .blog-hero-content {
             position: relative;
             z-index: 2;
-            max-width: 900px;
+            max-width: 1000px;
             text-align: center;
-            padding: 20px;
+            padding: 80px 20px 200px; /* Generous bottom padding to ensure room for the overlapping card */
             color: #fff;
         }
 
         .blog-meta {
             display: inline-flex;
-            gap: 15px;
+            gap: 20px;
             align-items: center;
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
-            padding: 8px 16px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            margin-bottom: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-top: 30px; /* Space from title */
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
         }
 
         .blog-title {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            font-family: 'Playfair Display', serif;
-            /* Or system serif */
-            letter-spacing: -0.5px;
+            font-size: clamp(2.8rem, 7vw, 4.8rem);
+            font-weight: 900;
+            line-height: 1.05;
+            margin-bottom: 0; /* Let margin-top of meta handle it */
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: -2px;
+            text-shadow: 0 10px 40px rgba(0,0,0,0.4);
         }
 
         /* Content Layout */
         .blog-container {
-            max-width: 800px;
-            margin: -80px auto 0;
-            /* Overlap hero */
+            max-width: 1000px;
+            margin: -140px auto 0;
             position: relative;
             z-index: 5;
-            padding: 0 20px 100px;
+            padding: 0 20px 120px;
         }
 
         .blog-card-wrapper {
             background: #fff;
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 70px;
+            border-radius: 32px;
+            box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.15);
+            border: 1px solid #e2e8f0;
         }
 
         .entry-content {
-            font-size: 1.15rem;
-            line-height: 1.9;
+            font-size: 1.2rem;
+            line-height: 1.8;
             color: var(--text-color);
-            font-family: 'Inter', sans-serif;
-            /* Modern sans */
+            font-family: 'Manrope', sans-serif;
         }
 
         .entry-content h2,
         .entry-content h3,
         .entry-content h4 {
             color: var(--heading-color);
-            font-weight: 700;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            line-height: 1.3;
+            font-weight: 800;
+            margin-top: 50px;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            font-family: 'Outfit', sans-serif;
+            letter-spacing: -0.5px;
         }
 
         .entry-content h2 {
-            font-size: 2rem;
+            font-size: 2.2rem;
         }
 
         .entry-content h3 {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
         }
 
         .entry-content p {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .entry-content ul {
-            margin-bottom: 25px;
-            padding-left: 20px;
+            margin-bottom: 30px;
+            padding-left: 0;
+            list-style: none;
         }
 
         .entry-content li {
-            margin-bottom: 10px;
-            list-style-type: disc;
-            padding-left: 10px;
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+        }
+
+        .entry-content li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--blog-accent);
+            font-weight: 900;
         }
 
         .entry-content blockquote {
-            border-left: 4px solid var(--blog-accent);
-            padding-left: 25px;
-            margin: 40px 0;
-            font-size: 1.4rem;
+            border-left: 6px solid var(--blog-accent);
+            padding: 30px 40px;
+            margin: 50px 0;
+            font-size: 1.5rem;
             font-style: italic;
-            color: #555;
+            color: #475569;
+            background: #f8fafc;
+            border-radius: 0 20px 20px 0;
+            font-weight: 500;
         }
 
         /* Author Box */
         .author-box {
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 1px solid #e2e8f0;
+            margin-top: 80px;
+            padding-top: 50px;
+            border-top: 1px solid #f1f5f9;
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 25px;
         }
 
         .author-avatar {
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             object-fit: cover;
-            background: #eee;
+            border: 4px solid #fff;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
         }
 
         .author-info h4 {
-            margin: 0 0 5px;
-            font-size: 1.2rem;
+            margin: 0 0 8px;
+            font-size: 1.4rem;
+            font-weight: 800;
             color: var(--heading-color);
+            font-family: 'Outfit', sans-serif;
         }
 
         .author-info p {
             margin: 0;
             color: #64748b;
-            font-size: 0.95rem;
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
         /* Related Section */
         .related-section {
             background: #f8fafc;
-            padding: 80px 0;
+            padding: 120px 0;
+            border-top: 1px solid #e2e8f0;
         }
 
         .related-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            max-width: 1000px;
+            gap: 40px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -196,39 +211,39 @@
         .back-nav {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            color: #fff;
+            gap: 12px;
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
-            font-weight: 600;
-            margin-bottom: 30px;
-            transition: transform 0.3s;
+            font-weight: 700;
+            margin-bottom: 40px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
         }
 
         .back-nav:hover {
-            transform: translateX(-5px);
-            color: var(--blog-accent);
+            color: #fff;
+            transform: translateX(-10px);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .blog-hero {
-                height: 50vh;
-            }
-
-            .blog-title {
-                font-size: 2.2rem;
+                height: 60vh;
             }
 
             .blog-card-wrapper {
-                padding: 30px 20px;
+                padding: 40px 25px;
             }
 
             .related-grid {
                 grid-template-columns: 1fr;
             }
 
-            .blog-container {
-                margin-top: -50px;
+            .author-box {
+                flex-direction: column;
+                text-align: center;
             }
         }
     </style>
@@ -240,7 +255,7 @@
         </div>
         <div class="blog-hero-overlay"></div>
         <div class="blog-hero-content reveal">
-            <a href="{{ url('/#blogs') }}" class="back-nav">
+            <a href="{{ route('blog') }}" class="back-nav">
                 <i class="fas fa-arrow-left"></i> Back to Blogs
             </a>
             <h1 class="blog-title">{{ $blog->title }}</h1>
@@ -250,7 +265,7 @@
                 <span><i class="far fa-folder"></i> {{ $blog->category }}</span>
                 <span style="display:none; width:1px; height:15px; background:rgba(255,255,255,0.4);"></span>
                 <!-- Optional Reading Time hidden on small screens -->
-                <span class="md:inline hidden"><i class="far fa-clock"></i> {{ $blog->reading_time }}</span>
+                <span class="md:inline hidden"><i class="far fa-clock"></i> {{ $blog->reading_time }} min read</span>
             </div>
         </div>
     </div>
@@ -288,6 +303,15 @@
                     <h4>{{ $blog->author }}</h4>
                     <p>{{ $blog->author_bio ?? 'Tech Enthusiast & Industry Expert at Stuvalley.' }}</p>
                 </div>
+            </div>
+
+            <!-- Blog CTA -->
+            <div style="margin-top: 60px; padding: 40px; background: #f1f5f9; border-radius: 20px; text-align: center; border: 1px dashed #cbd5e1;">
+                <h3 style="margin-top: 0; margin-bottom: 15px; font-size: 1.5rem; color: #0f172a;">Want to build something similar?</h3>
+                <p style="color: #64748b; margin-bottom: 25px;">Our experts are ready to help you transform your digital presence with cutting-edge technology.</p>
+                <a href="{{ route('contact') }}" class="btn-primary-tech" style="display: inline-flex; background: #2563eb; color: #fff; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.3s;">
+                    Get Free Consultation <i class="fas fa-paper-plane" style="margin-left: 10px;"></i>
+                </a>
             </div>
         </div>
     </div>

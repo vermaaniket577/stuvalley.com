@@ -10,12 +10,17 @@ class ContactController extends Controller
 {
     public function submit(Request $request)
     {
+        // For compatibility with different form field names
+        if ($request->has('name') && !$request->has('full_name')) {
+            $request->merge(['full_name' => $request->name]);
+        }
+
         // Validate the form data
         $validated = $request->validate([
             'full_name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'phone' => 'required|string|max:20',
-            'service' => 'required|string|max:255',
+            'service' => 'nullable|string|max:255',
             'message' => 'nullable|string|max:1000',
         ]);
 
@@ -25,12 +30,12 @@ class ContactController extends Controller
                 'name' => $validated['full_name'],
                 'email' => $validated['email'],
                 'phone' => $validated['phone'],
-                'service' => $validated['service'],
+                'service' => $validated['service'] ?? 'General Inquiry',
                 'message' => $validated['message'] ?? '',
                 'status' => 'new'
             ]);
 
-            // Send email notification function call remains here (disabled for now)
+            // Send email notification (placeholder)
             $this->sendContactEmail($validated);
 
             // Log the contact submission
@@ -39,9 +44,24 @@ class ContactController extends Controller
                 'email' => $validated['email']
             ]);
 
+            if ($request->ajax()) {
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Thank you for contacting us! We will get back to you soon.'
+                ]);
+            }
+
             return redirect()->back()->with('success', 'Thank you for contacting us! We will get back to you soon.');
         } catch (\Exception $e) {
             Log::error('Contact form submission failed: ' . $e->getMessage());
+
+            if ($request->ajax()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Something went wrong. Please try again later.'
+                ], 500);
+            }
+
             return redirect()->back()->with('error', 'Something went wrong. Please try again later.');
         }
     }

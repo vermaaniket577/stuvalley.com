@@ -90,14 +90,14 @@
     <!-- PREMIUM PARTNER SCROLL (Card Style) -->
     @if(isset($partners) && $partners->count() > 0)
         <section class="partner-ticker-section"
-            style="background: #ffffff; padding: 30px 0; border-bottom: 1px solid #e1e4e8; overflow: hidden; position: relative; margin-top: -20px; z-index: 20; backface-visibility: hidden; -webkit-backface-visibility: hidden; box-shadow: 0 -1px 0 #f0f2f5;">
+            style="background: #f8fafc; padding: 30px 0; border-bottom: 1px solid #e2e8f0; overflow: hidden; position: relative; margin-top: -20px; z-index: 20; backface-visibility: hidden; -webkit-backface-visibility: hidden; box-shadow: 0 -1px 0 rgba(0,0,0,0.02);">
 
             <!-- Gradient Masks (Light) -->
             <div
-                style="position: absolute; top: 0; left: 0; width: 120px; height: 100%; background: linear-gradient(to right, #f0f2f5, transparent); z-index: 2; pointer-events: none;">
+                style="position: absolute; top: 0; left: 0; width: 120px; height: 100%; background: linear-gradient(to right, #f8fafc, transparent); z-index: 2; pointer-events: none;">
             </div>
             <div
-                style="position: absolute; top: 0; right: 0; width: 120px; height: 100%; background: linear-gradient(to left, #f0f2f5, transparent); z-index: 2; pointer-events: none;">
+                style="position: absolute; top: 0; right: 0; width: 120px; height: 100%; background: linear-gradient(to left, #f8fafc, transparent); z-index: 2; pointer-events: none;">
             </div>
 
             <div class="ticker-wrapper" style="display: flex;">
@@ -287,13 +287,13 @@
 
                 <h2
                     style="
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          margin:0 0 22px 0;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          font-weight:800;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          line-height:1.08;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          color:#1e293b;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          font-size:clamp(2.1rem, 3.6vw, 3.4rem);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          max-width: 1100px;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      margin:0 0 22px 0;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      font-weight:800;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      line-height:1.08;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      color:#1e293b;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      font-size:clamp(2.1rem, 3.6vw, 3.4rem);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      max-width: 1100px;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ">
                     Custom-Built Systems for a
                     <span style="color:#3b82f6;">Smarter, Scalable</span>
                     Business
@@ -301,13 +301,13 @@
 
                 <p
                     style="
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          margin:0;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          color:#64748b;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          font-size:clamp(1rem, 1.05vw, 1.15rem);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          line-height:1.85;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          max-width: 1100px;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          allign: justify;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      margin:0;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      color:#64748b;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      font-size:clamp(1rem, 1.05vw, 1.15rem);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      line-height:1.85;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      max-width: 1100px;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      allign: justify;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ">
                     Take your business to new heights with our custom, intelligent, and adaptable web design and
                     development services in India – trusted by clients worldwide. We build powerful and innovative
                     platforms that simplify operations, automate workflows, and drive productivity. When you're ready
@@ -457,10 +457,10 @@
 
     <!-- Empowering Business & Stats Section (Premium Redesign) -->
     <section class="empower-section"
-        style="padding: 60px 0; background: #ffffff; position: relative; overflow: hidden; margin-top: -20px; z-index: 21;">
+        style="padding: 60px 0; background: #f8fafc; position: relative; overflow: hidden; margin-top: -20px; z-index: 21;">
         <!-- Subtle Background Glow -->
         <div
-            style="position: absolute; top: 50%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%); transform: translateY(-50%); pointer-events: none; z-index: 0;">
+            style="position: absolute; top: 50%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(59,130,246,0.04) 0%, transparent 70%); transform: translateY(-50%); pointer-events: none; z-index: 0;">
         </div>
 
         <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 30px; position: relative; z-index: 2;">
@@ -556,14 +556,14 @@
 
             /* Glass Card Style - Scoped to Empower Section */
             .empower-section .glass-card {
-                background: rgba(255, 255, 255, 0.7);
+                background: #ffffff;
                 backdrop-filter: blur(12px);
                 -webkit-backdrop-filter: blur(12px);
-                border: 1px solid rgba(255, 255, 255, 0.8);
-                border-radius: 20px;
+                border: 1px solid #e2e8f0;
+                border-radius: 24px;
                 padding: 40px 30px;
                 text-align: center;
-                box-shadow: 0 10px 30px -10px rgba(148, 163, 184, 0.15);
+                box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
                 transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
                 position: relative;
                 overflow: hidden;
@@ -678,7 +678,7 @@
 
 
     <!-- Technologies Section -->
-    <section class="tech-stack-section" style="padding: 60px 0; background: #fff;">
+    <section class="tech-stack-section" style="padding: 60px 0; background: #f8fafc;">
         <!-- Load Devicon -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
@@ -693,7 +693,14 @@
                     style="font-size: 2.5rem; font-weight: 800; color: #0f172a; margin-bottom: 20px; font-family: 'Playfair Display', serif;">
                     Digitize Your Business with Our Expert Web Technologies
                 </h2>
-                <p style="color: #64748b; font-size: 1rem; line-height: 1.7; max-width: 1000px;">
+                <style>
+                    @media (max-width: 768px) {
+                        .tech-desc {
+                            text-align: justify !important;
+                        }
+                    }
+                </style>
+                <p class="tech-desc" style="color: #64748b; font-size: 1rem; line-height: 1.7; max-width: 1000px;">
                     From dynamic websites to feature-rich applications, we harness the power of top-tier technologies to
                     make your digital experience more functional and user-friendly. We are a pioneering web design company
                     in India offering end-to-end development solutions prioritizing quality, performance, and client
@@ -782,12 +789,12 @@
 
             .tech-marquee-container::before {
                 left: 0;
-                background: linear-gradient(to right, white, transparent);
+                background: linear-gradient(to right, #f8fafc, transparent);
             }
 
             .tech-marquee-container::after {
                 right: 0;
-                background: linear-gradient(to left, white, transparent);
+                background: linear-gradient(to left, #f8fafc, transparent);
             }
 
             .tech-marquee {
@@ -819,7 +826,7 @@
             .tech-item span {
                 font-size: 0.95rem;
                 font-weight: 600;
-                color: #475569;
+                color: #94a3b8;
             }
 
             .tech-item:hover i {
@@ -1234,7 +1241,7 @@
 
     <!-- Partner Slider Removed from Body as per request -->
 
-    <section id="services" style="padding: 100px 0; background-color: #F8FAFC; position: relative; z-index: 1;">
+    <section id="services" style="padding: 100px 0; background-color: #f8fafc; position: relative; z-index: 1;">
         <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
             <!-- Premium Header -->
             <div class="solutions-header reveal" style="text-align: center; margin-bottom: 70px;">
@@ -1458,13 +1465,14 @@
                 align-items: center;
                 gap: 10px;
                 font-weight: 700;
-                color: #2563EB;
+                color: #fff;
                 text-decoration: none;
                 font-size: 1rem;
                 padding: 12px 28px;
                 border: 2px solid #2563EB;
                 border-radius: 50px;
                 transition: all 0.3s ease;
+                background: #2563EB;
             }
 
             .btn-explore-all:hover {
@@ -1697,78 +1705,167 @@
     </section>
 
     <!-- Blog Section -->
-    <section id="blogs" class="section-light"
-        style="padding: 100px 0; background-color: #fffaf5 !important; position: relative; z-index: 1;">
+    <section id="blogs" class="section-dark"
+        style="padding: 100px 0; background-color: #f8fafc !important; position: relative; z-index: 1;">
         <div class="container">
-            <div class="section-title reveal" style="margin-bottom: 50px;">
+            <div class="section-title reveal" style="text-align: center; margin-bottom: 50px;">
                 <span class="text-blue" style="font-size: 0.8rem; letter-spacing: 2px;">WEB DESIGN & APP DEVELOPMENT
                     BLOGS</span>
-                <h2 style="color: #000; margin-top: 10px; font-size: 3rem;">Insights, Trends & Digital Strategies</h2>
-                <p style="color: #666; font-size: 1.1rem; max-width: 800px; margin: 20px auto 0;">Read our blogs on web,
+                <h2 style="color: #0f172a; margin-top: 10px; font-size: 3rem;">Insights, Trends & Digital Strategies</h2>
+                <p style="color: #64748b; font-size: 1.1rem; max-width: 800px; margin: 20px auto 0;">Read our blogs on web,
                     app, and tech strategy — written by experts to help global brands innovate, grow, and lead in a
                     digital-first world.</p>
             </div>
 
             <div class="grid" style="gap: 40px;">
-                <!-- Blog 1 -->
-                <div class="card reveal"
-                    onclick="window.location='{{ route('blog.show', 'virtualization-in-cloud-computing') }}'"
-                    style="cursor: pointer; padding: 0 0 15px 0; background: transparent !important; border: none !important; box-shadow: none !important; overflow: visible !important;">
-                    <div style="overflow: hidden; border-radius: 12px; margin-bottom: 20px; height: 240px;">
-                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop"
-                            alt="Cloud Computing"
-                            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
-                            onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                @forelse($blog_posts ?? [] as $post)
+                    <div class="card reveal" onclick="window.location='{{ route('blog.show', $post->slug) }}'"
+                        style="cursor: pointer; padding: 0 0 15px 0; background: #ffffff !important; border-radius: 20px !important; border: 1px solid #e2e8f0 !important; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important; overflow: hidden !important; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); height: 100%; display: flex; flex-direction: column;">
+                        <div style="overflow: hidden; height: 240px; position: relative;">
+                            <img src="{{ $post->featured_image ? asset($post->featured_image) : 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop' }}"
+                                alt="{{ $post->title }}"
+                                style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);"
+                                class="blog-card-img">
+                            <div
+                                style="position: absolute; top: 15px; left: 15px; background: rgba(59, 130, 246, 0.9); color: #fff; padding: 5px 12px; border-radius: 30px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+                                {{ $post->category ?? 'Tech' }}
+                            </div>
+                        </div>
+                        <div style="padding: 25px; flex-grow: 1; display: flex; flex-direction: column;">
+                            <div style="font-size: 0.85rem; color: #64748b; margin-bottom: 12px; font-weight: 500;">
+                                <i class="far fa-calendar-alt"></i>
+                                {{ $post->published_at ? $post->published_at->format('M d, Y') : now()->format('M d, Y') }}
+                            </div>
+                            <h3
+                                style="font-size: 1.4rem; margin-bottom: 15px; line-height: 1.4; color: #0f172a; font-weight: 800; font-family: 'Manrope', sans-serif;">
+                                {{ $post->title }}
+                            </h3>
+                            <div style="margin-top: auto;">
+                                <a href="{{ route('blog.show', $post->slug) }}"
+                                    style="color: #2563eb; font-weight: 700; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">
+                                    Read More <span style="transition: transform 0.3s ease;">→</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <h3 style="font-size: 1.3rem; margin-bottom: 10px; line-height: 1.4;">Virtualization in Cloud Computing:
-                        Definition, Types, and Benefits</h3>
-                    <a href="{{ route('blog.show', 'virtualization-in-cloud-computing') }}"
-                        style="color: #dba133; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 5px;">
-                        Read More <span style="font-size: 1.1rem;">→</span>
-                    </a>
-                </div>
+                @empty
+                    <!-- Fallback Static Cards if DB is empty -->
+                    <!-- Blog 1 -->
+                    <div class="card reveal"
+                        onclick="window.location='{{ route('blog.show', 'virtualization-in-cloud-computing') }}'"
+                        style="cursor: pointer; padding: 0 0 15px 0; background: #ffffff !important; border-radius: 20px !important; border: 1px solid #e2e8f0 !important; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important; overflow: hidden !important; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); height: 100%; display: flex; flex-direction: column;">
+                        <div style="overflow: hidden; height: 240px; position: relative;">
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop"
+                                alt="Cloud Computing"
+                                style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);"
+                                class="blog-card-img">
+                            <div
+                                style="position: absolute; top: 15px; left: 15px; background: rgba(59, 130, 246, 0.9); color: #fff; padding: 5px 12px; border-radius: 30px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+                                Cloud
+                            </div>
+                        </div>
+                        <div style="padding: 25px; flex-grow: 1; display: flex; flex-direction: column;">
+                            <div style="font-size: 0.85rem; color: #64748b; margin-bottom: 12px; font-weight: 500;">
+                                <i class="far fa-calendar-alt"></i> Feb 12, 2024
+                            </div>
+                            <h3
+                                style="font-size: 1.4rem; margin-bottom: 15px; line-height: 1.4; color: #0f172a; font-weight: 800; font-family: 'Manrope', sans-serif;">
+                                Virtualization in
+                                Cloud Computing: Definition, Types, and Benefits</h3>
+                            <div style="margin-top: auto;">
+                                <a href="{{ route('blog.show', 'virtualization-in-cloud-computing') }}"
+                                    style="color: #2563eb; font-weight: 700; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">
+                                    Read More <span style="transition: transform 0.3s ease;">→</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
-                <!-- Blog 2 -->
-                <div class="card reveal delay-100"
-                    onclick="window.location='{{ route('blog.show', 'android-app-development-frameworks') }}'"
-                    style="cursor: pointer; padding: 0 0 15px 0; background: transparent !important; border: none !important; box-shadow: none !important; overflow: visible !important;">
-                    <div style="overflow: hidden; border-radius: 12px; margin-bottom: 20px; height: 240px;">
-                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop"
-                            alt="App Development"
-                            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
-                            onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                    <!-- Blog 2 -->
+                    <div class="card reveal delay-100"
+                        onclick="window.location='{{ route('blog.show', 'android-app-development-frameworks') }}'"
+                        style="cursor: pointer; padding: 0 0 15px 0; background: #ffffff !important; border-radius: 20px !important; border: 1px solid #e2e8f0 !important; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important; overflow: hidden !important; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); height: 100%; display: flex; flex-direction: column;">
+                        <div style="overflow: hidden; height: 240px; position: relative;">
+                            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop"
+                                alt="App Development"
+                                style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);"
+                                class="blog-card-img">
+                            <div
+                                style="position: absolute; top: 15px; left: 15px; background: rgba(59, 130, 246, 0.9); color: #fff; padding: 5px 12px; border-radius: 30px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+                                Mobile
+                            </div>
+                        </div>
+                        <div style="padding: 25px; flex-grow: 1; display: flex; flex-direction: column;">
+                            <div style="font-size: 0.85rem; color: #64748b; margin-bottom: 12px; font-weight: 500;">
+                                <i class="far fa-calendar-alt"></i> Feb 10, 2024
+                            </div>
+                            <h3
+                                style="font-size: 1.4rem; margin-bottom: 15px; line-height: 1.4; color: #0f172a; font-weight: 800; font-family: 'Manrope', sans-serif;">
+                                Explore The Best
+                                Android App Development Frameworks</h3>
+                            <div style="margin-top: auto;">
+                                <a href="{{ route('blog.show', 'android-app-development-frameworks') }}"
+                                    style="color: #2563eb; font-weight: 700; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">
+                                    Read More <span style="transition: transform 0.3s ease;">→</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <h3 style="font-size: 1.3rem; margin-bottom: 10px; line-height: 1.4;">Explore The Best Android App
-                        Development Frameworks</h3>
-                    <a href="{{ route('blog.show', 'android-app-development-frameworks') }}"
-                        style="color: #dba133; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 5px;">
-                        Read More <span style="font-size: 1.1rem;">→</span>
-                    </a>
-                </div>
 
-                <!-- Blog 3 -->
-                <div class="card reveal delay-200"
-                    onclick="window.location='{{ route('blog.show', 'minimalist-web-design-examples') }}'"
-                    style="cursor: pointer; padding: 0 0 15px 0; background: transparent !important; border: none !important; box-shadow: none !important; overflow: visible !important;">
-                    <div style="overflow: hidden; border-radius: 12px; margin-bottom: 20px; height: 240px;">
-                        <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop"
-                            alt="Web Design"
-                            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
-                            onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                    <!-- Blog 3 -->
+                    <div class="card reveal delay-200"
+                        onclick="window.location='{{ route('blog.show', 'minimalist-web-design-examples') }}'"
+                        style="cursor: pointer; padding: 0 0 15px 0; background: #ffffff !important; border-radius: 20px !important; border: 1px solid #e2e8f0 !important; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important; overflow: hidden !important; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); height: 100%; display: flex; flex-direction: column;">
+                        <div style="overflow: hidden; height: 240px; position: relative;">
+                            <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop"
+                                alt="Web Design"
+                                style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);"
+                                class="blog-card-img">
+                            <div
+                                style="position: absolute; top: 15px; left: 15px; background: rgba(59, 130, 246, 0.9); color: #fff; padding: 5px 12px; border-radius: 30px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+                                Design
+                            </div>
+                        </div>
+                        <div style="padding: 25px; flex-grow: 1; display: flex; flex-direction: column;">
+                            <div style="font-size: 0.85rem; color: #64748b; margin-bottom: 12px; font-weight: 500;">
+                                <i class="far fa-calendar-alt"></i> Feb 08, 2024
+                            </div>
+                            <h3
+                                style="font-size: 1.4rem; margin-bottom: 15px; line-height: 1.4; color: #0f172a; font-weight: 800; font-family: 'Manrope', sans-serif;">
+                                15 Best Minimalist
+                                Web Design Examples for Inspiration</h3>
+                            <div style="margin-top: auto;">
+                                <a href="{{ route('blog.show', 'minimalist-web-design-examples') }}"
+                                    style="color: #2563eb; font-weight: 700; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">
+                                    Read More <span style="transition: transform 0.3s ease;">→</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <h3 style="font-size: 1.3rem; margin-bottom: 10px; line-height: 1.4;">15 Best Minimalist Web Design
-                        Examples for Inspiration</h3>
-                    <a href="{{ route('blog.show', 'minimalist-web-design-examples') }}"
-                        style="color: #dba133; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 5px;">
-                        Read More <span style="font-size: 1.1rem;">→</span>
-                    </a>
-                </div>
+                @endforelse
             </div>
+
+            <style>
+                .card:hover {
+                    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1) !important;
+                    border-color: #3b82f6 !important;
+                    transform: translateY(-10px);
+                }
+
+                .card:hover .blog-card-img {
+                    transform: scale(1.1);
+                }
+
+                .card:hover a span {
+                    transform: translateX(5px);
+                }
+            </style>
         </div>
 
-        <section id="process" class="process-section">
+        <section id="process" class="process-section" style="background: #f8fafc; position: relative; z-index: 1;">
             <!-- Background Glow -->
-            <div class="process-bg-glow"></div>
+            <div class="process-bg-glow"
+                style="background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);"></div>
 
             <div class="container"
                 style="max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2;">
@@ -1778,12 +1875,12 @@
                         HOW WE WORK
                     </span>
                     <h2
-                        style="font-size: 3rem; font-weight: 800; color: #ffffff !important; -webkit-text-fill-color: #ffffff !important; margin-bottom: 25px; line-height: 1.2; font-family: 'Manrope', sans-serif;">
+                        style="font-size: 3rem; font-weight: 800; color: #1e293b !important; -webkit-text-fill-color: #1e293b !important; margin-bottom: 25px; line-height: 1.2; font-family: 'Manrope', sans-serif;">
                         From Concept to <span
-                            style="color: #60a5fa !important; -webkit-text-fill-color: #60a5fa !important;">Launch</span>
+                            style="color: #2563eb !important; -webkit-text-fill-color: #2563eb !important;">Launch</span>
                     </h2>
                     <p
-                        style="color: #cbd5e1 !important; -webkit-text-fill-color: #cbd5e1 !important; font-size: 1.1rem; max-width: 700px; margin: 0 auto; line-height: 1.8;">
+                        style="color: #64748b !important; -webkit-text-fill-color: #64748b !important; font-size: 1.1rem; max-width: 700px; margin: 0 auto; line-height: 1.8;">
                         Our streamlined agile process ensures transparency, efficiency, and high-quality delivery at every
                         stage of your project.
                     </p>
@@ -1874,8 +1971,7 @@
             <style>
                 .process-section {
                     padding: 120px 0;
-                    background: #0f172a;
-                    /* Slate 900 */
+                    background: #f8fafc;
                     position: relative;
                     z-index: 1;
                     overflow: hidden;
@@ -1916,8 +2012,8 @@
                 .step-number {
                     width: 50px;
                     height: 50px;
-                    background: rgba(30, 41, 59, 0.5);
-                    border: 1px solid rgba(59, 130, 246, 0.3);
+                    background: #ffffff;
+                    border: 1px solid #e2e8f0;
                     border-radius: 50%;
                     display: flex;
                     align-items: center;
@@ -1928,12 +2024,14 @@
                     z-index: 2;
                     position: relative;
                     transition: all 0.3s ease;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
                 }
 
                 .process-card:hover .step-number {
                     background: #3b82f6;
                     color: #fff;
-                    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+                    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+                    border-color: #3b82f6;
                 }
 
                 .step-line {
@@ -1961,52 +2059,53 @@
 
                 /* Content Card */
                 .pc-content {
-                    background: rgba(30, 41, 59, 0.4);
-                    border: 1px solid rgba(255, 255, 255, 0.05);
+                    background: #ffffff;
+                    border: 1px solid #e2e8f0;
                     border-radius: 20px;
                     padding: 30px;
                     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
                     backdrop-filter: blur(10px);
                     height: 100%;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
                 }
 
                 .process-card:hover .pc-content {
                     transform: translateY(-10px);
-                    background: rgba(30, 41, 59, 0.8);
-                    border-color: rgba(59, 130, 246, 0.3);
-                    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+                    background: #ffffff;
+                    border-color: #3b82f6;
+                    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
                 }
 
                 .pc-icon {
                     width: 60px;
                     height: 60px;
-                    background: rgba(30, 41, 59, 1);
+                    background: #f1f5f9;
                     border-radius: 14px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     font-size: 1.5rem;
-                    color: #94a3b8;
+                    color: #3b82f6;
                     margin-bottom: 20px;
                     transition: all 0.4s ease;
                 }
 
                 .process-card:hover .pc-icon {
-                    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-                    color: #fff;
+                    background: #3b82f6;
+                    color: #ffffff;
                     transform: rotate(10deg);
                 }
 
                 .pc-content h3 {
                     font-size: 1.25rem;
                     font-weight: 700;
-                    color: #fff !important;
+                    color: #0f172a !important;
                     margin-bottom: 15px;
                     font-family: 'Manrope', sans-serif;
                 }
 
                 .pc-content p {
-                    color: #cbd5e1 !important;
+                    color: #64748b !important;
                     font-size: 0.95rem;
                     line-height: 1.6;
                     margin: 0;
@@ -2034,233 +2133,18 @@
         </section>
 
 
-        <!-- Premium Ratings & Recognition Section -->
-        <section class="ratings-section-premium"
-            style="position: relative; padding: 100px 0; overflow: hidden; background: linear-gradient(135deg, #0b1120 0%, #0f172a 100%);">
-
-            <!-- Ambient Background Glow -->
-            <div
-                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80%; height: 80%; background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 60%); pointer-events: none; z-index: 0;">
-            </div>
-
-            <div class="container"
-                style="position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-
-                <!-- Premium Header -->
-                <div class="rating-header reveal"
-                    style="text-align: center; margin-bottom: 80px; position: relative; z-index: 1;">
-                    <span
-                        style="display: inline-block; font-size: 0.85rem; font-weight: 700; color: #38bdf8; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; padding: 6px 16px; background: rgba(56, 189, 248, 0.1); border-radius: 50px; border: 1px solid rgba(56, 189, 248, 0.2);">
-                        Ratings & Recognition
-                    </span>
-                    <h2
-                        style="font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 20px; font-family: 'Manrope', sans-serif;">
-                        Trusted & Rated <span
-                            style="background: linear-gradient(90deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; position: relative; z-index: 1;">Worldwide</span>
-                    </h2>
-                    <p style="color: #94a3b8; font-size: 1.15rem; max-width: 700px; margin: 0 auto; line-height: 1.6;">
-                        Recognized globally for delivering excellence, innovation, and measurable results.
-                    </p>
-                </div>
-
-                <!-- Marquee Area -->
-                <div class="premium-marquee-wrapper" style="position: relative; z-index: 1;">
-                    <div class="premium-marquee-track">
-
-                        @php
-                            $ratings = [
-                                ['platform' => 'Clutch', 'icon' => 'far fa-copyright', 'stars' => 5, 'reviews' => '5.0/5.0'],
-                                ['platform' => 'Google', 'icon' => 'fab fa-google', 'stars' => 5, 'reviews' => '4.9/5.0'],
-                                ['platform' => 'Trustpilot', 'icon' => 'fab fa-trustpilot', 'stars' => 5, 'reviews' => '4.8/5.0'],
-                                ['platform' => 'GoodFirms', 'icon' => 'fab fa-goodreads', 'stars' => 5, 'reviews' => '5.0/5.0'],
-                                ['platform' => 'DesignRush', 'icon' => 'fas fa-pen-nib', 'stars' => 5, 'reviews' => '4.9/5.0'],
-                                ['platform' => 'Upwork', 'icon' => 'fas fa-briefcase', 'stars' => 5, 'reviews' => '100% Job Success'],
-                                ['platform' => 'Facebook', 'icon' => 'fab fa-facebook', 'stars' => 5, 'reviews' => '5.0/5.0'],
-                            ];
-                        @endphp
-
-                        <!-- Loop 1 -->
-                        @foreach($ratings as $r)
-                            <div class="rating-card-glass">
-                                <div class="rc-header">
-                                    <div class="rc-icon">
-                                        <i class="{{ $r['icon'] }}"></i>
-                                    </div>
-                                    <h4 class="rc-name">{{ $r['platform'] }}</h4>
-                                </div>
-                                <div class="rc-stars">
-                                    @for($i = 0; $i < 5; $i++) <i class="fas fa-star"></i> @endfor
-                                </div>
-                                <p class="rc-verdict">"Outstanding Service"</p>
-                                <div class="rc-score">{{ $r['reviews'] }}</div>
-                            </div>
-                        @endforeach
-
-                        <!-- Loop 2 (Duplicate for infinite scroll) -->
-                        @foreach($ratings as $r)
-                            <div class="rating-card-glass">
-                                <div class="rc-header">
-                                    <div class="rc-icon">
-                                        <i class="{{ $r['icon'] }}"></i>
-                                    </div>
-                                    <h4 class="rc-name">{{ $r['platform'] }}</h4>
-                                </div>
-                                <div class="rc-stars">
-                                    @for($i = 0; $i < 5; $i++) <i class="fas fa-star"></i> @endfor
-                                </div>
-                                <p class="rc-verdict">"Outstanding Service"</p>
-                                <div class="rc-score">{{ $r['reviews'] }}</div>
-                            </div>
-                        @endforeach
-
-                        <!-- Loop 3 (Double Duplicate for safety on wide screens) -->
-                        @foreach($ratings as $r)
-                            <div class="rating-card-glass">
-                                <div class="rc-header">
-                                    <div class="rc-icon">
-                                        <i class="{{ $r['icon'] }}"></i>
-                                    </div>
-                                    <h4 class="rc-name">{{ $r['platform'] }}</h4>
-                                </div>
-                                <div class="rc-stars">
-                                    @for($i = 0; $i < 5; $i++) <i class="fas fa-star"></i> @endfor
-                                </div>
-                                <p class="rc-verdict">"Outstanding Service"</p>
-                                <div class="rc-score">{{ $r['reviews'] }}</div>
-                            </div>
-                        @endforeach
-
-                    </div>
-                </div>
-
-            </div>
-
-            <style>
-                /* Premium Marquee Styles */
-                .premium-marquee-wrapper {
-                    position: relative;
-                    width: 100%;
-                    overflow: hidden;
-                    padding: 40px 0;
-                    /* Fade Edges */
-                    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-                    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-                }
-
-                .premium-marquee-track {
-                    display: flex;
-                    width: max-content;
-                    animation: premiumScroll 45s linear infinite;
-                    gap: 40px;
-                }
-
-                /* Pause on Hover */
-                .premium-marquee-wrapper:hover .premium-marquee-track {
-                    animation-play-state: paused;
-                }
-
-                @keyframes premiumScroll {
-                    0% {
-                        transform: translateX(0);
-                    }
-
-                    100% {
-                        transform: translateX(-33.33%);
-                    }
-
-                    /* Since we have 3 loops, move 1/3 */
-                }
-
-                /* Glass Card Styling */
-                .rating-card-glass {
-                    min-width: 280px;
-                    background: rgba(255, 255, 255, 0.03);
-                    border: 1px solid rgba(255, 255, 255, 0.08);
-                    border-radius: 24px;
-                    padding: 30px;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    text-align: center;
-                    backdrop-filter: blur(12px);
-                    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                    position: relative;
-                }
-
-                .rating-card-glass:hover {
-                    background: rgba(255, 255, 255, 0.06);
-                    border-color: rgba(56, 189, 248, 0.5);
-                    /* Brand Blue Border */
-                    transform: translateY(-10px) scale(1.02);
-                    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.2);
-                }
-
-                .rc-header {
-                    display: flex;
-                    align-items: center;
-                    gap: 12px;
-                    margin-bottom: 20px;
-                }
-
-                .rc-icon {
-                    font-size: 1.8rem;
-                    color: #fff;
-                }
-
-                .rc-name {
-                    font-size: 1.3rem;
-                    font-weight: 700;
-                    color: #fff;
-                    margin: 0;
-                    font-family: 'Manrope', sans-serif;
-                }
-
-                .rc-stars {
-                    color: #fbbf24;
-                    /* Amber 400 */
-                    font-size: 0.9rem;
-                    margin-bottom: 15px;
-                    letter-spacing: 2px;
-                }
-
-                .rc-verdict {
-                    color: #94a3b8;
-                    font-size: 0.9rem;
-                    font-style: italic;
-                    margin-bottom: 15px;
-                }
-
-                .rc-score {
-                    font-size: 0.85rem;
-                    font-weight: 700;
-                    color: #38bdf8;
-                    background: rgba(56, 189, 248, 0.1);
-                    padding: 4px 12px;
-                    border-radius: 20px;
-                }
-
-                @media(max-width: 768px) {
-                    .rating-card-glass {
-                        min-width: 240px;
-                        padding: 24px;
-                    }
-
-                    .rc-name {
-                        font-size: 1.1rem;
-                    }
-                }
-            </style>
-        </section>
+        <!-- Contact Form Section (Replaced empty Ratings section) -->
+        @include('partials.contact-form')
 
         <!-- FAQ Section -->
-        <section id="faq" style="background: #ffffff; position: relative; z-index: 1;">
+        <section id="faq" style="background: #f8fafc; position: relative; z-index: 1;">
             <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
                 <div class="section-title reveal" style="text-align: center; margin-bottom: 60px;">
                     <span
                         style="display: block; color: #3b82f6; font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px;">FREQUENTLY
                         ASKED QUESTIONS</span>
                     <h2
-                        style="font-size: 3rem; font-weight: 800; color: #111; margin-bottom: 20px; line-height: 1.2; font-family: 'Playfair Display', serif;">
+                        style="font-size: 3rem; font-weight: 800; color: #0f172a; margin-bottom: 20px; line-height: 1.2; font-family: 'Playfair Display', serif;">
                         Got Questions? We've Got Answers
                     </h2>
                 </div>
@@ -2397,23 +2281,25 @@
             <style>
                 .faq-item {
                     margin-bottom: 20px;
-                    border: 1px solid #3b82f6;
-                    /* Blue Border to match image */
+                    border: 1px solid #e2e8f0;
+                    /* Soft Border */
                     border-radius: 16px;
                     overflow: hidden;
                     transition: all 0.3s ease;
-                    background: #fff;
+                    background: #ffffff;
                     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
                 }
 
                 .faq-item:hover {
-                    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.1);
+                    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
                     transform: translateY(-2px);
+                    border-color: #3b82f6;
                 }
 
                 .faq-item.faq-active {
-                    background: #fff;
-                    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
+                    background: #ffffff;
+                    border-color: #3b82f6;
+                    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1);
                 }
 
                 .faq-question {
@@ -2431,7 +2317,7 @@
                     /* Bigger font */
                     font-weight: 700;
                     color: #1e293b;
-                    /* Darker slate */
+                    /* Dark text */
                     transition: color 0.3s;
                 }
 
@@ -2449,8 +2335,8 @@
                     align-items: center;
                     justify-content: center;
                     border-radius: 50%;
-                    background: #eff6ff;
-                    /* Light blue bg */
+                    background: rgba(59, 130, 246, 0.1);
+                    /* Soft blue bg */
                 }
 
                 .faq-item.faq-active .faq-question i {
@@ -2518,436 +2404,12 @@
 
         </section>
 
-        <!-- SEO Content Section -->
-        <section class="seo-content-section"
-            style="padding: 80px 0; text-align: center; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); position: relative; z-index: 1; border-top: 1px solid rgba(255,255,255,0.05);">
-            <div class="container" style="max-width: 1100px; margin: 0 auto; padding: 0 30px;">
-                <h2
-                    style="font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 800; color: #ffffff; margin-bottom: 30px; font-family: 'Playfair Display', serif; line-height: 1.1; letter-spacing: -0.02em;">
-                    Your Go-To <span style="color: #3b82f6;">Web Design Company</span> in India for Stunning Websites &
-                    Apps
-                </h2>
-                <p
-                    style="color: #94a3b8; font-size: 1.15rem; line-height: 1.8; margin-bottom: 40px; max-width: 900px; margin-left: auto; margin-right: auto; font-weight: 400;">
-                    As a recognized web designing company in India, we create websites with intuitive interfaces and
-                    stunning features from scratch. With our innovative solutions and client-centric approach, we are
-                    committed to
-                    delivering projects as per our client's expectations which makes us the go-to option for your web
-                    design
-                    needs.
-                </p>
-                <a href="{{ route('about') }}" class="premium-read-more"
-                    style="display: inline-flex; align-items: center; gap: 10px; color: #fff; font-weight: 700; text-decoration: none; font-size: 1rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); padding: 12px 30px; border-radius: 50px; transition: all 0.4s ease;">
-                    <span>Explore More</span>
-                    <i class="fas fa-arrow-right" style="font-size: 0.9em; color: #3b82f6;"></i>
-                </a>
-
-                <style>
-                    .premium-read-more:hover {
-                        background: #3b82f6 !important;
-                        border-color: #3b82f6 !important;
-                        transform: translateY(-2px);
-                        box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
-                    }
-
-                    .premium-read-more:hover i {
-                        color: #fff !important;
-                        transform: translateX(3px);
-                    }
-                </style>
-            </div>
-        </section>
-
-        <!-- Premium CTA Section -->
-        <section id="cta-banner" class="premium-cta-section">
-            <div class="cta-bg-noise"></div>
-            <div class="cta-container">
-                <div class="cta-grid">
-                    <!-- Left Content -->
-                    <div class="cta-content">
-                        <div class="cta-badge">🚀 READY TO SCALE?</div>
-                        <h2 class="cta-heading">
-                            Let’s Build Your <br>
-                            <span class="highlight-text">Next Project</span> With Us
-                        </h2>
-                        <p class="cta-desc">
-                            Need a new website or a powerful enterprise solution? Turn your ideas into reality with our
-                            expert team. We guide you from concept to launch.
-                        </p>
-
-                        <div class="cta-actions">
-                            <a href="javascript:void(0)" onclick="openContactModal(event)" class="btn-premium-cta">
-                                <span>Get Free Consultation</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                            <span class="cta-subtext"><i class="fas fa-check-circle"></i> No obligation · 100%
-                                Confidential</span>
-                        </div>
-
-                        <!-- Contact Pills -->
-                        <div class="cta-contact-strip">
-                            <a href="tel:{{ $global_settings['phone_india'] ?? '+917292050505' }}" class="contact-pill">
-                                <img src="https://flagcdn.com/w20/in.png" alt="India">
-                                <span>{{ $global_settings['phone_india'] ?? '+91 7292 050505' }}</span>
-                            </a>
-
-                            <a href="mailto:{{ $global_settings['email_primary'] ?? 'hello@stuvalley.com' }}"
-                                class="contact-pill email-pill">
-                                <div class="icon-circle"><i class="fas fa-envelope"></i></div>
-                                <span>{{ $global_settings['email_primary'] ?? 'hello@stuvalley.com' }}</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Right Illustration -->
-                    <div class="cta-visual">
-                        <div class="floating-illustration">
-                            <!-- High-quality 3D/Tech Illustration -->
-                            <img src="https://cdni.iconscout.com/illustration/premium/thumb/web-development-2974925-2477356.png"
-                                alt="Web Development" class="main-img">
-
-                            <!-- Floating Elements -->
-                            <div class="float-card card-1">
-                                <i class="fas fa-code"></i>
-                                <span>Clean Code</span>
-                            </div>
-                            <div class="float-card card-2">
-                                <i class="fas fa-rocket"></i>
-                                <span>Fast Delivery</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <style>
-                /* Premium CTA Styles */
-                .premium-cta-section {
-                    position: relative;
-                    padding: 80px 0;
-                    /* Restored vertical padding for professional spacing */
-                    background: linear-gradient(135deg, #22d3ee 0%, #a855f7 100%);
-                    overflow: visible !important;
-                    font-family: 'Manrope', sans-serif;
-                    color: #fff;
-                    z-index: 100 !important;
-                    display: block !important;
-                    min-height: auto;
-                    /* Removed fixed min-height */
-                }
-
-                .cta-container {
-                    max-width: 1200px;
-                    margin: 0 auto;
-                    padding: 0 20px;
-                    position: relative;
-                    z-index: 2;
-                }
-
-                /* Background Effects */
-                .cta-bg-noise {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
-                    pointer-events: none;
-                }
-
-                .cta-grid {
-                    display: grid;
-                    grid-template-columns: 1.1fr 0.9fr;
-                    align-items: center;
-                    gap: 60px;
-                }
-
-                /* Content Panel */
-                .cta-badge {
-                    display: inline-block;
-                    background: rgba(255, 255, 255, 0.2);
-                    padding: 8px 18px;
-                    border-radius: 30px;
-                    font-size: 0.75rem;
-                    font-weight: 800;
-                    letter-spacing: 1.5px;
-                    margin-bottom: 25px;
-                    backdrop-filter: blur(5px);
-                    border: 1px solid rgba(255, 255, 255, 0.25);
-                    text-transform: uppercase;
-                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-                }
-
-                .cta-heading {
-                    font-size: 2.8rem;
-                    /* Reduced from 3.5rem for better proportions */
-                    font-weight: 800;
-                    line-height: 1.15;
-                    margin-bottom: 20px;
-                    font-family: 'Playfair Display', serif;
-                    letter-spacing: -1px;
-                }
-
-                .highlight-text {
-                    position: relative;
-                    z-index: 1;
-                    white-space: nowrap;
-                    font-style: italic;
-                }
-
-                .highlight-text::after {
-                    content: '';
-                    position: absolute;
-                    bottom: 5px;
-                    left: 0;
-                    width: 100%;
-                    height: 15px;
-                    background: rgba(255, 255, 255, 0.25);
-                    z-index: -1;
-                    border-radius: 4px;
-                    transform: skewX(-10deg);
-                }
-
-                .cta-desc {
-                    font-size: 1.05rem;
-                    line-height: 1.6;
-                    margin-bottom: 30px;
-                    opacity: 0.95;
-                    max-width: 500px;
-                    font-weight: 500;
-                }
-
-                /* Actions */
-                .cta-actions {
-                    display: flex;
-                    align-items: center;
-                    gap: 20px;
-                    /* Reduced from 25px */
-                    margin-bottom: 30px;
-                    /* Reduced from 50px */
-                    flex-wrap: wrap;
-                }
-
-                .btn-premium-cta {
-                    background: #fff;
-                    color: #a855f7;
-                    padding: 18px 40px;
-                    border-radius: 50px;
-                    font-weight: 800;
-                    font-size: 1.05rem;
-                    text-decoration: none;
-                    display: inline-flex;
-                    align-items: center;
-                    gap: 12px;
-                    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-                    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-                }
-
-                .btn-premium-cta:hover {
-                    transform: translateY(-5px) scale(1.02);
-                    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-                    color: #7e22ce;
-                }
-
-                .btn-premium-cta i {
-                    transition: transform 0.3s;
-                }
-
-                .btn-premium-cta:hover i {
-                    transform: translateX(5px);
-                }
-
-                .cta-subtext {
-                    font-size: 0.9rem;
-                    font-weight: 600;
-                    opacity: 0.9;
-                    display: flex;
-                    align-items: center;
-                    gap: 8px;
-                }
-
-                /* Contact Pills */
-                .cta-contact-strip {
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: 12px;
-                    /* Reduced from 15px */
-                    margin-bottom: 10px;
-                }
-
-                .contact-pill {
-                    display: flex;
-                    align-items: center;
-                    gap: 12px;
-                    background: rgba(255, 255, 255, 0.15);
-                    padding: 12px 24px;
-                    border-radius: 12px;
-                    text-decoration: none;
-                    color: #fff;
-                    font-weight: 700;
-                    font-size: 0.95rem;
-                    backdrop-filter: blur(8px);
-                    border: 1px solid rgba(255, 255, 255, 0.15);
-                    transition: all 0.3s;
-                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-                }
-
-                .contact-pill:hover {
-                    background: rgba(255, 255, 255, 0.3);
-                    transform: translateY(-3px);
-                    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-                }
-
-                .contact-pill img {
-                    height: 18px;
-                    border-radius: 2px;
-                }
-
-                .email-pill .icon-circle {
-                    width: 26px;
-                    height: 26px;
-                    background: #fff;
-                    color: #a855f7;
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    font-size: 0.75rem;
-                }
-
-                /* Illustration */
-                .cta-visual {
-                    display: flex;
-                    justify-content: center;
-                    position: relative;
-                }
-
-                .floating-illustration {
-                    position: relative;
-                    animation: floatMain 6s ease-in-out infinite;
-                }
-
-                .main-img {
-                    width: 100%;
-                    max-width: 550px;
-                    height: auto;
-                    filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.25));
-                }
-
-                .float-card {
-                    position: absolute;
-                    background: #fff;
-                    color: #333;
-                    padding: 12px 20px;
-                    border-radius: 14px;
-                    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-                    display: flex;
-                    align-items: center;
-                    gap: 12px;
-                    font-weight: 800;
-                    font-size: 0.9rem;
-                    z-index: 2;
-                }
-
-                .float-card i {
-                    color: #a855f7;
-                    font-size: 1.1rem;
-                }
-
-
-                .card-1 {
-                    top: 15%;
-                    left: -30px;
-                    animation: floatSub 5s ease-in-out infinite 0.5s;
-                }
-
-
-                .card-2 {
-                    bottom: 15%;
-                    right: -20px;
-                    animation: floatSub 6s ease-in-out infinite 1s;
-                }
-
-                @keyframes floatMain {
-
-                    0 %,
-                    100 % {
-                        transform: translateY(0);
-                    }
-
-                    50% {
-                        transform: translateY(-15px);
-                    }
-                }
-
-                @keyframes floatSub {
-
-                    0 %,
-                    100 % {
-                        transform: translateY(0);
-                    }
-
-                    50% {
-                        transform: translateY(-10px);
-                    }
-                }
-
-                /* Responsive */
-                @media (max-width: 992px) {
-                    .cta-grid {
-                        grid-template-columns: 1fr;
-                        text-align: center;
-                        gap: 50px;
-                    }
-
-                    .cta-content {
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                    }
-
-                    .cta-actions {
-                        justify-content: center;
-                    }
-
-                    .cta-contact-strip {
-                        justify-content: center;
-                    }
-
-                    .main-img {
-                        max-width: 400px;
-                    }
-
-                    .card-1 {
-                        left: 0;
-                    }
-
-                    .card-2 {
-                        right: 0;
-                    }
-
-                    .cta-heading {
-                        font-size: 2.5rem;
-                    }
-                }
-
-                @media (max-width: 480px) {
-                    .cta-heading {
-                        font-size: 2.2rem;
-                    }
-
-                    .contact-pill {
-                        width: 100%;
-                        justify-content: center;
-                    }
-
-                    .btn-premium-cta {
-                        width: 100%;
-                        justify-content: center;
-                    }
-                }
-            </style>
-        </section>
+        {{--
+        <!-- SEO Content Section (Hidden per user request) -->
+        --}}
+        {{--
+        <!-- Premium CTA Section (Hidden per user request) -->
+        --}}
 
 
         <!-- Fix for Footer and Contact Section Visibility -->
@@ -2970,13 +2432,11 @@
             /* Contact section specific fix */
             .contact-form-section {
                 padding: 0 !important;
-                margin-top: -5px !important;
+                margin-top: -1px !important;
                 /* Pull up to hide gap */
                 margin-bottom: 0 !important;
                 display: block !important;
                 z-index: 90 !important;
-                background: #0b1120 !important;
-                /* Force Dark Background */
             }
 
             /* Global Section Spacing */
@@ -3003,8 +2463,8 @@
 
             .contact-form-section {
                 padding: 0 !important;
-                margin-top: 0 !important;
-                /* Flush with section above */
+                margin-top: -1px !important;
+                /* Overlap slightly to prevent pixel gap */
                 margin-bottom: 0 !important;
                 display: block !important;
                 z-index: 90 !important;
@@ -3101,7 +2561,7 @@
             });
         </script>
         <!-- Pricing Section -->
-        <section id="pricing" style="padding: 120px 0 0 0; background: #ffffff; position: relative; z-index: 1;">
+        <section id="pricing" style="padding: 120px 0 120px 0; background: #ffffff; position: relative; z-index: 1;">
             <div class="container" style="max-width: 1320px; margin: 0 auto; padding: 0 20px;">
                 <div class="section-title reveal" style="text-align: center; margin-bottom: 80px;">
                     <div
@@ -3109,9 +2569,9 @@
                         <span style="width: 8px; height: 8px; background: #bef264; border-radius: 50%;"></span>
                         PRICING PLANS
                     </div>
-                    <h2 class="pricing-heading">
+                    <h2 class="pricing-heading" style="color: #0f172a !important;">
                         Flexible Website & Software Pricing <br>
-                        <span style="color: #64748b;">With Easy EMI Options</span>
+                        <span style="color: #64748b !important;">With Easy EMI Options</span>
                     </h2>
                 </div>
 
@@ -3169,7 +2629,7 @@
                 .pricing-heading {
                     font-size: clamp(2rem, 5vw, 3.5rem);
                     font-weight: 900;
-                    color: #0f172a;
+                    color: #0f172a !important;
                     line-height: 1.1;
                     letter-spacing: -2px;
                     font-family: 'Outfit', sans-serif;
@@ -3372,9 +2832,6 @@
                 .pricing-features li i {
                     color: #3b82f6;
                     /* Accent color for checks */
-                    font-size: 1.1rem;
-                    min-width: 20px;
-                    /* Align text even if icon size varies slightly */
                 }
 
                 .f-disabled {
@@ -3396,17 +2853,16 @@
                     justify-content: space-between;
                     background: linear-gradient(135deg, #22d3ee 0%, #a855f7 100%);
                     color: #fff;
-                    padding: 10px 10px 10px 30px;
-                    /* Bigger touch area */
+                    padding: 12px 12px 12px 32px;
+                    /* Adjusted for removed border */
                     border-radius: 100px;
                     text-decoration: none;
                     font-weight: 700;
                     font-size: 1.1rem;
                     transition: all 0.3s ease;
                     width: 100%;
-                    /* Full Width */
-                    border: 2px solid transparent;
-                    /* Prepare for border transitions */
+                    border: none;
+                    /* Removed border to fix artifacts */
                     box-shadow: 0 8px 20px rgba(34, 211, 238, 0.3);
                 }
 
@@ -3436,26 +2892,38 @@
 
                 /* Light Card Button */
                 .btn-price-main.light {
-                    background: #f1f5f9;
-                    color: #0f172a;
-                    box-shadow: none;
+                    background: #ffffff;
+                    color: #0f172a !important;
+                    box-shadow: inset 0 0 0 2px #3b82f6, 0 4px 12px rgba(59, 130, 246, 0.1);
+                    font-weight: 800;
                 }
 
                 .btn-price-main.light .p-icon {
-                    background: #cbd5e1;
-                    color: #fff;
+                    background: #3b82f6;
+                    color: #ffffff !important;
+                    width: 44px;
+                    height: 44px;
                 }
 
                 .btn-price-main.light:hover {
-                    background: #e2e8f0;
-                    color: #0f172a;
-                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                    background: #3b82f6;
+                    color: #ffffff !important;
+                    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
                 }
 
-                /* Highlight Button - Same Gradient, maybe extra glow? */
+                .btn-price-main.light:hover .p-icon {
+                    background: #ffffff;
+                    color: #3b82f6 !important;
+                    transform: translateX(3px);
+                }
+
+                /* Highlight Button & Transitions */
                 .btn-highlight {
-                    /* Using same gradient as main for consistency */
-                    box-shadow: 0 10px 25px -5px rgba(168, 85, 247, 0.5);
+                    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.2), 0 10px 25px -5px rgba(168, 85, 247, 0.5);
+                }
+
+                .btn-highlight:hover {
+                    box-shadow: inset 0 0 0 2px #ffffff, 0 15px 35px rgba(168, 85, 247, 0.6);
                 }
 
                 /* Mobile Responsiveness */

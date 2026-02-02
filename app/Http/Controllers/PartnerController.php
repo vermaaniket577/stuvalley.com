@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Partner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Cache;
 
 class PartnerController extends Controller
 {
@@ -37,6 +38,7 @@ class PartnerController extends Controller
             'is_active' => $request->has('is_active'),
         ]);
 
+        Cache::forget('home_partners');
         return redirect()->route('admin.partners.index')->with('success', 'Partner added successfully.');
     }
 
@@ -70,6 +72,7 @@ class PartnerController extends Controller
 
         $partner->update($data);
 
+        Cache::forget('home_partners');
         return redirect()->route('admin.partners.index')->with('success', 'Partner updated successfully.');
     }
 
@@ -79,6 +82,7 @@ class PartnerController extends Controller
             Storage::disk('public')->delete($partner->logo);
         }
         $partner->delete();
+        Cache::forget('home_partners');
         return redirect()->route('admin.partners.index')->with('success', 'Partner deleted successfully.');
     }
 }

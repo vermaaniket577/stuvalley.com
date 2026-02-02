@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
+use App\Models\Industry;
 
 class IndustryController extends Controller
 {
@@ -12,7 +14,7 @@ class IndustryController extends Controller
      */
     public function index()
     {
-        $industries = \App\Models\Industry::orderBy('sort_order')->paginate(10);
+        $industries = Industry::orderBy('sort_order')->paginate(10);
         return view('admin.industries.index', compact('industries'));
     }
 
@@ -37,7 +39,8 @@ class IndustryController extends Controller
             'is_active' => 'boolean',
         ]);
 
-        \App\Models\Industry::create($validated);
+        Industry::create($validated);
+        Cache::forget('home_industries');
 
         return redirect()->route('admin.industries.index')->with('success', 'Industry created successfully.');
     }
@@ -55,7 +58,7 @@ class IndustryController extends Controller
      */
     public function edit(string $id)
     {
-        $industry = \App\Models\Industry::findOrFail($id);
+        $industry = Industry::findOrFail($id);
         return view('admin.industries.edit', compact('industry'));
     }
 
@@ -72,8 +75,9 @@ class IndustryController extends Controller
             'is_active' => 'boolean',
         ]);
 
-        $industry = \App\Models\Industry::findOrFail($id);
+        $industry = Industry::findOrFail($id);
         $industry->update($validated);
+        Cache::forget('home_industries');
 
         return redirect()->route('admin.industries.index')->with('success', 'Industry updated successfully.');
     }
@@ -83,8 +87,9 @@ class IndustryController extends Controller
      */
     public function destroy(string $id)
     {
-        $industry = \App\Models\Industry::findOrFail($id);
+        $industry = Industry::findOrFail($id);
         $industry->delete();
+        Cache::forget('home_industries');
 
         return redirect()->route('admin.industries.index')->with('success', 'Industry deleted successfully.');
     }

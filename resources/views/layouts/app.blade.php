@@ -1306,7 +1306,7 @@
             <!-- 2. CENTER: Navigation (Now Right Aligned) -->
             <!-- 2. CENTER: Navigation (Right Aligned Group) -->
             <!-- 2. CENTER: Navigation (Right Aligned Group) -->
-            <nav class="nav-center-wrapper" style="margin-left: auto !important;">
+            <nav class="nav-center-wrapper">
                 <!-- Mobile Only Header in Drawer -->
                 <div class="mobile-drawer-header">
                     <div class="drawer-logo">
@@ -1507,6 +1507,7 @@
                             color: #1e293b !important;
                             /* Dark Slate Text */
                             border: 1px solid #e2e8f0 !important;
+                            border-top: 4px solid #3b82f6 !important;
                             box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.1), 0 10px 20px -5px rgba(0, 0, 0, 0.04) !important;
                         }
 
@@ -1629,6 +1630,7 @@
                             }
                         }
                     </style>
+                    <li><a href="{{ route('blog') }}"><i class="fas fa-blog nav-icon"></i> BLOG</a></li>
                     <li><a href="{{ route('contact') }}"><i class="fas fa-envelope nav-icon"></i> CONTACT</a></li>
 
                 </ul>
@@ -1963,10 +1965,8 @@
 
     <main class="main-content">
         @yield('content')
+        {{-- @include('partials.contact-form') --}}
     </main>
-
-    <!-- Premium Enterprise-Grade Footer -->
-    @include('partials.contact-form')
 
     <footer id="main-footer">
         <div class="footer-glow"></div>
@@ -2597,8 +2597,10 @@
 
             .map-frame-wrapper {
                 width: 100%;
-                flex-grow: 1; /* Fill remaining space */
-                margin-top: 15px; /* Small consistent gap */
+                flex-grow: 1;
+                /* Fill remaining space */
+                margin-top: 15px;
+                /* Small consistent gap */
                 position: relative;
                 border-radius: 12px;
                 overflow: hidden;
@@ -3367,6 +3369,7 @@
         }
         }
     </style>
+    @include('partials.success-modal')
 </body>
 
 </html>

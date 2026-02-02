@@ -224,8 +224,8 @@ a {
 /* Header Positioning & Separation */
 header {
     position: fixed;
-    top: calc(36px - 1px) !important;
-    /* Locked below Top Bar with slight overlap to prevent gaps */
+    top: 36px !important;
+    /* Locked exactly below Top Bar */
     left: 0;
     width: 100%;
     height: 74px;
@@ -284,15 +284,16 @@ body.scrolled-active header {
 .nav-center-wrapper {
     flex: 1;
     display: flex;
-    justify-content: center;
-    padding: 0 10px;
+    justify-content: flex-start;
+    padding: 0;
     align-items: center;
     height: 100%;
+    margin-left: 0;
 }
 
 .nav-links {
     display: flex;
-    gap: 28px;
+    gap: 20px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -315,8 +316,8 @@ body.scrolled-active header {
     letter-spacing: 0.8px;
     font-weight: 700;
     position: relative;
-    padding: 0 4px;
-    /* Balanced padding */
+    padding: 0;
+    /* No padding for consistent spacing */
     transition: all 0.3s ease;
     white-space: nowrap;
     display: inline-flex;
@@ -358,6 +359,7 @@ body.scrolled-active header {
 
 .logo-wrapper {
     flex-shrink: 0;
+    margin-right: 20px;
 }
 
 .logo img {
@@ -499,6 +501,7 @@ body.scrolled-active header {
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
+        margin-left: 0;
         /* Animate transform + visibility/opacity for robustness */
         transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.4s ease, visibility 0.4s;
         transform: translateX(100%);

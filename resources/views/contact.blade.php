@@ -169,6 +169,53 @@
                 }
             });
         });
+
+        // AJAX Form Submission
+        document.getElementById('premiumContactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const form = this;
+            const btn = form.querySelector('.premium-cta-btn');
+            const btnText = btn.querySelector('span');
+            const originalText = btnText.textContent;
+
+            // Loading State
+            btn.disabled = true;
+            btnText.innerHTML = '<i class="fas fa-circle-notch fa-spin me-2"></i> Sending...';
+
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        if (typeof window.showModal === 'function') {
+                            window.showModal();
+                        } else {
+                            alert(data.message);
+                        }
+                        form.reset();
+                        // Reset focus states
+                        document.querySelectorAll('.is-focused').forEach(el => el.classList.remove('is-focused'));
+                    } else {
+                        alert(data.message || 'Something went wrong.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again later.');
+                })
+                .finally(() => {
+                    btn.disabled = false;
+                    btnText.textContent = originalText;
+                });
+        });
     </script>
 
     <style>
@@ -334,12 +381,28 @@
             transition: all 0.3s ease;
         }
 
+        .social-circle i.fa-linkedin-in {
+            color: #0077b5;
+        }
+
+        .social-circle i.fa-x-twitter {
+            color: #000000;
+        }
+
+        .social-circle i.fa-instagram {
+            color: #e1306c;
+        }
+
         .social-circle:hover {
             background: #0284c7;
             color: #fff;
             border-color: #0284c7;
             transform: translateY(-5px) rotate(360deg);
             box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
+        }
+
+        .social-circle:hover i {
+            color: #fff !important;
         }
 
         /* Contact Form Column Light Mode Glass */
