@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('header_class', 'scrolled')
+
 
 @section('content')
     <div class="service-detail-page">
