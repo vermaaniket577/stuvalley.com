@@ -54,6 +54,9 @@ Route::get('/privacy-policy', [App\Http\Controllers\CompanyController::class, 'p
 Route::get('/terms', [App\Http\Controllers\CompanyController::class, 'terms'])->name('terms');
 
 Route::get('/services', [App\Http\Controllers\ServiceController::class, 'index'])->name('services.index');
+Route::get('/services/digital-marketing', function () {
+    return view('services.digital-marketing');
+})->name('services.digital-marketing');
 Route::get('/services/{slug}', [App\Http\Controllers\ServiceController::class, 'show'])->name('services.show');
 
 // Industries Routes
@@ -71,6 +74,10 @@ Route::get('/blog/{slug}', [App\Http\Controllers\BlogController::class, 'show'])
 
 // Contact Form
 Route::post('/contact/submit', [App\Http\Controllers\ContactController::class, 'submit'])->name('contact.submit');
+
+// Get a Quote
+Route::get('/get-a-quote', [App\Http\Controllers\QuoteController::class, 'index'])->name('quote.index');
+Route::post('/get-a-quote/submit', [App\Http\Controllers\QuoteController::class, 'store'])->name('quote.store');
 
 // Deployment Helper (cPanel)
 Route::get('/deploy-helper', function () {

@@ -13,8 +13,14 @@ class Lead extends Model
         'name',
         'email',
         'phone',
+        'company',
+        'city',
         'service',
         'message',
+        'budget',
+        'timeline',
+        'file_path',
+        'type',
         'status'
     ];
     //

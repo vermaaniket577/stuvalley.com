@@ -1409,6 +1409,8 @@
                                         <h4 class="mega-cat-title"><i class="fas fa-chart-line"></i> Digital Marketing
                                         </h4>
                                         <ul class="mega-links">
+                                            <li><a href="{{ route('services.show', 'digital-marketing') }}">Digital
+                                                    Marketing <i class="fas fa-chevron-right arrow-anim"></i></a></li>
                                             <li><a href="{{ route('services.show', 'seo-services') }}">SEO services <i
                                                         class="fas fa-chevron-right arrow-anim"></i></a></li>
                                             <li><a href="{{ route('services.show', 'google-ads') }}">Google Ads
@@ -1447,7 +1449,7 @@
                     </li>
 
                     <li class="dropdown mega-dropdown industries-menu">
-                        <a href="#" class="dropbtn">
+                        <a href="{{ route('industries.index') }}" class="dropbtn">
                             <i class="fas fa-layer-group nav-icon"></i> INDUSTRIES <span class="nav-arrow">▼</span>
                         </a>
                         <div class="mega-dropdown-content industries-mega">
@@ -1460,31 +1462,48 @@
                                         delivering agile and effective digital solutions tailored to your business
                                         needs.
                                     </p>
-                                    <a href="#" class="ind-view-all">View all <i class="fas fa-arrow-right"></i></a>
+                                    <a href="{{ route('industries.index') }}" class="ind-view-all">View all <i
+                                            class="fas fa-arrow-right"></i></a>
                                 </div>
 
                                 <!-- Col 2: Links Grid -->
+                                <!-- Col 2: Links Grid -->
                                 <div class="ind-links-grid">
                                     <div class="ind-link-col">
-                                        <a href="#">On-Demand <i class="fas fa-chevron-right"></i></a>
-                                        <a href="#">Enterprise <i class="fas fa-chevron-right"></i></a>
-                                        <a href="#">Finance <i class="fas fa-chevron-right"></i></a>
-                                        <a href="#">E-commerce <i class="fas fa-chevron-right"></i></a>
-                                        <a href="#">Game <i class="fas fa-chevron-right"></i></a>
+                                        <a href="{{ route('industries.show', 'on-demand') }}">On-Demand <i
+                                                class="fas fa-chevron-right"></i></a>
+                                        <a href="{{ route('industries.show', 'enterprise') }}">Enterprise <i
+                                                class="fas fa-chevron-right"></i></a>
+                                        <a href="{{ route('industries.show', 'finance') }}">Finance <i
+                                                class="fas fa-chevron-right"></i></a>
+                                        <a href="{{ route('industries.show', 'e-commerce') }}">E-commerce <i
+                                                class="fas fa-chevron-right"></i></a>
+                                        <a href="{{ route('industries.show', 'game') }}">Game <i
+                                                class="fas fa-chevron-right"></i></a>
                                     </div>
                                     <div class="ind-link-col">
-                                        <a href="#">Healthcare <i class="fas fa-chevron-right"></i></a>
-                                        <a href="#">Travel <i class="fas fa-chevron-right"></i></a>
-                                        <a href="#">Logistics <i class="fas fa-chevron-right"></i></a>
-                                        <a href="#">Start-Up <i class="fas fa-chevron-right"></i></a>
-                                        <a href="#">Entertainment <i class="fas fa-chevron-right"></i></a>
+                                        <a href="{{ route('industries.show', 'healthcare') }}">Healthcare <i
+                                                class="fas fa-chevron-right"></i></a>
+                                        <a href="{{ route('industries.show', 'travel') }}">Travel <i
+                                                class="fas fa-chevron-right"></i></a>
+                                        <a href="{{ route('industries.show', 'logistics') }}">Logistics <i
+                                                class="fas fa-chevron-right"></i></a>
+                                        <a href="{{ route('industries.show', 'start-up') }}">Start-Up <i
+                                                class="fas fa-chevron-right"></i></a>
+                                        <a href="{{ route('industries.show', 'entertainment') }}">Entertainment <i
+                                                class="fas fa-chevron-right"></i></a>
                                     </div>
                                     <div class="ind-link-col">
-                                        <a href="#">Real Estate <i class="fas fa-chevron-right"></i></a>
-                                        <a href="#">Education <i class="fas fa-chevron-right"></i></a>
-                                        <a href="#">Electric Vehicle <i class="fas fa-chevron-right"></i></a>
-                                        <a href="#">Automotive <i class="fas fa-chevron-right"></i></a>
-                                        <a href="#">Wearable <i class="fas fa-chevron-right"></i></a>
+                                        <a href="{{ route('industries.show', 'real-estate') }}">Real Estate <i
+                                                class="fas fa-chevron-right"></i></a>
+                                        <a href="{{ route('industries.show', 'education') }}">Education <i
+                                                class="fas fa-chevron-right"></i></a>
+                                        <a href="{{ route('industries.show', 'electric-vehicle') }}">Electric Vehicle <i
+                                                class="fas fa-chevron-right"></i></a>
+                                        <a href="{{ route('industries.show', 'automotive') }}">Automotive <i
+                                                class="fas fa-chevron-right"></i></a>
+                                        <a href="{{ route('industries.show', 'wearable') }}">Wearable <i
+                                                class="fas fa-chevron-right"></i></a>
                                     </div>
                                 </div>
 
@@ -3370,6 +3389,75 @@
         }
     </style>
     @include('partials.success-modal')
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Function to strip hash from URL without refreshing
+            const removeHash = () => {
+                if (window.location.hash) {
+                    history.replaceState(null, null, window.location.pathname + window.location.search);
+                }
+            };
+
+            // 1. Handle Initial Page Load with Hash
+            if (window.location.hash) {
+                const targetId = window.location.hash.substring(1);
+                if (targetId) {
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        // Wait a moment for layout to stabilize
+                        setTimeout(() => {
+                            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            removeHash(); // Clean URL after scroll
+                        }, 100);
+                    } else {
+                        removeHash(); // Invalid hash, just clean it
+                    }
+                } else {
+                    removeHash(); // Empty hash
+                }
+            }
+
+            // 2. Intercept All Anchor Click Events
+            document.body.addEventListener('click', (e) => {
+                const anchor = e.target.closest('a[href]');
+                if (!anchor) return;
+
+                const href = anchor.getAttribute('href');
+                if (!href) return;
+
+                // Case A: Link to Top ("#")
+                if (href === '#') {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
+                }
+
+                // Case B: Hash Links (Internal or External Page)
+                if (href.includes('#')) {
+                    try {
+                        const url = new URL(href, window.location.href);
+
+                        // Check if link targets the current page (MATCH PATH AND SEARCH)
+                        if (url.pathname === window.location.pathname && url.search === window.location.search) {
+                            e.preventDefault(); // STRICT: Always prevent default to keep URL clean
+
+                            const targetId = url.hash.substring(1);
+                            if (targetId) {
+                                const targetElement = document.getElementById(targetId);
+                                if (targetElement) {
+                                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                }
+                            }
+                        }
+                        // If it routes to another page, we let it navigate. 
+                        // The destination page's "Initial Load" script (block 1) will handle the scroll & clean.
+                    } catch (err) {
+                        // ignore invalid URLs
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

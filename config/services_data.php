@@ -26,8 +26,8 @@ return [
             ['title' => 'Law Firm Partners', 'desc' => 'Professional site enabling online client intake.', 'metric_value' => '2x', 'metric_name' => 'Client Inquiries']
         ],
         'plans' => [
-            ['name' => 'Starter', 'price' => '$999', 'desc' => 'Perfect for small businesses.', 'features' => ['5 Pages', 'Contact Form', 'Mobile Ready', 'Basic SEO'], 'popular' => false],
-            ['name' => 'Professional', 'price' => '$2,499', 'desc' => 'For growing companies.', 'features' => ['10+ Pages', 'CMS Integration', 'Blog Setup', 'Advanced SEO', 'Speed Optimization'], 'popular' => true],
+            ['name' => 'Starter', 'price' => '₹24,999', 'desc' => 'Perfect for small businesses.', 'features' => ['5 Pages', 'Contact Form', 'Mobile Ready', 'Basic SEO'], 'popular' => false],
+            ['name' => 'Professional', 'price' => '₹49,999', 'desc' => 'For growing companies.', 'features' => ['10+ Pages', 'CMS Integration', 'Blog Setup', 'Advanced SEO', 'Speed Optimization'], 'popular' => true],
             ['name' => 'Enterprise', 'price' => 'Custom', 'desc' => 'Full-scale digital presence.', 'features' => ['Unlimited Pages', 'Custom Functionality', 'Priority Support', 'Dedicated Manager'], 'popular' => false]
         ],
         'faq' => [
@@ -59,8 +59,8 @@ return [
             ['title' => 'MediTrack', 'desc' => 'Secure patient management portal.', 'metric_value' => '100%', 'metric_name' => 'HIPAA Compliant']
         ],
         'plans' => [
-            ['name' => 'MVP Build', 'price' => '$5k+', 'desc' => 'Validate your idea fast.', 'features' => ['Core Features', 'Basic UI', 'Admin Panel', '1 Month Support'], 'popular' => false],
-            ['name' => 'Full Scale', 'price' => '$15k+', 'desc' => 'Production-grade application.', 'features' => ['Advanced Logic', 'Custom UI/UX', 'API Integrations', 'Scalable Architecture', '3 Months Support'], 'popular' => true],
+            ['name' => 'MVP Build', 'price' => '₹1.5L+', 'desc' => 'Validate your idea fast.', 'features' => ['Core Features', 'Basic UI', 'Admin Panel', '1 Month Support'], 'popular' => false],
+            ['name' => 'Full Scale', 'price' => '₹5L+', 'desc' => 'Production-grade application.', 'features' => ['Advanced Logic', 'Custom UI/UX', 'API Integrations', 'Scalable Architecture', '3 Months Support'], 'popular' => true],
             ['name' => 'Enterprise', 'price' => 'Custom', 'desc' => 'Large scale systems.', 'features' => ['Microservices', 'SLA Support', 'Audited Security', 'Dedicated Team'], 'popular' => false]
         ],
         'faq' => [
@@ -92,9 +92,9 @@ return [
             ['title' => 'EduLearn', 'desc' => 'Membership site with custom LMS features.', 'metric_value' => '5k+', 'metric_name' => 'Active Members']
         ],
         'plans' => [
-            ['name' => 'Standard', 'price' => '$1,500', 'desc' => 'Custom theme implementation.', 'features' => ['Custom Design', 'Essential Plugins', 'Speed Setup', 'Security Pack'], 'popular' => false],
-            ['name' => 'Advanced', 'price' => '$3,000', 'desc' => 'Custom functionality & scale.', 'features' => ['Custom Plugins', 'Adv. Custom Fields', 'Membership Features', 'API Integration', 'SEO Audits'], 'popular' => true],
-            ['name' => 'Retainer', 'price' => '$500/mo', 'desc' => 'Ongoing care.', 'features' => ['Updates', 'Backups', 'Uptime Monitor', 'Content Edits'], 'popular' => false]
+            ['name' => 'Standard', 'price' => '₹39,999', 'desc' => 'Custom theme implementation.', 'features' => ['Custom Design', 'Essential Plugins', 'Speed Setup', 'Security Pack'], 'popular' => false],
+            ['name' => 'Advanced', 'price' => '₹89,999', 'desc' => 'Custom functionality & scale.', 'features' => ['Custom Plugins', 'Adv. Custom Fields', 'Membership Features', 'API Integration', 'SEO Audits'], 'popular' => true],
+            ['name' => 'Retainer', 'price' => '₹15,000/mo', 'desc' => 'Ongoing care.', 'features' => ['Updates', 'Backups', 'Uptime Monitor', 'Content Edits'], 'popular' => false]
         ],
         'faq' => [
             ['q' => 'Is WordPress secure?', 'a' => 'Yes, when properly maintained and hardened, which is part of our standard process.'],
@@ -125,8 +125,8 @@ return [
             ['title' => 'RetailBrand', 'desc' => 'Mobile-first redesign.', 'metric_value' => '-40%', 'metric_name' => 'Bounce Rate']
         ],
         'plans' => [
-            ['name' => 'Refresh', 'price' => '$1,500', 'desc' => 'Visual facelift.', 'features' => ['New UI Design', 'CSS Update', 'Mobile Fixes', 'Speed Check'], 'popular' => false],
-            ['name' => 'Rebuild', 'price' => '$3,000+', 'desc' => 'Complete overhaul.', 'features' => ['New Architecture', 'CMS Migration', 'New Content', 'Interactive Elements'], 'popular' => true],
+            ['name' => 'Refresh', 'price' => '₹35,000', 'desc' => 'Visual facelift.', 'features' => ['New UI Design', 'CSS Update', 'Mobile Fixes', 'Speed Check'], 'popular' => false],
+            ['name' => 'Rebuild', 'price' => '₹75,000+', 'desc' => 'Complete overhaul.', 'features' => ['New Architecture', 'CMS Migration', 'New Content', 'Interactive Elements'], 'popular' => true],
             ['name' => 'Strategic', 'price' => 'Custom', 'desc' => 'Data-driven redesign.', 'features' => ['User Testing', 'A/B Testing', 'Conversion Strategy', 'Full Rebrand'], 'popular' => false]
         ],
         'faq' => [

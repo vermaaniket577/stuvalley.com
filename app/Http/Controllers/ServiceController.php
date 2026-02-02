@@ -254,6 +254,68 @@ class ServiceController extends Controller
                 ['q' => 'How long does SEO take?', 'a' => 'It is a long-term game, typically showing simple results in 3-4 months.'],
                 ['q' => 'Is it guaranteed #1 ranking?', 'a' => 'No one can guarantee #1, but we follow best practices to maximize chances.']
             ]
+        ],
+        'google-ads' => [
+            'id' => 'google-ads',
+            'title' => 'Google Ads Management',
+            'hero_highlight' => 'Paid Search Experts',
+            'subtitle' => 'Drive instant, high-quality traffic to your site with precision-targeted PPC campaigns.',
+            'hero_image' => 'https://images.unsplash.com/photo-1533750516457-a7f992034fec?q=80&w=1600&auto=format&fit=crop',
+            'about_image' => 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop',
+            'trust_points' => ['Certified Partners', 'ROI Focused', 'Data Driven', 'Transparent Reporting'],
+            'about_text' => 'Don\'t guess with your marketing budget. Our Google Ads experts craft high-converting campaigns that put your message in front of customers exactly when they are ready to buy.',
+            'features' => [
+                ['title' => 'Search Ads', 'desc' => 'Capturing high-intent traffic from Google Search.', 'icon' => 'fa-search-dollar'],
+                ['title' => 'Display Network', 'desc' => 'Visual ads across millions of websites.', 'icon' => 'fa-images'],
+                ['title' => 'Shopping Ads', 'desc' => 'Showcasing products directly in search results.', 'icon' => 'fa-shopping-bag'],
+                ['title' => 'Remarketing', 'desc' => 'Re-engaging visitors who didn\'t convert instantly.', 'icon' => 'fa-history'],
+                ['title' => 'A/B Testing', 'desc' => 'Continuous optimization of ad copy and landing pages.', 'icon' => 'fa-vial'],
+                ['title' => 'Conversion Tracking', 'desc' => 'Measuring the exact value of every click.', 'icon' => 'fa-chart-bar']
+            ],
+            'tech_stack' => ['Google Ads Editor', 'Google Analytics 4', 'Tag Manager', 'Looker Studio', 'SEMrush'],
+            'process' => ['Audit', 'Strategy', 'Setup', 'Launch', 'Optimization'],
+            'benefits' => ['Instant Visibility', 'Precise Targeting', 'Cost Control', 'Measurable ROI'],
+            'use_cases' => [
+                'Lead Generation',
+                'E-commerce Sales',
+                'Brand Awareness',
+                'App Installs'
+            ],
+            'faq' => [
+                ['q' => 'How much should I spend?', 'a' => 'We help you determine a budget based on your industry and goals.'],
+                ['q' => 'When will I see results?', 'a' => 'PPC delivers traffic instantly upon campaign launch.']
+            ]
+        ],
+        'social-media' => [
+            'id' => 'social-media',
+            'title' => 'Social Media Marketing',
+            'hero_highlight' => 'Social Growth',
+            'subtitle' => 'Build a loyal community and amplify your brand voice on the platforms that matter.',
+            'hero_image' => 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1600&auto=format&fit=crop',
+            'about_image' => 'https://images.unsplash.com/photo-1611162616475-46b635cb6868?q=80&w=800&auto=format&fit=crop',
+            'trust_points' => ['Content Strategy', 'Community Growth', 'Viral Campaigns', 'Brand Loyalty'],
+            'about_text' => 'Social media is where your customers live. We help you create meaningful connections through engaging content, active community management, and targeted social advertising.',
+            'features' => [
+                ['title' => 'Content Creation', 'desc' => 'Thumb-stopping visuals and compelling copy.', 'icon' => 'fa-pen-nib'],
+                ['title' => 'Community Mgmt', 'desc' => 'Responding to comments and fostering engagement.', 'icon' => 'fa-comments'],
+                ['title' => 'Paid Social', 'desc' => 'Targeted ads on Meta, LinkedIn, and Instagram.', 'icon' => 'fa-ad'],
+                ['title' => 'Influencer Marketing', 'desc' => 'Leveraging voices your audience trusts.', 'icon' => 'fa-user-friends'],
+                ['title' => 'Brand Monitoring', 'desc' => 'Listening to what is being said about you.', 'icon' => 'fa-satellite-dish'],
+                ['title' => 'Analytics', 'desc' => 'Tracking engagement, reach, and conversions.', 'icon' => 'fa-chart-pie']
+            ],
+            'tech_stack' => ['Meta Business Suite', 'LinkedIn Ads', 'Buffer', 'Canva', 'Hootsuite'],
+            'process' => ['Persona Research', 'Content Cal', 'Production', 'Publishing', 'Reporting'],
+            'benefits' => ['Direct Engagement', 'Brand Humanization', 'Customer Loyalty', 'Viral Reach'],
+            'use_cases' => [
+                'D2C Brands',
+                'B2B Thought Leadership',
+                'Event Promotion',
+                'Customer Support'
+            ],
+            'faq' => [
+                ['q' => 'Which platforms are best?', 'a' => 'It depends on where your audience hangs out (e.g., LinkedIn for B2B).'],
+                ['q' => 'Do you create the graphics?', 'a' => 'Yes, our team handles all creative assets and copywriting.']
+            ]
         ]
     ];
 

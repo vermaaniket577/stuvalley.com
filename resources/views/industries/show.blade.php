@@ -54,7 +54,7 @@
                     </p>
 
                     <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                        <a href="#contact"
+                        <a href="{{ route('quote.index') }}"
                             style="display: inline-flex; align-items: center; gap: 12px; background: #3b82f6; color: #fff; padding: 16px 36px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1rem; box-shadow: 0 10px 30px rgba(59,130,246,0.3); transition: all 0.3s ease;"
                             onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 15px 40px rgba(59,130,246,0.4)';"
                             onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(59,130,246,0.3)';">

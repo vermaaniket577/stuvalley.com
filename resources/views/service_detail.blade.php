@@ -19,7 +19,7 @@
                         @endforeach
                     </div>
 
-                    <a href="#contact" class="btn-hero-glow">Get a Quote</a>
+                    <a href="{{ route('quote.index') }}" class="btn-hero-glow">Get a Quote</a>
                 </div>
             </div>
         </section>
