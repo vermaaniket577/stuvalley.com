@@ -5,9 +5,10 @@ import zipfile
 def zip_project(source_dir, output_filename):
     # Files/Folders to EXCLUDE
     excludes = {
-        'node_modules', '.git', '.gemini', '.vscode', '.idea',
+        'node_modules', '.git', '.gemini', '.vscode', '.idea', 'dist',
         'tests', 'storage/framework/cache', 'storage/framework/views',
-        'deploy_script.py', 'deployment_package.zip', 'stuvalley_deploy.zip'
+        'deploy_script.py', 'deployment_package.zip', 'stuvalley_deploy.zip',
+        '.env', '.env.production'
     }
     
     # Extensions to exclude
@@ -15,18 +16,24 @@ def zip_project(source_dir, output_filename):
 
     with zipfile.ZipFile(output_filename, 'w', zipfile.ZIP_DEFLATED) as zipf:
         for root, dirs, files in os.walk(source_dir):
-            # Modify dirs in-place to skip excluded directories
-            dirs[:] = [d for d in dirs if d not in excludes]
+            # Get relative path from source, normalized to forward slashes
+            rel_root = os.path.relpath(root, source_dir).replace('\\', '/')
+            
+            # Skip if this directory or any parent is in excludes
+            if any(rel_root.startswith(ex) or rel_root == ex for ex in excludes if ex != '.'):
+                dirs[:] = [] # Don't go deeper
+                continue
+
+            # Also modify dirs in-place for next steps
+            dirs[:] = [d for d in dirs if (rel_root + '/' + d if rel_root != "." else d) not in excludes]
             
             for file in files:
                 file_path = os.path.join(root, file)
+                arcname = os.path.relpath(file_path, source_dir).replace('\\', '/')
                 
-                # relative path for archive
-                arcname = os.path.relpath(file_path, source_dir)
-                
-                # Skip if file extension is excluded (unless it's important)
-                if any(file.endswith(ext) for ext in exclude_exts):
-                     continue
+                # Check if file itself or its extension should be excluded
+                if arcname in excludes or any(file.endswith(ext) for ext in exclude_exts):
+                    continue
                      
                 # Add to zip
                 print(f"Adding: {arcname}")
