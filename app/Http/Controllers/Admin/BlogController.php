@@ -35,15 +35,29 @@ class BlogController extends Controller
             'title' => 'required|max:255',
             'excerpt' => 'nullable',
             'content' => 'required',
-            'featured_image' => 'nullable|url',
+            'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:500',
             'author' => 'nullable|max:100',
             'category' => 'nullable|max:50',
             'tags' => 'nullable|max:255',
             'reading_time' => 'nullable|integer|min:1',
         ]);
 
+        if ($request->hasFile('featured_image')) {
+            $path = $request->file('featured_image')->store('featured-images', 'public');
+            $validated['featured_image'] = $path;
+        }
+
         $validated['is_published'] = $request->boolean('is_published');
-        $validated['slug'] = Str::slug($validated['title']);
+
+        // Generate Unique Slug
+        $slug = Str::slug($validated['title']);
+        $originalSlug = $slug;
+        $count = 1;
+        while (BlogPost::where('slug', $slug)->exists()) {
+            $slug = "{$originalSlug}-{$count}";
+            $count++;
+        }
+        $validated['slug'] = $slug;
 
         if ($validated['is_published']) {
             $validated['published_at'] = now();
@@ -104,18 +118,33 @@ class BlogController extends Controller
             'title' => 'required|max:255',
             'excerpt' => 'nullable',
             'content' => 'required',
-            'featured_image' => 'nullable|url',
+            'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:500',
             'author' => 'nullable|max:100',
             'category' => 'nullable|max:50',
             'tags' => 'nullable|max:255',
             'reading_time' => 'nullable|integer|min:1',
         ]);
 
+        if ($request->hasFile('featured_image')) {
+            $path = $request->file('featured_image')->store('featured-images', 'public');
+            $validated['featured_image'] = $path;
+        } else {
+            // Keep the old image if no new one is uploaded
+            unset($validated['featured_image']);
+        }
+
         $validated['is_published'] = $request->boolean('is_published');
 
         // Update slug if title changed
         if ($blog->title !== $validated['title']) {
-            $validated['slug'] = Str::slug($validated['title']);
+            $slug = Str::slug($validated['title']);
+            $originalSlug = $slug;
+            $count = 1;
+            while (BlogPost::where('slug', $slug)->where('id', '!=', $blog->id)->exists()) {
+                $slug = "{$originalSlug}-{$count}";
+                $count++;
+            }
+            $validated['slug'] = $slug;
         }
 
         // Set published_at if publishing for first time

@@ -55,15 +55,34 @@
                     <div class="col-lg-4">
                         <div class="sticky-top" style="top: 2rem; z-index: 10;">
                             <!-- Featured Image -->
+                            <!-- Featured Image Upload -->
                             <div class="mb-4">
-                                <label for="featured_image" class="form-label fw-bold">Featured Image URL</label>
-                                <div class="input-group">
-                                    <span class="input-group-text bg-white"><i class="fas fa-image text-muted"></i></span>
-                                    <input type="url" class="form-control" id="featured_image" name="featured_image"
-                                        value="{{ old('featured_image', $blog->featured_image ?? '') }}"
-                                        placeholder="https://images.unsplash.com/...">
+                                <label for="featured_image" class="form-label fw-bold">Featured Image</label>
+                                <div class="input-group mb-2">
+                                    <input type="file" class="form-control" id="featured_image" name="featured_image"
+                                        accept="image/jpeg,image/png,image/jpg,image/webp">
                                 </div>
-                                <div class="form-text">Recommended size: 1200x800px.</div>
+                                <div class="form-text mb-3">
+                                    Recommended size: 1200×800 px. Max size: 500KB. Formats: JPG, PNG, WEBP.
+                                </div>
+
+                                <!-- Live Preview -->
+                                <div id="imagePreviewContainer" class="text-center p-2 border rounded bg-light"
+                                    style="{{ isset($blog) && $blog->featured_image ? '' : 'display: none;' }}">
+                                    @if(isset($blog) && $blog->featured_image)
+                                        <img src="{{ filter_var($blog->featured_image, FILTER_VALIDATE_URL) ? $blog->featured_image : asset('storage/' . $blog->featured_image) }}"
+                                            id="imagePreview" class="img-fluid rounded"
+                                            style="max-height: 200px; object-fit: cover; width: 100%;" alt="Preview">
+                                    @else
+                                        <img src="" id="imagePreview" class="img-fluid rounded"
+                                            style="max-height: 200px; object-fit: cover; width: 100%; display: none;"
+                                            alt="Preview">
+                                        <div id="previewPlaceholder" class="text-muted small py-4">
+                                            <i class="fas fa-image fa-2x mb-2 text-secondary"></i><br>
+                                            Image Preview
+                                        </div>
+                                    @endif
+                                </div>
                             </div>
 
                             <!-- Author -->
@@ -261,6 +280,48 @@
                 .catch(error => {
                     console.error(error);
                 });
+
+            // Image Preview Logic
+            const imageInput = document.getElementById('featured_image');
+            const previewContainer = document.getElementById('imagePreviewContainer');
+            const previewImage = document.getElementById('imagePreview');
+            const previewPlaceholder = document.getElementById('previewPlaceholder');
+
+            if (imageInput) {
+                imageInput.addEventListener('change', function (event) {
+                    const file = event.target.files[0];
+                    if (file) {
+                        // Validate Type
+                        const validTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/webp'];
+                        if (!validTypes.includes(file.type)) {
+                            alert('Please select a valid image (JPG, PNG, WEBP).');
+                            imageInput.value = ''; // Reset
+                            return;
+                        }
+
+                        // Validate Size (500KB)
+                        if (file.size > 500 * 1024) {
+                            alert('File size exceeds 500KB limit.');
+                            imageInput.value = '';
+                            return;
+                        }
+
+                        // Show Preview
+                        const reader = new FileReader();
+                        reader.onload = function (e) {
+                            previewImage.src = e.target.result;
+                            previewImage.style.display = 'block';
+                            if (previewPlaceholder) previewPlaceholder.style.display = 'none';
+                            previewContainer.style.display = 'block';
+                        };
+                        reader.readAsDataURL(file);
+                    } else {
+                        // Reset if cancelled
+                        // Don't hide if there was an existing image, but complex to detect here.
+                        // Ideally we keep the old one or just do nothing.
+                    }
+                });
+            }
 
             // Robust Native Form Submission
             const blogForm = document.getElementById('blogPostForm');

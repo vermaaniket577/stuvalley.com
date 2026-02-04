@@ -21,7 +21,12 @@
                         @foreach($posts as $post)
                             <article class="blog-card">
                                 @if($post->featured_image)
-                                    <div class="blog-card-image" style="background-image: url('{{ $post->featured_image }}');"></div>
+                                    @php
+                                        $imagePath = filter_var($post->featured_image, FILTER_VALIDATE_URL)
+                                            ? $post->featured_image
+                                            : asset('storage/' . $post->featured_image);
+                                    @endphp
+                                    <div class="blog-card-image" style="background-image: url('{{ $imagePath }}');"></div>
                                 @else
                                     <div class="blog-card-image" style="background: linear-gradient(135deg, #38bdf8, #818cf8);"></div>
                                 @endif

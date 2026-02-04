@@ -27,7 +27,7 @@
                                     <input type="text" name="contact_whatsapp" id="contact_whatsapp"
                                         class="form-control form-control-lg"
                                         value="{{ \App\Models\Setting::get('contact_whatsapp') }}"
-                                        placeholder="e.g. 919876543210">
+                                        placeholder="e.g. 919425455499">
                                 </div>
                                 <small class="text-muted mt-2 d-block">
                                     <i class="fas fa-info-circle"></i> Enter your full number with country code (no +
@@ -117,7 +117,8 @@
                     <h6>How to use this?</h6>
                     <ol class="small text-muted pl-3">
                         <li>Install an automation app (e.g., <strong>AutoResponder for WA</strong> or
-                            <strong>Tasker</strong>) on your Android phone.</li>
+                            <strong>Tasker</strong>) on your Android phone.
+                        </li>
                         <li>Set a rule to catch <strong>All Messages</strong> (Wildcard: *).</li>
                         <li>Set action to <strong>HTTP Request</strong> (POST or GET).</li>
                         <li>Use the URL above. Pass the message as a parameter named <code>message</code>.</li>

@@ -3623,6 +3623,21 @@
         }
         }
     </style>
+    <!-- WhatsApp Floating Button -->
+    @php
+        $whatsapp_number = \App\Models\Setting::get('contact_whatsapp');
+        // Fallback to default if admin hasn't set one
+        if (!$whatsapp_number) {
+            $whatsapp_number = '919425455499';
+        }
+        $whatsapp_msg = \App\Models\Setting::get('contact_whatsapp_msg') ?? 'Hi! I am interested in your services.';
+    @endphp
+
+    <a href="https://wa.me/{{ $whatsapp_number }}?text={{ urlencode($whatsapp_msg) }}" class="whatsapp-float"
+        target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     @include('partials.success-modal')
     <script>
         document.addEventListener('DOMContentLoaded', () => {

@@ -251,7 +251,7 @@
     <!-- Hero Section -->
     <div class="blog-hero">
         <div class="blog-hero-bg"
-            style="background-image: url('{{ $blog->featured_image ? asset($blog->featured_image) : 'https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=1200' }}');">
+            style="background-image: url('{{ filter_var($blog->featured_image, FILTER_VALIDATE_URL) ? $blog->featured_image : ($blog->featured_image ? asset('storage/' . $blog->featured_image) : 'https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=1200') }}');">
         </div>
         <div class="blog-hero-overlay"></div>
         <div class="blog-hero-content reveal">
@@ -327,7 +327,7 @@
                     <a href="{{ route('blog.show', $r->slug) }}" class="related-card"
                         style="display: block; text-decoration: none; background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); transition: 0.3s;">
                         <div style="height: 200px; overflow: hidden;">
-                            <img src="{{ $r->featured_image ? asset($r->featured_image) : 'https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=600' }}" alt="{{ $r->title }}"
+                            <img src="{{ filter_var($r->featured_image, FILTER_VALIDATE_URL) ? $r->featured_image : ($r->featured_image ? asset('storage/' . $r->featured_image) : 'https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=600') }}" alt="{{ $r->title }}"
                                 style="width: 100%; height: 100%; object-fit: cover; transition: 0.5s;">
                         </div>
                         <div style="padding: 25px;">
