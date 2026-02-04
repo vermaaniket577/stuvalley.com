@@ -12,7 +12,7 @@
 
     <div class="card border-0 shadow-sm">
         <div class="card-body p-4 p-md-5">
-            <form id="blogPostForm"
+            <form id="blogPostForm" novalidate
                 action="{{ isset($blog) ? route('admin.blog.update', $blog) : route('admin.blog.store') }}" method="POST">
                 @csrf
                 @if(isset($blog))
@@ -26,8 +26,7 @@
                             <label for="title" class="form-label fw-bold">Post Title <span
                                     class="text-danger">*</span></label>
                             <input type="text" class="form-control form-control-lg" id="title" name="title"
-                                value="{{ old('title', $blog->title ?? '') }}" placeholder="Enter a compelling title"
-                                required>
+                                value="{{ old('title', $blog->title ?? '') }}" placeholder="Enter a compelling title">
                             @error('title')
                                 <div class="text-danger small mt-1">{{ $message }}</div>
                             @enderror
@@ -271,23 +270,101 @@
             const processingText = submitBtn.querySelector('.processing-text');
 
             blogForm.addEventListener('submit', function (e) {
-                // 1. Sync CKEditor Data to Textarea
+                e.preventDefault();
+                console.log('Form submission started');
+
+                // Helper for alerts (falls back to native alert if Swal is blocked)
+                const showMessage = (icon, title, text) => {
+                    if (typeof Swal !== 'undefined') {
+                        return Swal.fire({ icon, title, text, confirmButtonColor: '#f36f21' });
+                    } else {
+                        alert(`${title}: ${text}`);
+                        return Promise.resolve();
+                    }
+                };
+
+                // 1. Sync CKEditor Data if active
                 if (editorInstance) {
-                    const data = editorInstance.getData();
-                    document.querySelector('#content').value = data;
+                    document.querySelector('#content').value = editorInstance.getData();
+                }
+                const contentValue = document.querySelector('#content').value;
+
+                // 2. Custom Validation
+                const title = document.getElementById('title').value;
+                if (!title || title.trim() === '') {
+                    showMessage('warning', 'Title Required', 'Please enter a title.');
+                    return;
+                }
+                if (!contentValue || contentValue.trim() === '') {
+                    showMessage('warning', 'Content Required', 'Please write some content.');
+                    return;
                 }
 
-                // 2. UI Updates: Show processing state immediately
-                // We do NOT preventDefault(). We let the form submit natively.
+                // 3. UI Updates
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = '0.85';
+                if (btnText) btnText.style.display = 'none';
+                if (spinner) spinner.classList.remove('d-none');
+                if (processingText) processingText.classList.remove('d-none');
 
-                setTimeout(() => {
-                    submitBtn.style.pointerEvents = 'none'; // Prevent double clicks
-                    submitBtn.style.opacity = '0.85';
+                // 4. AJAX Submission
+                const formData = new FormData(blogForm);
 
-                    if (btnText) btnText.style.display = 'none';
-                    if (spinner) spinner.classList.remove('d-none');
-                    if (processingText) processingText.classList.remove('d-none');
-                }, 0);
+                fetch(blogForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'Accept': 'application/json'
+                    }
+                })
+                    .then(async response => {
+                        console.log('Response received:', response.status);
+                        const isJson = response.headers.get('content-type')?.includes('application/json');
+                        const body = isJson ? await response.json() : null;
+
+                        if (!response.ok) {
+                            // Handle Validation Errors
+                            let errorMessage = body?.message || 'Something went wrong.';
+                            if (body?.errors) {
+                                errorMessage = Object.values(body.errors).flat().join('\n');
+                            }
+                            throw new Error(errorMessage);
+                        }
+
+                        return body;
+                    })
+                    .then(data => {
+                        // Success
+                        const successTitle = data.status === 'published' ? 'Published!' : 'Saved!';
+
+                        if (typeof Swal !== 'undefined') {
+                            Swal.fire({
+                                icon: 'success',
+                                title: successTitle,
+                                text: data.message,
+                                confirmButtonColor: '#f36f21',
+                                timer: 2000,
+                                showConfirmButton: false
+                            }).then(() => {
+                                window.location.href = "{{ route('admin.blog.index') }}";
+                            });
+                        } else {
+                            alert(`${successTitle}\n${data.message}`);
+                            window.location.href = "{{ route('admin.blog.index') }}";
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Submission Error:', error);
+                        showMessage('error', 'Submission Failed', error.message || 'Failed to connect to the server.');
+
+                        // Reset UI
+                        submitBtn.disabled = false;
+                        submitBtn.style.opacity = '1';
+                        if (btnText) btnText.style.display = 'block';
+                        if (spinner) spinner.classList.add('d-none');
+                        if (processingText) processingText.classList.add('d-none');
+                    });
             });
         });
     </script>
