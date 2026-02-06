@@ -31,7 +31,7 @@
                             <tr>
                                 <td class="ps-4">{{ $post->id }}</td>
                                 <td>
-                                    <div class="fw-bold text-dark">{{ Str::limit($post->title, 50) }}</div>
+                                    <div class="fw-bold text-dark">{{ \Illuminate\Support\Str::limit($post->title, 50) }}</div>
                                 </td>
                                 <td>
                                     @if($post->category)
@@ -96,12 +96,46 @@
         </div>
         @if($posts->hasPages())
             <div class="card-footer bg-white py-3">
-                {{ $posts->links() }}
+                <div class="admin-pagination">
+                    {{ $posts->links('partials.pagination') }}
+                </div>
             </div>
         @endif
     </div>
 
     <style>
+        /* Admin Pagination Styling */
+        .admin-pagination .pagination-tech {
+            justify-content: center;
+            margin-bottom: 0;
+            gap: 8px;
+        }
+
+        .admin-pagination .page-item-tech a,
+        .admin-pagination .page-item-tech span {
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            color: #475569;
+        }
+
+        .admin-pagination .page-item-tech.active span {
+            background: #f36f21;
+            /* Admin orange color */
+            border-color: #f36f21;
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(243, 111, 33, 0.2);
+        }
+
+        .admin-pagination .page-item-tech a:hover {
+            border-color: #f36f21;
+            color: #f36f21;
+            background: rgba(243, 111, 33, 0.05);
+        }
+
         .admin-header-v2 h1 {
             font-size: 1.75rem;
             font-weight: 700;

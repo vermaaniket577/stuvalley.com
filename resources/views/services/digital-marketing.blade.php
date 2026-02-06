@@ -221,12 +221,23 @@
         <div class="container flex-cta">
             <div class="cta-text-nav">
                 <span class="cta-label">Ready to scale?</span>
-                <span class="cta-phone"><i
-                        class="fas fa-phone-alt"></i>{{ $global_settings['phone_india'] ?? '+91 91729 20505' }}</span>
+                <span class="cta-phone"><i class="fas fa-phone-alt"></i>
+                    @php
+                        $dm_phone = $global_settings['phone_india'] ?? '+91 91729 20505';
+                        if (str_starts_with($dm_phone, '[')) {
+                            $phones = json_decode($dm_phone, true);
+                            $dm_phone = !empty($phones) ? $phones[0] : '+91 91729 20505';
+                        }
+                    @endphp
+                    {{ $dm_phone }}</span>
             </div>
             <div class="cta-actions-nav">
                 @php
                     $sd_wa = $global_settings['contact_whatsapp'] ?? '919172920505';
+                    if (str_starts_with($sd_wa, '[')) {
+                        $wa_nums = json_decode($sd_wa, true);
+                        $sd_wa = !empty($wa_nums) ? $wa_nums[0] : '919172920505';
+                    }
                     $sd_wa = preg_replace('/[^0-9]/', '', $sd_wa);
                     if (strlen($sd_wa) == 10)
                         $sd_wa = '91' . $sd_wa;

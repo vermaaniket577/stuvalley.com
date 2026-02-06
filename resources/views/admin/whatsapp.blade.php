@@ -24,9 +24,15 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-phone"></i></span>
                                     </div>
+                                    @php
+                                        $whatsapp_val = \App\Models\Setting::get('contact_whatsapp');
+                                        if ($whatsapp_val && str_starts_with($whatsapp_val, '[')) {
+                                            $wa_nums = json_decode($whatsapp_val, true);
+                                            $whatsapp_val = !empty($wa_nums) ? $wa_nums[0] : '';
+                                        }
+                                    @endphp
                                     <input type="text" name="contact_whatsapp" id="contact_whatsapp"
-                                        class="form-control form-control-lg"
-                                        value="{{ \App\Models\Setting::get('contact_whatsapp') }}"
+                                        class="form-control form-control-lg" value="{{ trim($whatsapp_val, '" ') }}"
                                         placeholder="e.g. 919425455499">
                                 </div>
                                 <small class="text-muted mt-2 d-block">

@@ -33,6 +33,9 @@ class AdminController extends Controller
             if ($request->hasFile($key)) {
                 $value = $request->file($key)->store('settings', 'public');
                 $type = 'image';
+            } elseif (is_array($value)) {
+                $value = json_encode(array_filter($value)); // Filter out empty values
+                $type = 'json';
             }
 
             // Determine group based on key prefix or predefined list

@@ -400,7 +400,15 @@
                     Get Free Consultation
                 </a>
 
-                <a href="tel:{{ preg_replace('/[^0-9]/', '', $global_settings['phone_india'] ?? '917292050505') }}"
+                @php
+                    $ind_phone_raw = $global_settings['phone_india'] ?? '917292050505';
+                    if (str_starts_with($ind_phone_raw, '[')) {
+                        $phones = json_decode($ind_phone_raw, true);
+                        $ind_phone_raw = !empty($phones) ? $phones[0] : '917292050505';
+                    }
+                    $ind_phone_link = preg_replace('/[^0-9]/', '', $ind_phone_raw);
+                @endphp
+                <a href="tel:{{ $ind_phone_link }}"
                     style="display: inline-flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.1); color: #fff; padding: 18px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; border: 2px solid rgba(255,255,255,0.3); backdrop-filter: blur(10px); transition: all 0.3s ease;"
                     onmouseover="this.style.background='rgba(255,255,255,0.2)'; this.style.borderColor='rgba(255,255,255,0.5)';"
                     onmouseout="this.style.background='rgba(255,255,255,0.1)'; this.style.borderColor='rgba(255,255,255,0.3)';">
@@ -419,7 +427,7 @@
                 <div style="display: flex; align-items: center; gap: 12px;">
                     <i class="fas fa-phone" style="color: rgba(255,255,255,0.8); font-size: 1.2rem;"></i>
                     <span
-                        style="color: rgba(255,255,255,0.9); font-size: 1rem; font-weight: 600;">{{ $global_settings['phone_india'] ?? '+91 7292 050505' }}</span>
+                        style="color: rgba(255,255,255,0.9); font-size: 1rem; font-weight: 600;">{{ $ind_phone_raw }}</span>
                 </div>
             </div>
         </div>

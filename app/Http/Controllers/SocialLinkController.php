@@ -21,6 +21,7 @@ class SocialLinkController extends Controller
         ]);
 
         SocialLink::create($request->all());
+        \Illuminate\Support\Facades\Cache::forget('global_social_links');
         return redirect()->back()->with('success', 'Social Link added successfully.');
     }
 
@@ -32,12 +33,14 @@ class SocialLinkController extends Controller
         ]);
 
         $socialLink->update($request->all());
+        \Illuminate\Support\Facades\Cache::forget('global_social_links');
         return redirect()->back()->with('success', 'Social Link updated successfully.');
     }
 
     public function destroy(SocialLink $socialLink)
     {
         $socialLink->delete();
+        \Illuminate\Support\Facades\Cache::forget('global_social_links');
         return redirect()->back()->with('success', 'Social Link deleted successfully.');
     }
 }

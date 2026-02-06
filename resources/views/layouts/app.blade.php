@@ -1462,11 +1462,25 @@
                     <span>
                         <img src="https://flagcdn.com/w20/in.png" alt="India"
                             style="height: 14px; margin-right: 8px; vertical-align: middle;">
-                        {{ $global_settings['phone_india'] ?? '+91 9643802216' }}
+                        @php
+                            $top_phone = $global_settings['phone_india'] ?? '+91 9643802216';
+                            if (str_starts_with($top_phone, '[')) {
+                                $phones = json_decode($top_phone, true);
+                                $top_phone = !empty($phones) ? $phones[0] : '+91 9643802216';
+                            }
+                        @endphp
+                        {{ $top_phone }}
                     </span>
                     <span>
                         <i class="fas fa-envelope" style="color: #F4C430; margin-right: 8px;"></i>
-                        {{ $global_settings['email_primary'] ?? 'info@stuvalley.com' }}
+                        @php
+                            $top_email = $global_settings['email_primary'] ?? 'info@stuvalley.com';
+                            if (str_starts_with($top_email, '[')) {
+                                $emails = json_decode($top_email, true);
+                                $top_email = !empty($emails) ? $emails[0] : 'info@stuvalley.com';
+                            }
+                        @endphp
+                        {{ $top_email }}
                     </span>
                 </div>
                 <div class="tb-social">
@@ -2279,9 +2293,16 @@
 
                         <ul class="contact-list">
                             <li>
-                                <a href="mailto:{{ $global_settings['email_support'] ?? 'info@stuvalley.com' }}">
+                                @php
+                                    $footer_email = $global_settings['email_support'] ?? 'info@stuvalley.com';
+                                    if (str_starts_with($footer_email, '[')) {
+                                        $emails = json_decode($footer_email, true);
+                                        $footer_email = !empty($emails) ? $emails[0] : 'info@stuvalley.com';
+                                    }
+                                @endphp
+                                <a href="mailto:{{ $footer_email }}">
                                     <div class="c-icon"><i class="fas fa-envelope"></i></div>
-                                    <span>{{ $global_settings['email_support'] ?? 'info@stuvalley.com' }}</span>
+                                    <span>{{ $footer_email }}</span>
                                 </a>
                             </li>
                             <li>
@@ -3143,7 +3164,11 @@
 
     <!-- WhatsApp Floating Button -->
     @php
-        $whatsapp_number = $global_settings['contact_whatsapp'] ?? $global_settings['phone_india'] ?? '';
+        $whatsapp_number = $global_settings['contact_whatsapp'] ?? ($global_settings['phone_india'] ?? '');
+        if (str_starts_with($whatsapp_number, '[')) {
+            $wa_nums = json_decode($whatsapp_number, true);
+            $whatsapp_number = !empty($wa_nums) ? $wa_nums[0] : '';
+        }
         // Remove non-numeric characters for the URL
         $wa_number = preg_replace('/[^0-9]/', '', $whatsapp_number);
 
@@ -3623,21 +3648,6 @@
         }
         }
     </style>
-    <!-- WhatsApp Floating Button -->
-    @php
-        $whatsapp_number = \App\Models\Setting::get('contact_whatsapp');
-        // Fallback to default if admin hasn't set one
-        if (!$whatsapp_number) {
-            $whatsapp_number = '919425455499';
-        }
-        $whatsapp_msg = \App\Models\Setting::get('contact_whatsapp_msg') ?? 'Hi! I am interested in your services.';
-    @endphp
-
-    <a href="https://wa.me/{{ $whatsapp_number }}?text={{ urlencode($whatsapp_msg) }}" class="whatsapp-float"
-        target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
     @include('partials.success-modal')
     <script>
         document.addEventListener('DOMContentLoaded', () => {

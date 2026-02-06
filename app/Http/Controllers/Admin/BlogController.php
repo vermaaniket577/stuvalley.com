@@ -43,8 +43,11 @@ class BlogController extends Controller
         ]);
 
         if ($request->hasFile('featured_image')) {
-            $path = $request->file('featured_image')->store('featured-images', 'public');
-            $validated['featured_image'] = $path;
+            // Store directly in public/images/blog (no symlink needed)
+            $file = $request->file('featured_image');
+            $filename = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('images/blog'), $filename);
+            $validated['featured_image'] = 'images/blog/' . $filename;
         }
 
         $validated['is_published'] = $request->boolean('is_published');
@@ -126,8 +129,11 @@ class BlogController extends Controller
         ]);
 
         if ($request->hasFile('featured_image')) {
-            $path = $request->file('featured_image')->store('featured-images', 'public');
-            $validated['featured_image'] = $path;
+            // Store directly in public/images/blog (no symlink needed)
+            $file = $request->file('featured_image');
+            $filename = time() . '_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('images/blog'), $filename);
+            $validated['featured_image'] = 'images/blog/' . $filename;
         } else {
             // Keep the old image if no new one is uploaded
             unset($validated['featured_image']);

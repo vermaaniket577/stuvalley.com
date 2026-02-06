@@ -15,7 +15,7 @@ window.addEventListener('load', () => {
     // ===========================================
     // Initialize Lenis for smooth inertia scrolling
     const lenis = new Lenis({
-        duration: 2.2,
+        duration: 2.2, // Reduced from 2.2 for faster response
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Soft easing curve
         direction: 'vertical',
         gestureDirection: 'vertical',
@@ -47,11 +47,11 @@ window.addEventListener('load', () => {
             {
                 y: 0,
                 opacity: 1,
-                duration: 1.2,
+                duration: 0.8, // Faster animation
                 ease: "power3.out",
                 scrollTrigger: {
                     trigger: elem,
-                    start: "top 85%", // Trigger when top of element is at 85% of viewport
+                    start: "top 90%", // Triggers earlier
                     toggleActions: "play none none reverse"
                 }
             }
@@ -172,7 +172,7 @@ window.addEventListener('load', () => {
     const masterTl = gsap.timeline({ defaults: { ease: "expo.out" } });
 
     // Hero Text Stagger
-    masterTl.fromTo(".hero h1, .hero p, .hero-btns", 
+    masterTl.fromTo(".hero h1, .hero p, .hero-btns",
         { y: 60, opacity: 0 },
         { y: 0, opacity: 1, duration: 1.5, stagger: 0.15, delay: 0.2 }
     );

@@ -287,13 +287,24 @@
         <div class="container flex-cta">
             <div class="cta-text-nav">
                 <span class="cta-label">Ready to scale?</span>
-                <span class="cta-phone"><i class="fas fa-phone-alt"></i>
-                    {{ $global_settings['phone_india'] ?? '+91 91729 20505' }}</span>
+                <span class="sd-contact-val">
+                    @php
+                        $sd_phone = $global_settings['phone_india'] ?? '+91 91729 20505';
+                        if (str_starts_with($sd_phone, '[')) {
+                            $phones = json_decode($sd_phone, true);
+                            $sd_phone = !empty($phones) ? $phones[0] : '+91 91729 20505';
+                        }
+                    @endphp
+                    {{ $sd_phone }}</span>
             </div>
             <div class="cta-actions-nav">
                 @php
-                    $sd_wa = $global_settings['contact_whatsapp'] ?? ($global_settings['phone_india'] ?? '917292050505');
-                    $sd_wa = preg_replace('/[^0-9]/', '', $sd_wa);
+                    $sd_wa_raw = $global_settings['contact_whatsapp'] ?? ($global_settings['phone_india'] ?? '917292050505');
+                    if (str_starts_with($sd_wa_raw, '[')) {
+                        $wa_nums = json_decode($sd_wa_raw, true);
+                        $sd_wa_raw = !empty($wa_nums) ? $wa_nums[0] : '917292050505';
+                    }
+                    $sd_wa = preg_replace('/[^0-9]/', '', $sd_wa_raw);
                     if (strlen($sd_wa) == 10)
                         $sd_wa = '91' . $sd_wa;
                     $sd_url = "https://wa.me/{$sd_wa}";

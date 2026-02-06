@@ -6,13 +6,12 @@
         <!-- Premium Hero Section -->
         <section class="contact-hero-v2">
             <div class="container text-center">
-                <div class="badge-pill mb-4">Get in Touch</div>
+                <div class="badge-pill mb-4">{{ $global_settings['contact_hero_badge'] ?? 'Get in Touch' }}</div>
                 <h1 class="premium-display-title mb-4">
-                    Let's Build Something <span class="premium-text-gradient">Extraordinary</span>
+                    {!! $global_settings['contact_hero_title'] ?? 'Let\'s Build Something <span class="premium-text-gradient">Extraordinary</span>' !!}
                 </h1>
                 <p class="premium-hero-lead mx-auto" style="max-width: 800px;">
-                    Have a project in mind? We'd love to hear from you. Our team is ready to turn your vision into reality
-                    with enterprise-grade solutions.
+                    {{ $global_settings['contact_hero_description'] ?? 'Have a project in mind? We\'d love to hear from you. Our team is ready to turn your vision into reality with enterprise-grade solutions.' }}
                 </p>
             </div>
         </section>
@@ -24,11 +23,12 @@
 
                     <!-- Left Column: Contact Information -->
                     <div class="contact-info-column">
-                        <div class="section-label mb-3">Reach Us</div>
-                        <h2 class="column-heading mb-4">Contact Information</h2>
+                        <div class="section-label mb-3">{{ $global_settings['contact_info_label'] ?? 'Reach Us' }}</div>
+                        <h2 class="column-heading mb-4">
+                            {{ $global_settings['contact_info_title'] ?? 'Contact Information' }}
+                        </h2>
                         <p class="column-subtext mb-5">
-                            Our experts are here to help. Reach out to us through any of these channels for immediate
-                            support or business inquiries.
+                            {{ $global_settings['contact_info_description'] ?? 'Our experts are here to help. Reach out to us through any of these channels for immediate support or business inquiries.' }}
                         </p>
 
                         <div class="premium-info-list">
@@ -39,7 +39,8 @@
                                 </div>
                                 <div class="info-details">
                                     <h3>Headquarters</h3>
-                                    <p>M 13, Sector 14, Old DLF, Gurugram, India</p>
+                                    <p>{!! nl2br(e($global_settings['address_india'] ?? 'M 13, Sector 14, Old DLF, Gurugram, India')) !!}
+                                    </p>
                                 </div>
                             </div>
 
@@ -50,8 +51,28 @@
                                 </div>
                                 <div class="info-details">
                                     <h3>Email Support</h3>
-                                    <p>info@stuvalley.com</p>
-                                    <p>support@stuvalley.com</p>
+                                    @if(isset($global_settings['email_primary']) && !empty($global_settings['email_primary']))
+                                        <p>{{ $global_settings['email_primary'] }}</p>
+                                    @endif
+
+                                    @if(isset($global_settings['email_support']))
+                                        @php
+                                            $support_emails = $global_settings['email_support'];
+                                            if (str_starts_with($support_emails, '[')) {
+                                                $support_emails = json_decode($support_emails, true);
+                                            } else {
+                                                $support_emails = $support_emails ? [$support_emails] : [];
+                                            }
+                                        @endphp
+                                        @foreach($support_emails as $email)
+                                            <p>{{ $email }}</p>
+                                        @endforeach
+                                    @endif
+
+                                    @if(empty($global_settings['email_primary']) && empty($global_settings['email_support']))
+                                        <p>info@stuvalley.com</p>
+                                        <p>support@stuvalley.com</p>
+                                    @endif
                                 </div>
                             </div>
 
@@ -62,21 +83,53 @@
                                 </div>
                                 <div class="info-details">
                                     <h3>Call Us</h3>
-                                    <p>+91 7292 050505</p>
-                                    <p>0124-4252-196</p>
+                                    @if(isset($global_settings['phone_india']))
+                                        @php
+                                            $mobile_numbers = $global_settings['phone_india'];
+                                            if (str_starts_with($mobile_numbers, '[')) {
+                                                $mobile_numbers = json_decode($mobile_numbers, true);
+                                            } else {
+                                                $mobile_numbers = [$mobile_numbers];
+                                            }
+                                        @endphp
+                                        @foreach($mobile_numbers as $number)
+                                            <p>{{ $number }}</p>
+                                        @endforeach
+                                    @endif
+                                    @if(isset($global_settings['phone_india_landline']))
+                                        <p>{{ $global_settings['phone_india_landline'] }}</p>
+                                    @endif
+                                    @if(!isset($global_settings['phone_india']) && !isset($global_settings['phone_india_landline']))
+                                        <p>+91 7292 050505</p>
+                                        <p>0124-4252-196</p>
+                                    @endif
                                 </div>
                             </div>
                         </div>
 
                         <!-- Social Presence -->
-                        <div class="premium-social-presence mt-5">
-                            <h4 class="mb-4">Follow Our Journey</h4>
-                            <div class="social-circles">
-                                <a href="#" class="social-circle"><i class="fa-brands fa-linkedin-in"></i></a>
-                                <a href="#" class="social-circle"><i class="fa-brands fa-x-twitter"></i></a>
-                                <a href="#" class="social-circle"><i class="fa-brands fa-instagram"></i></a>
+                        @if(isset($global_social_links) && $global_social_links->count() > 0)
+                            <div class="premium-social-presence mt-5">
+                                <h4 class="mb-4">Follow Our Journey</h4>
+                                <div class="social-circles">
+                                    @foreach($global_social_links as $link)
+                                        <a href="{{ $link->url }}" class="social-circle" target="_blank"
+                                            title="{{ $link->platform }}">
+                                            <i class="{{ $link->icon }}"></i>
+                                        </a>
+                                    @endforeach
+                                </div>
                             </div>
-                        </div>
+                        @else
+                            <div class="premium-social-presence mt-5">
+                                <h4 class="mb-4">Follow Our Journey</h4>
+                                <div class="social-circles">
+                                    <a href="#" class="social-circle"><i class="fa-brands fa-linkedin-in"></i></a>
+                                    <a href="#" class="social-circle"><i class="fa-brands fa-x-twitter"></i></a>
+                                    <a href="#" class="social-circle"><i class="fa-brands fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        @endif
                     </div>
 
                     <!-- Right Column: Contact Form -->
@@ -139,7 +192,7 @@
                     </div>
                     <div class="map-container-wrapper">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14030.765692019864!2d77.0456187!3d28.4713915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d190479d5057d%3A0xe54eaf95542289!2zTCAxMywgU2VjdG9yIDE0LCBHdXJ1Z3JhbSwgSGFyeWFuYSAxMjIwMDE!5e0!3m2!1sen!2sin!4v1706256000000"
+                            src="{{ $global_settings['google_map_embed'] ?? 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14030.765692019864!2d77.0456187!3d28.4713915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d190479d5057d%3A0xe54eaf95542289!2zTCAxMywgU2VjdG9yIDE0LCBHdXJ1Z3JhbSwgSGFyeWFuYSAxMjIwMDE!5e0!3m2!1sen!2sin!4v1706256000000' }}"
                             width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                         <div class="map-overlay-v2"></div>
                     </div>

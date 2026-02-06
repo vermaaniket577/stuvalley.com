@@ -20,16 +20,8 @@
                     <div class="blog-grid">
                         @foreach($posts as $post)
                             <article class="blog-card">
-                                @if($post->featured_image)
-                                    @php
-                                        $imagePath = filter_var($post->featured_image, FILTER_VALIDATE_URL)
-                                            ? $post->featured_image
-                                            : asset('storage/' . $post->featured_image);
-                                    @endphp
-                                    <div class="blog-card-image" style="background-image: url('{{ $imagePath }}');"></div>
-                                @else
-                                    <div class="blog-card-image" style="background: linear-gradient(135deg, #38bdf8, #818cf8);"></div>
-                                @endif
+                                <div class="blog-card-image" style="background-image: url('{{ $post->featured_image_url }}');">
+                                </div>
 
                                 <div class="blog-card-content">
                                     <div class="blog-meta">
@@ -46,7 +38,7 @@
                                     </h3>
 
                                     @if($post->excerpt)
-                                        <p class="blog-excerpt">{{ Str::limit($post->excerpt, 120) }}</p>
+                                        <p class="blog-excerpt">{{ \Illuminate\Support\Str::limit($post->excerpt, 120) }}</p>
                                     @endif
 
                                     <div class="blog-footer">
@@ -68,7 +60,7 @@
 
                     <!-- Pagination -->
                     <div class="blog-pagination">
-                        {{ $posts->links() }}
+                        {{ $posts->links('partials.pagination') }}
                     </div>
                 @else
                     <div class="empty-state">
@@ -313,39 +305,68 @@
             font-size: 1.1rem;
         }
 
+        /* Premium Tech Pagination */
         .blog-pagination {
             margin-top: 80px;
             display: flex;
             justify-content: center;
         }
 
-        /* Pagination Styling Override */
-        .pagination {
+        .pagination-tech {
             display: flex;
-            gap: 10px;
+            gap: 12px;
             list-style: none;
             padding: 0;
+            align-items: center;
         }
 
-        .page-item .page-link {
-            width: 45px;
-            height: 45px;
+        .page-item-tech {
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 12px;
-            background: #fff;
+        }
+
+        .page-item-tech a,
+        .page-item-tech span {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            background: #ffffff;
             border: 1px solid #e2e8f0;
             color: #0f172a;
             font-weight: 700;
-            transition: all 0.3s;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
-        .page-item.active .page-link {
+        .page-item-tech.active span {
             background: #2563eb;
             border-color: #2563eb;
-            color: #fff;
-            box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.4);
+            color: #ffffff;
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .page-item-tech:not(.active):not(.disabled) a:hover {
+            border-color: #2563eb;
+            color: #2563eb;
+            background: #eff6ff;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .page-item-tech.disabled span {
+            opacity: 0.4;
+            cursor: not-allowed;
+            background: #f1f5f9;
+        }
+
+        .page-item-tech i {
+            font-size: 0.9rem;
         }
 
         @media(max-width: 768px) {

@@ -79,16 +79,60 @@ Route::post('/contact/submit', [App\Http\Controllers\ContactController::class, '
 Route::get('/get-a-quote', [App\Http\Controllers\QuoteController::class, 'index'])->name('quote.index');
 Route::post('/get-a-quote/submit', [App\Http\Controllers\QuoteController::class, 'store'])->name('quote.store');
 
-// Deployment Helper (cPanel)
 Route::get('/deploy-helper', function () {
     try {
         Artisan::call('storage:link');
         Artisan::call('config:clear');
         Artisan::call('view:clear');
         Artisan::call('cache:clear');
-        return "System Optimized and Storage Linked! <br><br> <a href='/'>Go to Home</a>";
+
+        $output = "<h1>Professional Deployment Diagnosis</h1>";
+        $output .= "<b>Status:</b> System Optimized and Storage Linked!<br><br>";
+
+        $output .= "<h3>Path Environment:</h3>";
+        $output .= "<b>Base Path:</b> " . base_path() . "<br>";
+        $output .= "<b>Public Path:</b> " . public_path() . "<br>";
+        $output .= "<b>Storage Path:</b> " . storage_path() . "<br>";
+        $output .= "<b>APP_URL:</b> " . env('APP_URL') . "<br>";
+
+        $output .= "<h3>Image Logic Debug:</h3>";
+        $post = \App\Models\BlogPost::latest()->first();
+        if ($post) {
+            $output .= "<b>Latest Post ID:</b> " . $post->id . "<br>";
+            $output .= "<b>DB 'featured_image' field:</b> " . htmlspecialchars($post->featured_image) . "<br>";
+
+            $url = $post->featured_image_url;
+            $output .= "<b>Model accessor 'featured_image_url':</b> <a href='$url' target='_blank'>$url</a><br>";
+
+            // Check various possible physical locations
+            $test_paths = [
+                'Direct Path' => public_path($post->featured_image),
+                'Inside Public' => public_path('public/' . $post->featured_image),
+                'Laravel Storage' => storage_path('app/public/' . str_replace('storage/', '', $post->featured_image)),
+            ];
+
+            $output .= "<h4>Physical File Locators:</h4>";
+            foreach ($test_paths as $label => $path) {
+                $exists = file_exists($path);
+                $output .= "<b>$label:</b> " . ($exists ? "✅ EXISTS" : "❌ NOT FOUND") . " <small>($path)</small><br>";
+            }
+
+            // Check permissions of the directory
+            $img_dir = public_path('images/blog');
+            if (is_dir($img_dir)) {
+                $output .= "<br><b>Images Directory Perms:</b> " . substr(sprintf('%o', fileperms($img_dir)), -4) . "<br>";
+            } else {
+                $output .= "<br><b>Images Directory:</b> ❌ NOT A DIRECTORY ($img_dir)<br>";
+            }
+
+        } else {
+            $output .= "No blog posts found in database.";
+        }
+
+        $output .= "<br><hr><a href='/'>Go to Home</a>";
+        return $output;
     } catch (\Exception $e) {
-        return "Error: " . $e->getMessage();
+        return "Error: " . $e->getMessage() . "<br><pre>" . $e->getTraceAsString() . "</pre>";
     }
 });
 

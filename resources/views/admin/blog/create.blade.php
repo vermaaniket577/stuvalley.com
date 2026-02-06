@@ -13,7 +13,8 @@
     <div class="card border-0 shadow-sm">
         <div class="card-body p-4 p-md-5">
             <form id="blogPostForm" novalidate
-                action="{{ isset($blog) ? route('admin.blog.update', $blog) : route('admin.blog.store') }}" method="POST">
+                action="{{ isset($blog) ? route('admin.blog.update', $blog) : route('admin.blog.store') }}" method="POST"
+                enctype="multipart/form-data">
                 @csrf
                 @if(isset($blog))
                     @method('PUT')
@@ -70,8 +71,7 @@
                                 <div id="imagePreviewContainer" class="text-center p-2 border rounded bg-light"
                                     style="{{ isset($blog) && $blog->featured_image ? '' : 'display: none;' }}">
                                     @if(isset($blog) && $blog->featured_image)
-                                        <img src="{{ filter_var($blog->featured_image, FILTER_VALIDATE_URL) ? $blog->featured_image : asset('storage/' . $blog->featured_image) }}"
-                                            id="imagePreview" class="img-fluid rounded"
+                                        <img src="{{ $blog->featured_image_url }}" id="imagePreview" class="img-fluid rounded"
                                             style="max-height: 200px; object-fit: cover; width: 100%;" alt="Preview">
                                     @else
                                         <img src="" id="imagePreview" class="img-fluid rounded"
@@ -299,26 +299,64 @@
                             return;
                         }
 
-                        // Validate Size (500KB)
-                        if (file.size > 500 * 1024) {
-                            alert('File size exceeds 500KB limit.');
-                            imageInput.value = '';
-                            return;
-                        }
-
-                        // Show Preview
+                        // Compression Logic
                         const reader = new FileReader();
-                        reader.onload = function (e) {
-                            previewImage.src = e.target.result;
-                            previewImage.style.display = 'block';
-                            if (previewPlaceholder) previewPlaceholder.style.display = 'none';
-                            previewContainer.style.display = 'block';
-                        };
                         reader.readAsDataURL(file);
-                    } else {
-                        // Reset if cancelled
-                        // Don't hide if there was an existing image, but complex to detect here.
-                        // Ideally we keep the old one or just do nothing.
+                        reader.onload = function (e) {
+                            const img = new Image();
+                            img.src = e.target.result;
+                            img.onload = function () {
+                                const canvas = document.createElement('canvas');
+                                const ctx = canvas.getContext('2d');
+
+                                // Max dimensions
+                                const MAX_WIDTH = 1200;
+                                const MAX_HEIGHT = 1200;
+                                let width = img.width;
+                                let height = img.height;
+
+                                if (width > height) {
+                                    if (width > MAX_WIDTH) {
+                                        height *= MAX_WIDTH / width;
+                                        width = MAX_WIDTH;
+                                    }
+                                } else {
+                                    if (height > MAX_HEIGHT) {
+                                        width *= MAX_HEIGHT / height;
+                                        height = MAX_HEIGHT;
+                                    }
+                                }
+
+                                canvas.width = width;
+                                canvas.height = height;
+                                ctx.drawImage(img, 0, 0, width, height);
+
+                                // Compress to JPEG with 0.7 quality
+                                canvas.toBlob(function (blob) {
+                                    if (!blob) return;
+                                    
+                                    // Create new File object
+                                    const compressedFile = new File([blob], file.name.replace(/\.[^/.]+$/, "") + ".jpg", {
+                                        type: 'image/jpeg',
+                                        lastModified: Date.now()
+                                    });
+
+                                    // Replace file in input
+                                    const dataTransfer = new DataTransfer();
+                                    dataTransfer.items.add(compressedFile);
+                                    imageInput.files = dataTransfer.files;
+
+                                    console.log(`Original: ${(file.size / 1024).toFixed(2)}KB, Compressed: ${(compressedFile.size / 1024).toFixed(2)}KB`);
+
+                                    // Update Preview
+                                    previewImage.src = URL.createObjectURL(compressedFile);
+                                    previewImage.style.display = 'block';
+                                    if (previewPlaceholder) previewPlaceholder.style.display = 'none';
+                                    previewContainer.style.display = 'block';
+
+                                }, 'image/jpeg', 0.7);
+                            };
+                        };
                     }
                 });
             }
