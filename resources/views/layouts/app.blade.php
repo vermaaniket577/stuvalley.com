@@ -32,12 +32,8 @@
         content="@if(isset($service) && isset($service->subtitle)) {{ $service->subtitle }} @else {{ $seo_meta->description ?? $global_settings['seo_home_desc'] ?? 'Stuvalley Technology delivers cutting-edge solutions in academia, research, training, and recruitment.' }} @endif">
     <meta name="keywords" content="{{ $seo_meta->keywords ?? '' }}">
 
-    <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="{{ $seo_meta->title ?? 'Stuvalley Technology' }}">
-    <meta property="og:description" content="{{ $seo_meta->description ?? '' }}">
-    @if(isset($seo_meta->image))
-        <meta property="og:image" content="{{ asset('storage/' . $seo_meta->image) }}">
-    @endif
+    {{-- Comprehensive Open Graph Tags for Social Media --}}
+    @include('partials.og-tags')
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -1027,7 +1023,11 @@
 
             .tb-social a {
                 font-size: 0.95rem !important;
+                text-decoration: none !important;
+                border: none !important;
             }
+
+            /* Mobile icons now use the same underline as desktop from app.css */
 
             /* Spacing adjustments moved to app.css */
 
@@ -1035,7 +1035,6 @@
                 display: none !important;
                 /* Hide CTA button on mobile, put in menu if needed */
             }
-        }
         }
 
         /* Mega Menu Mobile Behavior */
@@ -1464,10 +1463,11 @@
                             style="height: 14px; margin-right: 8px; vertical-align: middle;">
                         @php
                             $top_phone = $global_settings['phone_india'] ?? '+91 9643802216';
-                            if (str_starts_with($top_phone, '[')) {
+                            if (is_string($top_phone) && str_contains($top_phone, '[')) {
                                 $phones = json_decode($top_phone, true);
-                                $top_phone = !empty($phones) ? $phones[0] : '+91 9643802216';
+                                $top_phone = is_array($phones) ? ($phones[0] ?? $top_phone) : $top_phone;
                             }
+                            $top_phone = trim($top_phone, '[]" ');
                         @endphp
                         {{ $top_phone }}
                     </span>
@@ -1484,16 +1484,11 @@
                     </span>
                 </div>
                 <div class="tb-social">
-                    <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"
-                            style="color: #ff0000;"></i></a>
-                    <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"
-                            style="color: #0077b5;"></i></a>
-                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"
-                            style="color: #e1306c;"></i></a>
-                    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"
-                            style="color: #1877f2;"></i></a>
-                    <a href="https://twitter.com" target="_blank"><i class="fab fa-x-twitter"
-                            style="color: #fff;"></i></a>
+                    @if(isset($global_social_links))
+                        @foreach($global_social_links as $link)
+                            <a href="{{ $link->url }}" target="_blank"><i class="{{ $link->icon }}"></i></a>
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>
@@ -2351,9 +2346,30 @@
                             <span class="map-title-text">Find Us on Google Maps</span>
                         </div>
                         <div class="map-frame-wrapper">
-                            <iframe
-                                src="{{ $global_settings['google_map_embed'] ?? 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14030.765692019864!2d77.0456187!3d28.4713915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d190479d5057d%3A0xe54eaf95542289!2zTCAxMywgU2VjdG9yIDE0LCBHdXJ1Z3JhbSwgSGFyeWFuYSAxMjIwMDE!5e0!3m2!1sen!2sin!4v1706256000000!5m2!1sen!2sin' }}"
-                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                            @php
+                                $map_address = $global_settings['address_india'] ?? 'M 13, Sector 14, Gurugram, India';
+                                $map_embed = $global_settings['google_map_embed'] ?? '';
+
+                                // Clean up the address for the URL
+                                $clean_address = strip_tags(str_replace(['<br>', '<br/>', '<br />'], ' ', $map_address));
+
+                                // Default dynamic map URL based on address
+                                $map_url = "https://maps.google.com/maps?q=" . urlencode($clean_address) . "&t=&z=15&ie=UTF8&iwloc=&output=embed";
+
+                                // Use the specific embed URL if provided and not just the default placeholder
+                                if (!empty($map_embed)) {
+                                    if (str_contains($map_embed, '<iframe')) {
+                                        preg_match('/src="([^"]+)"/', $map_embed, $matches);
+                                        if (isset($matches[1])) {
+                                            $map_url = $matches[1];
+                                        }
+                                    } elseif (str_contains($map_embed, 'https://')) {
+                                        $map_url = $map_embed;
+                                    }
+                                }
+                            @endphp
+                            <iframe src="{{ $map_url }}" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
                             </iframe>
                             <!-- Removed overlay to keep map fully interactive and bright -->
                         </div>
@@ -3165,10 +3181,11 @@
     <!-- WhatsApp Floating Button -->
     @php
         $whatsapp_number = $global_settings['contact_whatsapp'] ?? ($global_settings['phone_india'] ?? '');
-        if (str_starts_with($whatsapp_number, '[')) {
+        if (is_string($whatsapp_number) && str_contains($whatsapp_number, '[')) {
             $wa_nums = json_decode($whatsapp_number, true);
-            $whatsapp_number = !empty($wa_nums) ? $wa_nums[0] : '';
+            $whatsapp_number = is_array($wa_nums) ? ($wa_nums[0] ?? $whatsapp_number) : $whatsapp_number;
         }
+        $whatsapp_number = trim($whatsapp_number, '[]" ');
         // Remove non-numeric characters for the URL
         $wa_number = preg_replace('/[^0-9]/', '', $whatsapp_number);
 

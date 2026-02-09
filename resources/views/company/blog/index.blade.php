@@ -20,7 +20,8 @@
                     <div class="blog-grid">
                         @foreach($posts as $post)
                             <article class="blog-card">
-                                <div class="blog-card-image" style="background-image: url('{{ $post->featured_image_url }}');">
+                                <div class="blog-card-image-wrapper">
+                                    <img src="{{ $post->featured_image_url }}" alt="{{ $post->title }}" class="blog-card-image">
                                 </div>
 
                                 <div class="blog-card-content">
@@ -170,16 +171,22 @@
             border-color: #3b82f6;
         }
 
-        .blog-card-image {
+        .blog-card-image-wrapper {
             height: 250px;
-            background-size: cover;
-            background-position: center;
+            overflow: hidden;
             position: relative;
+        }
+
+        .blog-card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            display: block;
         }
 
         .blog-card:hover .blog-card-image {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
 
         .blog-card-content {

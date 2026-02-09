@@ -402,10 +402,11 @@
 
                 @php
                     $ind_phone_raw = $global_settings['phone_india'] ?? '917292050505';
-                    if (str_starts_with($ind_phone_raw, '[')) {
+                    if (is_string($ind_phone_raw) && str_contains($ind_phone_raw, '[')) {
                         $phones = json_decode($ind_phone_raw, true);
-                        $ind_phone_raw = !empty($phones) ? $phones[0] : '917292050505';
+                        $ind_phone_raw = is_array($phones) ? ($phones[0] ?? $ind_phone_raw) : $ind_phone_raw;
                     }
+                    $ind_phone_raw = trim($ind_phone_raw, '[]" ');
                     $ind_phone_link = preg_replace('/[^0-9]/', '', $ind_phone_raw);
                 @endphp
                 <a href="tel:{{ $ind_phone_link }}"

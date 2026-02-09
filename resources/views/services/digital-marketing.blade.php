@@ -221,13 +221,14 @@
         <div class="container flex-cta">
             <div class="cta-text-nav">
                 <span class="cta-label">Ready to scale?</span>
-                <span class="cta-phone"><i class="fas fa-phone-alt"></i>
+                <span class="cta-phone"><i class="fa-solid fa-phone" style="margin-right: 8px; color: #38bdf8;"></i>
                     @php
                         $dm_phone = $global_settings['phone_india'] ?? '+91 91729 20505';
-                        if (str_starts_with($dm_phone, '[')) {
+                        if (is_string($dm_phone) && str_contains($dm_phone, '[')) {
                             $phones = json_decode($dm_phone, true);
-                            $dm_phone = !empty($phones) ? $phones[0] : '+91 91729 20505';
+                            $dm_phone = is_array($phones) ? ($phones[0] ?? $dm_phone) : $dm_phone;
                         }
+                        $dm_phone = trim($dm_phone, '[]" ');
                     @endphp
                     {{ $dm_phone }}</span>
             </div>

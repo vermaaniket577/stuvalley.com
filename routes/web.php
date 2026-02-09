@@ -40,9 +40,7 @@ Route::get('/', function () {
         return \App\Models\PricingPlan::orderBy('sort_order')->get();
     });
 
-    $blog_posts = \Illuminate\Support\Facades\Cache::remember('home_blogs', 3600, function () {
-        return \App\Models\BlogPost::published()->latest('published_at')->limit(3)->get();
-    });
+    $blog_posts = \App\Models\BlogPost::published()->latest('published_at')->limit(3)->get();
 
     return view('home', compact('partners', 'industries', 'global_solutions', 'pricing_plans', 'blog_posts'));
 });

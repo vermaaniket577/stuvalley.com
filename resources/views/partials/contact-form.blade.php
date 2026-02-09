@@ -43,10 +43,12 @@
                         <select name="service" class="form-select" required>
                             <option value="" disabled selected>Select Service</option>
                             <option value="Web Development">Web Development</option>
-                            <option value="Mobile Apps">Mobile Apps</option>
                             <option value="Digital Marketing">Digital Marketing</option>
-                            <option value="UI/UX Design">UI/UX Design</option>
-                            <option value="Enterprise Solutions">Enterprise Solutions</option>
+                            <option value="Ecommerce Solution">Ecommerce Solution</option>
+                            <option value="Branding & Design">Branding & Design</option>
+                            <option value="App Development">App Development</option>
+                            <option value="Support & Hosting">Support & Hosting</option>
+                            <option value="Others">Others</option>
                         </select>
                     </div>
 

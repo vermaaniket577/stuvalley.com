@@ -287,13 +287,13 @@
 
                 <h2
                     style="
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  margin:0 0 22px 0;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  font-weight:800;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  line-height:1.08;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  color:#1e293b;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  font-size:clamp(2.1rem, 3.6vw, 3.4rem);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  max-width: 1100px;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              margin:0 0 22px 0;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              font-weight:800;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              line-height:1.08;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              color:#1e293b;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              font-size:clamp(2.1rem, 3.6vw, 3.4rem);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              max-width: 1100px;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ">
                     Custom-Built Systems for a
                     <span style="color:#3b82f6;">Smarter, Scalable</span>
                     Business
@@ -301,13 +301,13 @@
 
                 <p
                     style="
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  margin:0;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  color:#64748b;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  font-size:clamp(1rem, 1.05vw, 1.15rem);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  line-height:1.85;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  max-width: 1100px;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  allign: justify;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              margin:0;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              color:#64748b;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              font-size:clamp(1rem, 1.05vw, 1.15rem);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              line-height:1.85;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              max-width: 1100px;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              allign: justify;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ">
                     Take your business to new heights with our custom, intelligent, and adaptable web design and
                     development services in India – trusted by clients worldwide. We build powerful and innovative
                     platforms that simplify operations, automate workflows, and drive productivity. When you're ready
@@ -731,7 +731,7 @@
 
                         <!-- Duplicate Set -->
                         <div class="tech-item"><i class="devicon-nodejs-plain colored"></i><span>Node.js</span></div>
-                        <div class="tech-item"><i class="devicon-python-plain colored"></i><span>Python</span></div>
+                        <div class="tech-item"><iclass="devicon-python-plain colored"></i><span>Python</span></div>
                         <div class="tech-item"><i class="devicon-wordpress-plain colored"></i><span>WordPress</span></div>
                         <div class="tech-item"><i class="devicon-php-plain colored"></i><span>PHP</span></div>
                         <div class="tech-item"><i class="devicon-woocommerce-plain colored"></i><span>WooCommerce</span>
@@ -916,8 +916,8 @@
                 </span>
                 <h2
                     style="font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 25px; font-family: 'Manrope', sans-serif; letter-spacing: 4px;">
-                    Enterprise-Grade <span
-                        style="background: linear-gradient(90deg, #60a5fa, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Digital
+                    Enterprise-Grade <br><span
+                        style="background: linear-gradient(90deg, #60a5fa, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; margin-top: 15px;">Digital
                         Solutions</span>
                 </h2>
                 <p style="color: #94a3b8; font-size: 1.15rem; max-width: 700px; margin: 0 auto; line-height: 1.8;">
@@ -1306,7 +1306,7 @@
                             </div>
 
                             <!-- Detailed hover overlay (optional, keeps text minimal as requested) -->
-                            <a href="{{ route('services.show', \Illuminate\Support\Str::slug($solution->title)) }}"
+                            <a href="{{ route('solutions.show', \Illuminate\Support\Str::slug($solution->title)) }}"
                                 class="sol-card-link"></a>
                         </div>
                     @endforeach
@@ -1321,7 +1321,7 @@
                             <h3 class="sol-title">HRM Solution</h3>
                             <div class="sol-arrow"><i class="fas fa-arrow-right"></i></div>
                         </div>
-                        <a href="{{ route('services.show', 'hrm-solution') }}" class="sol-card-link"></a>
+                        <a href="{{ route('solutions.show', 'hrm-solution') }}" class="sol-card-link"></a>
                     </div>
                     <div class="premium-sol-card reveal">
                         <div class="sol-card-bg"
@@ -1332,7 +1332,7 @@
                             <h3 class="sol-title">CRM Solution</h3>
                             <div class="sol-arrow"><i class="fas fa-arrow-right"></i></div>
                         </div>
-                        <a href="{{ route('services.show', 'crm-solution') }}" class="sol-card-link"></a>
+                        <a href="{{ route('solutions.show', 'crm-solution') }}" class="sol-card-link"></a>
                     </div>
                     <div class="premium-sol-card reveal">
                         <div class="sol-card-bg"
@@ -1343,14 +1343,14 @@
                             <h3 class="sol-title">ERP Solution</h3>
                             <div class="sol-arrow"><i class="fas fa-arrow-right"></i></div>
                         </div>
-                        <a href="{{ route('services.show', 'erp-solution') }}" class="sol-card-link"></a>
+                        <a href="{{ route('solutions.show', 'erp-solution') }}" class="sol-card-link"></a>
                     </div>
                 @endif
             </div>
 
             <!-- Footer CTA -->
             <div class="reveal" style="text-align: center; margin-top: 60px;">
-                <a href="{{ route('services.index') }}" class="btn-explore-all">
+                <a href="{{ route('solutions.index') }}" class="btn-explore-all">
                     Explore All Solutions <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
@@ -1525,7 +1525,8 @@
                 <h2
                     style="font-size: 3rem; font-weight: 800; color: #ffffff; margin-bottom: 25px; line-height: 1.2; font-family: 'Manrope', sans-serif;">
                     Transforming Sectors with <br><span
-                        style="color: #3b82f6; text-shadow: 0 0 30px rgba(59,130,246,0.5);">Digital Excellence</span>
+                        style="color: #3b82f6; text-shadow: 0 0 30px rgba(59,130,246,0.5);display: inline-block; margin-top: 15px;">Digital
+                        Excellence</span>
                 </h2>
                 <p style="color: #94a3b8; font-size: 1.125rem; line-height: 1.8; max-width: 700px; margin: 0 auto;">
                     We deliver specialized technical solutions tailored to the unique challenges of modern industries.
@@ -1721,29 +1722,28 @@
                     digital-first world.</p>
             </div>
 
-            <div class="grid" style="gap: 40px;">
+            <div class="blog-grid" style="gap: 40px;">
                 @forelse($blog_posts ?? [] as $post)
                     <div class="card reveal" onclick="window.location='{{ route('blog.show', $post->slug ?? '#') }}'"
-                        style="cursor: pointer; padding: 0 0 15px 0; background: #ffffff !important; border-radius: 20px !important; border: 1px solid #e2e8f0 !important; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important; overflow: hidden !important; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); height: 100%; display: flex; flex-direction: column;">
+                        style="cursor: pointer; padding: 0; background: #ffffff !important; border-radius: 20px !important; border: 1px solid #e2e8f0 !important; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important; overflow: hidden !important; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); height: 100%; display: flex; flex-direction: column;">
 
-                        <!-- Clean Image Logic using Accessor -->
-                        <div class="blog-card-image"
-                            style="height: 240px; background-image: url('{{ $post->featured_image_url }}'); background-size: cover; background-position: center; transition: 0.5s;">
+                        <!-- Featured Image with img tag for better visibility -->
+                        <div style="overflow: hidden; height: 240px; position: relative;">
+                            <img src="{{ $post->featured_image_url }}" alt="{{ $post->title ?? 'Blog Image' }}"
+                                style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);"
+                                class="blog-image-main">
                             <div
                                 style="position: absolute; top: 15px; left: 15px; background: rgba(59, 130, 246, 0.9); color: #fff; padding: 5px 12px; border-radius: 30px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
-                                {{ $post->category ?? 'Tech' }}
+                                {{ $post->category ?? 'Insights' }}
                             </div>
                         </div>
+
                         <div style="padding: 25px; flex-grow: 1; display: flex; flex-direction: column;">
-                            <div style="font-size: 0.85rem; color: #64748b; margin-bottom: 12px; font-weight: 500;">
-                                <i class="far fa-calendar-alt"></i>
-                                @php
-                                    $pubDate = $post->published_at ?? now();
-                                    if (is_string($pubDate)) {
-                                        $pubDate = \Carbon\Carbon::parse($pubDate);
-                                    }
-                                @endphp
-                                {{ $pubDate->format('M d, Y') }}
+                            <div
+                                style="font-size: 0.85rem; color: #64748b; margin-bottom: 12px; font-weight: 500; display: flex; gap: 15px;">
+                                <span><i class="far fa-calendar-alt"></i>
+                                    {{ $post->published_at ? $post->published_at->format('M d, Y') : now()->format('M d, Y') }}</span>
+                                <span><i class="far fa-clock"></i> {{ $post->reading_time ?? '5' }} min read</span>
                             </div>
                             <h3
                                 style="font-size: 1.4rem; margin-bottom: 15px; line-height: 1.4; color: #0f172a; font-weight: 800; font-family: 'Manrope', sans-serif;">
@@ -1752,121 +1752,96 @@
                             <div style="margin-top: auto;">
                                 <a href="{{ route('blog.show', $post->slug ?? '#') }}"
                                     style="color: #2563eb; font-weight: 700; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">
-                                    Read More <span style="transition: transform 0.3s ease;">→</span>
+                                    Read Full Story <span style="transition: transform 0.3s ease;">→</span>
                                 </a>
                             </div>
                         </div>
                     </div>
                 @empty
                     <!-- Fallback Static Cards if DB is empty -->
-                    <!-- Blog 1 -->
-                    <div class="card reveal"
-                        onclick="window.location='{{ route('blog.show', 'virtualization-in-cloud-computing') }}'"
-                        style="cursor: pointer; padding: 0 0 15px 0; background: #ffffff !important; border-radius: 20px !important; border: 1px solid #e2e8f0 !important; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important; overflow: hidden !important; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); height: 100%; display: flex; flex-direction: column;">
-                        <div style="overflow: hidden; height: 240px; position: relative;">
-                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop"
-                                alt="Cloud Computing"
-                                style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);"
-                                class="blog-card-img">
-                            <div
-                                style="position: absolute; top: 15px; left: 15px; background: rgba(59, 130, 246, 0.9); color: #fff; padding: 5px 12px; border-radius: 30px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
-                                Cloud
-                            </div>
-                        </div>
-                        <div style="padding: 25px; flex-grow: 1; display: flex; flex-direction: column;">
-                            <div style="font-size: 0.85rem; color: #64748b; margin-bottom: 12px; font-weight: 500;">
-                                <i class="far fa-calendar-alt"></i> Feb 12, 2024
-                            </div>
-                            <h3
-                                style="font-size: 1.4rem; margin-bottom: 15px; line-height: 1.4; color: #0f172a; font-weight: 800; font-family: 'Manrope', sans-serif;">
-                                Virtualization in
-                                Cloud Computing: Definition, Types, and Benefits</h3>
-                            <div style="margin-top: auto;">
-                                <a href="{{ route('blog.show', 'virtualization-in-cloud-computing') }}"
-                                    style="color: #2563eb; font-weight: 700; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">
-                                    Read More <span style="transition: transform 0.3s ease;">→</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    @php
+                        $staticPosts = [
+                            [
+                                'title' => 'Virtualization in Cloud Computing: Definition, Types, and Benefits',
+                                'slug' => 'virtualization-in-cloud-computing',
+                                'category' => 'Cloud',
+                                'date' => 'Feb 12, 2024',
+                                'image' => 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop'
+                            ],
+                            [
+                                'title' => 'Explore The Best Android App Development Frameworks',
+                                'slug' => 'android-app-development-frameworks',
+                                'category' => 'Mobile',
+                                'date' => 'Feb 10, 2024',
+                                'image' => 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop'
+                            ],
+                            [
+                                'title' => '15 Best Minimalist Web Design Examples for Inspiration',
+                                'slug' => 'minimalist-web-design-examples',
+                                'category' => 'Design',
+                                'date' => 'Feb 08, 2024',
+                                'image' => 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop'
+                            ]
+                        ];
+                    @endphp
 
-                    <!-- Blog 2 -->
-                    <div class="card reveal delay-100"
-                        onclick="window.location='{{ route('blog.show', 'android-app-development-frameworks') }}'"
-                        style="cursor: pointer; padding: 0 0 15px 0; background: #ffffff !important; border-radius: 20px !important; border: 1px solid #e2e8f0 !important; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important; overflow: hidden !important; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); height: 100%; display: flex; flex-direction: column;">
-                        <div style="overflow: hidden; height: 240px; position: relative;">
-                            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop"
-                                alt="App Development"
-                                style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);"
-                                class="blog-card-img">
-                            <div
-                                style="position: absolute; top: 15px; left: 15px; background: rgba(59, 130, 246, 0.9); color: #fff; padding: 5px 12px; border-radius: 30px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
-                                Mobile
+                    @foreach($staticPosts as $sPost)
+                        <div class="card reveal" onclick="window.location='{{ route('blog.show', $sPost['slug']) }}'"
+                            style="cursor: pointer; padding: 0; background: #ffffff !important; border-radius: 20px !important; border: 1px solid #e2e8f0 !important; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important; overflow: hidden !important; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); height: 100%; display: flex; flex-direction: column;">
+                            <div style="overflow: hidden; height: 240px; position: relative;">
+                                <img src="{{ $sPost['image'] }}" alt="{{ $sPost['title'] }}"
+                                    style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);"
+                                    class="blog-image-main">
+                                <div
+                                    style="position: absolute; top: 15px; left: 15px; background: rgba(59, 130, 246, 0.9); color: #fff; padding: 5px 12px; border-radius: 30px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+                                    {{ $sPost['category'] }}
+                                </div>
+                            </div>
+                            <div style="padding: 25px; flex-grow: 1; display: flex; flex-direction: column;">
+                                <div style="font-size: 0.85rem; color: #64748b; margin-bottom: 12px; font-weight: 500;">
+                                    <i class="far fa-calendar-alt"></i> {{ $sPost['date'] }}
+                                </div>
+                                <h3
+                                    style="font-size: 1.4rem; margin-bottom: 15px; line-height: 1.4; color: #0f172a; font-weight: 800; font-family: 'Manrope', sans-serif;">
+                                    {{ $sPost['title'] }}
+                                </h3>
+                                <div style="margin-top: auto;">
+                                    <a href="{{ route('blog.show', $sPost['slug']) }}"
+                                        style="color: #2563eb; font-weight: 700; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">
+                                        Read Full Story <span style="transition: transform 0.3s ease;">→</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                        <div style="padding: 25px; flex-grow: 1; display: flex; flex-direction: column;">
-                            <div style="font-size: 0.85rem; color: #64748b; margin-bottom: 12px; font-weight: 500;">
-                                <i class="far fa-calendar-alt"></i> Feb 10, 2024
-                            </div>
-                            <h3
-                                style="font-size: 1.4rem; margin-bottom: 15px; line-height: 1.4; color: #0f172a; font-weight: 800; font-family: 'Manrope', sans-serif;">
-                                Explore The Best
-                                Android App Development Frameworks</h3>
-                            <div style="margin-top: auto;">
-                                <a href="{{ route('blog.show', 'android-app-development-frameworks') }}"
-                                    style="color: #2563eb; font-weight: 700; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">
-                                    Read More <span style="transition: transform 0.3s ease;">→</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Blog 3 -->
-                    <div class="card reveal delay-200"
-                        onclick="window.location='{{ route('blog.show', 'minimalist-web-design-examples') }}'"
-                        style="cursor: pointer; padding: 0 0 15px 0; background: #ffffff !important; border-radius: 20px !important; border: 1px solid #e2e8f0 !important; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05) !important; overflow: hidden !important; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); height: 100%; display: flex; flex-direction: column;">
-                        <div style="overflow: hidden; height: 240px; position: relative;">
-                            <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop"
-                                alt="Web Design"
-                                style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);"
-                                class="blog-card-img">
-                            <div
-                                style="position: absolute; top: 15px; left: 15px; background: rgba(59, 130, 246, 0.9); color: #fff; padding: 5px 12px; border-radius: 30px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
-                                Design
-                            </div>
-                        </div>
-                        <div style="padding: 25px; flex-grow: 1; display: flex; flex-direction: column;">
-                            <div style="font-size: 0.85rem; color: #64748b; margin-bottom: 12px; font-weight: 500;">
-                                <i class="far fa-calendar-alt"></i> Feb 08, 2024
-                            </div>
-                            <h3
-                                style="font-size: 1.4rem; margin-bottom: 15px; line-height: 1.4; color: #0f172a; font-weight: 800; font-family: 'Manrope', sans-serif;">
-                                15 Best Minimalist
-                                Web Design Examples for Inspiration</h3>
-                            <div style="margin-top: auto;">
-                                <a href="{{ route('blog.show', 'minimalist-web-design-examples') }}"
-                                    style="color: #2563eb; font-weight: 700; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">
-                                    Read More <span style="transition: transform 0.3s ease;">→</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 @endforelse
             </div>
 
             <style>
+                .blog-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                    gap: 40px;
+                }
+
                 .card:hover {
                     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1) !important;
                     border-color: #3b82f6 !important;
                     transform: translateY(-10px);
                 }
 
-                .card:hover .blog-card-img {
+                .card:hover .blog-image-main {
                     transform: scale(1.1);
                 }
 
                 .card:hover a span {
                     transform: translateX(5px);
+                }
+
+                @media (max-width: 768px) {
+                    .blog-grid {
+                        grid-template-columns: 1fr;
+                    }
                 }
             </style>
         </div>

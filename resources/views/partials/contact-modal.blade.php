@@ -17,8 +17,6 @@
                         <i class="fas fa-rocket"></i>
                     </div>
                     <h3 class="modal-title">Ready to Elevate Your Brand?</h3>
-                    <p class="modal-subtitle">Book a free strategy session with our experts. Let's turn your vision into
-                        a digital powerhouse.</p>
                 </div>
 
                 <!-- Form Section -->
@@ -59,35 +57,36 @@
                             <i class="fas fa-bullseye input-icon"></i>
                             <select name="service" class="form-select-pro" required>
                                 <option value="" disabled selected>What can we build for you?</option>
-                                <option value="Web Development">Full-Stack Web Development</option>
-                                <option value="Mobile Apps">High-Performance Mobile Apps</option>
-                                <option value="Digital Marketing">Strategic Digital Growth</option>
-                                <option value="UI/UX Design">Premium UI/UX Experience</option>
-                                <option value="Enterprise Solutions">AI & Enterprise Integration</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="Digital Marketing">Digital Marketing</option>
+                                <option value="Ecommerce Solution">Ecommerce Solution</option>
+                                <option value="Branding & Design">Branding & Design</option>
+                                <option value="App Development">App Development</option>
+                                <option value="Support & Hosting">Support & Hosting</option>
+                                <option value="Others">Others</option>
                             </select>
                             <i class="fas fa-chevron-down select-arrow"></i>
                         </div>
                     </div>
 
                     <div class="form-group-pro">
-                        <label class="form-label-pro">Project Details</label>
+                        <label class="form-label-pro">Message (Optional)</label>
                         <div class="input-with-icon textarea-wrapper">
                             <i class="fas fa-comment-dots input-icon textarea-icon"></i>
-                            <textarea name="message" class="form-textarea-pro" rows="4"
-                                placeholder="Tell us about your project vision or specific requirements..."></textarea>
+                            <textarea name="message" class="form-textarea-pro" rows="2"
+                                placeholder="Brief project details..."></textarea>
                         </div>
                     </div>
 
                     <button type="submit" class="btn-submit-pro">
-                        <span class="btn-text">IGNITE CONSULTATION</span>
+                        <span class="btn-text">GET STARTED</span>
                         <i class="fas fa-arrow-right btn-icon"></i>
                         <div class="loading-spinner"></div>
                     </button>
 
                     <div class="form-trust-footer">
                         <div class="trust-item"><i class="fas fa-shield-alt"></i> Secure</div>
-                        <div class="trust-item"><i class="fas fa-bolt"></i> Fast Response</div>
-                        <div class="trust-item"><i class="fas fa-check-circle"></i> Best Experts</div>
+                        <div class="trust-item"><i class="fas fa-bolt"></i> Fast Reply</div>
                     </div>
                 </form>
             </div>
@@ -121,11 +120,11 @@
 
     .contact-modal-light {
         position: relative;
-        max-width: 600px !important;
+        max-width: 650px !important;
         width: 100% !important;
         background: #ffffff !important;
         border: 1px solid rgba(0, 0, 0, 0.05);
-        border-radius: 30px !important;
+        border-radius: 24px !important;
         box-shadow:
             0 30px 60px -12px rgba(0, 0, 0, 0.15),
             0 18px 36px -18px rgba(0, 0, 0, 0.2);
@@ -134,7 +133,7 @@
         transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
         display: flex;
         flex-direction: column;
-        max-height: 90vh;
+        max-height: 98vh;
     }
 
     #globalContactModal.active .contact-modal-light {
@@ -180,7 +179,7 @@
     }
 
     .modal-content-wrapper {
-        padding: 60px 50px 40px;
+        padding: 18px 30px 20px;
     }
 
     .modal-close-btn {
@@ -210,35 +209,35 @@
     /* Header Styling */
     .modal-form-header {
         text-align: center;
-        margin-bottom: 40px;
+        margin-bottom: 15px;
     }
 
     .header-icon-badge {
-        width: 64px;
-        height: 64px;
+        width: 48px;
+        height: 48px;
         background: #eff6ff;
         border: 1px solid #dbeafe;
         color: #2563eb;
-        border-radius: 20px;
+        border-radius: 14px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.75rem;
-        margin: 0 auto 20px;
+        font-size: 1.4rem;
+        margin: 0 auto 8px;
     }
 
     .modal-title {
-        font-size: 1.8rem;
+        font-size: 1.4rem;
         font-weight: 800;
         color: #0f172a;
-        margin-bottom: 12px;
+        margin-bottom: 0;
         letter-spacing: -0.02em;
     }
 
     .modal-subtitle {
         color: #64748b;
-        font-size: 1rem;
-        line-height: 1.6;
+        font-size: 0.85rem;
+        line-height: 1.4;
         max-width: 90%;
         margin: 0 auto;
     }
@@ -247,20 +246,20 @@
     .grid-2-pro {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 20px;
+        gap: 12px;
     }
 
     /* Form Elements */
     .form-group-pro {
-        margin-bottom: 24px;
+        margin-bottom: 10px;
     }
 
     .form-label-pro {
         display: block;
-        font-size: 0.8rem;
+        font-size: 0.65rem;
         font-weight: 700;
         color: #475569;
-        margin-bottom: 8px;
+        margin-bottom: 5px;
         text-transform: uppercase;
         letter-spacing: 0.05em;
     }
@@ -271,16 +270,16 @@
 
     .input-icon {
         position: absolute;
-        left: 18px;
+        left: 15px;
         top: 50%;
         transform: translateY(-50%);
         color: #94a3b8;
-        font-size: 1.1rem;
+        font-size: 1rem;
         transition: all 0.3s;
     }
 
     .textarea-icon {
-        top: 22px;
+        top: 18px;
         transform: none;
     }
 
@@ -288,12 +287,12 @@
     .form-select-pro,
     .form-textarea-pro {
         width: 100%;
-        padding: 15px 20px 15px 52px;
+        padding: 9px 14px 9px 40px;
         background: #f8fafc;
         border: 2px solid #f1f5f9;
-        border-radius: 14px;
+        border-radius: 10px;
         color: #1e293b;
-        font-size: 1rem;
+        font-size: 0.88rem;
         font-family: inherit;
         transition: all 0.3s;
     }
@@ -327,27 +326,27 @@
     }
 
     .form-textarea-pro {
-        min-height: 120px;
+        min-height: 50px;
         resize: none;
     }
 
     /* Submit Button */
     .btn-submit-pro {
         width: 100%;
-        padding: 18px;
+        padding: 12px;
         background: #2563eb;
         color: #fff;
         border: none;
-        border-radius: 16px;
-        font-size: 1.05rem;
+        border-radius: 12px;
+        font-size: 0.9rem;
         font-weight: 800;
         letter-spacing: 0.02em;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 12px;
-        margin-top: 10px;
+        gap: 8px;
+        margin-top: 5px;
         box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
         transition: all 0.3s ease;
     }
@@ -367,18 +366,18 @@
         display: flex;
         justify-content: center;
         gap: 30px;
-        margin-top: 35px;
-        padding-top: 25px;
+        margin-top: 12px;
+        padding-top: 12px;
         border-top: 1px solid #f1f5f9;
     }
 
     .trust-item {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
         color: #94a3b8;
         font-weight: 700;
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
         text-transform: uppercase;
     }
 
@@ -496,7 +495,7 @@
                     .finally(() => {
                         btn.classList.remove('is-loading');
                         btn.disabled = false;
-                        btnText.textContent = 'IGNITE CONSULTATION';
+                        btnText.textContent = 'GET STARTED';
                         modalForm.reset();
                     });
             });

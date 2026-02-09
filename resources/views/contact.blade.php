@@ -83,23 +83,22 @@
                                 </div>
                                 <div class="info-details">
                                     <h3>Call Us</h3>
-                                    @if(isset($global_settings['phone_india']))
-                                        @php
-                                            $mobile_numbers = $global_settings['phone_india'];
-                                            if (str_starts_with($mobile_numbers, '[')) {
-                                                $mobile_numbers = json_decode($mobile_numbers, true);
-                                            } else {
-                                                $mobile_numbers = [$mobile_numbers];
-                                            }
-                                        @endphp
-                                        @foreach($mobile_numbers as $number)
-                                            <p>{{ $number }}</p>
-                                        @endforeach
-                                    @endif
+                                    @php
+                                        $mobile_numbers = $global_settings['phone_india'] ?? '+91 7292 050505';
+                                        if (is_string($mobile_numbers) && str_contains($mobile_numbers, '[')) {
+                                            $decoded = json_decode($mobile_numbers, true);
+                                            $mobile_numbers = is_array($decoded) ? $decoded : [$mobile_numbers];
+                                        } else {
+                                            $mobile_numbers = is_array($mobile_numbers) ? $mobile_numbers : [$mobile_numbers];
+                                        }
+                                    @endphp
+                                    @foreach($mobile_numbers as $number)
+                                        <p>{{ trim($number, '[]" ') }}</p>
+                                    @endforeach
                                     @if(isset($global_settings['phone_india_landline']))
                                         <p>{{ $global_settings['phone_india_landline'] }}</p>
                                     @endif
-                                    @if(!isset($global_settings['phone_india']) && !isset($global_settings['phone_india_landline']))
+                                    @if(empty($global_settings['phone_india']) && empty($global_settings['phone_india_landline']))
                                         <p>+91 7292 050505</p>
                                         <p>0124-4252-196</p>
                                     @endif
@@ -191,9 +190,26 @@
                         </span>
                     </div>
                     <div class="map-container-wrapper">
-                        <iframe
-                            src="{{ $global_settings['google_map_embed'] ?? 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14030.765692019864!2d77.0456187!3d28.4713915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d190479d5057d%3A0xe54eaf95542289!2zTCAxMywgU2VjdG9yIDE0LCBHdXJ1Z3JhbSwgSGFyeWFuYSAxMjIwMDE!5e0!3m2!1sen!2sin!4v1706256000000' }}"
-                            width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        @php
+                            $map_address = $global_settings['address_india'] ?? 'M 13, Sector 14, Gurugram, India';
+                            $map_embed = $global_settings['google_map_embed'] ?? '';
+
+                            $clean_address = strip_tags(str_replace(['<br>', '<br/>', '<br />'], ' ', $map_address));
+                            $map_url = "https://maps.google.com/maps?q=" . urlencode($clean_address) . "&t=&z=15&ie=UTF8&iwloc=&output=embed";
+
+                            if (!empty($map_embed)) {
+                                if (str_contains($map_embed, '<iframe')) {
+                                    preg_match('/src="([^"]+)"/', $map_embed, $matches);
+                                    if (isset($matches[1])) {
+                                        $map_url = $matches[1];
+                                    }
+                                } elseif (str_contains($map_embed, 'https://')) {
+                                    $map_url = $map_embed;
+                                }
+                            }
+                        @endphp
+                        <iframe src="{{ $map_url }}" width="100%" height="500" style="border:0;" allowfullscreen=""
+                            loading="lazy"></iframe>
                         <div class="map-overlay-v2"></div>
                     </div>
                 </div>
@@ -438,8 +454,9 @@
             color: #0077b5;
         }
 
-        .social-circle i.fa-x-twitter {
-            color: #000000;
+        .social-circle i.fa-x-twitter,
+        .social-circle i.fa-twitter {
+            color: #000000 !important;
         }
 
         .social-circle i.fa-instagram {
