@@ -155,12 +155,12 @@ return [
         'process' => ['Strategy', 'UX Design', 'Platform Dev', 'Integration', 'Launch'],
         'use_cases' => ['D2C Brands', 'Multi-Vendor Marketplaces', 'B2B Portals', 'Subscription Boxes'],
         'case_studies' => [
-            ['title' => 'DirectToConsumer', 'desc' => 'From zero to $50k/month in 6 months.', 'metric_value' => '$50k', 'metric_name' => 'Monthly Revenue'],
+            ['title' => 'DirectToConsumer', 'desc' => 'From zero to ₹40L/month in 6 months.', 'metric_value' => '₹40L', 'metric_name' => 'Monthly Revenue'],
             ['title' => 'BoutiqueStore', 'desc' => 'Migration from Etsy to own site.', 'metric_value' => '+100%', 'metric_name' => 'Profit Margin']
         ],
         'plans' => [
-            ['name' => 'Store Launch', 'price' => '$2,500', 'desc' => 'Get selling quickly.', 'features' => ['Shopify/Woo setup', '50 Products', 'Payment Setup', 'Basic Design'], 'popular' => false],
-            ['name' => 'Brand Scale', 'price' => '$5,000+', 'desc' => 'Custom brand experience.', 'features' => ['Custom Theme', 'product Migration', 'Email Automation', 'Adv. Analytics', 'Speed Opt.'], 'popular' => true],
+            ['name' => 'Store Launch', 'price' => '₹1,99,999', 'desc' => 'Get selling quickly.', 'features' => ['Shopify/Woo setup', '50 Products', 'Payment Setup', 'Basic Design'], 'popular' => false],
+            ['name' => 'Brand Scale', 'price' => '₹3,99,999+', 'desc' => 'Custom brand experience.', 'features' => ['Custom Theme', 'product Migration', 'Email Automation', 'Adv. Analytics', 'Speed Opt.'], 'popular' => true],
             ['name' => 'Enterprise', 'price' => 'Custom', 'desc' => 'High volume solutions.', 'features' => ['Headless Commerce', 'ERP Integration', 'Multi-Region', 'Dedicated Support'], 'popular' => false]
         ],
         'faq' => [
@@ -192,8 +192,8 @@ return [
             ['title' => 'TechReseller', 'desc' => 'Complex migration with 5000+ SKUs.', 'metric_value' => '0', 'metric_name' => 'Downtime']
         ],
         'plans' => [
-            ['name' => 'Theme Setup', 'price' => '$1,500', 'desc' => 'Professional configuration.', 'features' => ['Theme Customize', 'Apps Setup', 'Payment Config', 'Training'], 'popular' => false],
-            ['name' => 'Custom Build', 'price' => '$5,000+', 'desc' => 'Unique brand design.', 'features' => ['Custom Liquid Dev', 'Unique UI/UX', 'Adv. Functionality', 'SEO Optimization'], 'popular' => true],
+            ['name' => 'Theme Setup', 'price' => '₹1,19,999', 'desc' => 'Professional configuration.', 'features' => ['Theme Customize', 'Apps Setup', 'Payment Config', 'Training'], 'popular' => false],
+            ['name' => 'Custom Build', 'price' => '₹3,99,999+', 'desc' => 'Unique brand design.', 'features' => ['Custom Liquid Dev', 'Unique UI/UX', 'Adv. Functionality', 'SEO Optimization'], 'popular' => true],
             ['name' => 'Plus Scale', 'price' => 'Custom', 'desc' => 'Shopify Plus.', 'features' => ['B2B Features', 'Checkout Scripts', 'International Markets', 'Dedicated Manager'], 'popular' => false]
         ],
         'faq' => [
@@ -227,8 +227,8 @@ return [
             ['title' => 'FitnessPro', 'desc' => 'Workout tracker with wearable integration.', 'metric_value' => '50k+', 'metric_name' => 'Downloads']
         ],
         'plans' => [
-            ['name' => 'MVP App', 'price' => '$6,000+', 'desc' => 'Core features to launch.', 'features' => ['Core UI/UX', 'API Integration', 'Play Store Submission', '2 Months Support'], 'popular' => false],
-            ['name' => 'Pro App', 'price' => '$12,000+', 'desc' => 'Full-featured product.', 'features' => ['Adv. Animations', 'Offline Mode', 'Social Login', 'Analytics', 'Adv. Admin Panel'], 'popular' => true],
+            ['name' => 'MVP App', 'price' => '₹4,79,999+', 'desc' => 'Core features to launch.', 'features' => ['Core UI/UX', 'API Integration', 'Play Store Submission', '2 Months Support'], 'popular' => false],
+            ['name' => 'Pro App', 'price' => '₹9,59,999+', 'desc' => 'Full-featured product.', 'features' => ['Adv. Animations', 'Offline Mode', 'Social Login', 'Analytics', 'Adv. Admin Panel'], 'popular' => true],
             ['name' => 'Enterprise', 'price' => 'Custom', 'desc' => 'Complex ecosystem.', 'features' => ['Custom Security', 'Legacy Integration', 'Global Scale', 'SLA'], 'popular' => false]
         ],
         'faq' => [
@@ -260,8 +260,8 @@ return [
             ['title' => 'SocialConnect', 'desc' => 'Exclusive networking app.', 'metric_value' => '10k', 'metric_name' => 'Daily Users']
         ],
         'plans' => [
-            ['name' => 'MVP iOS', 'price' => '$7,000+', 'desc' => 'Market entry.', 'features' => ['Core Features', 'Standard UI', 'App Store Submit', 'Bug Fixes'], 'popular' => false],
-            ['name' => 'Premium iOS', 'price' => '$15,000+', 'desc' => 'Polished experience.', 'features' => ['Custom Animations', 'Local Storage', 'Push Notif', 'Dashboard', 'Adv. Analytics'], 'popular' => true],
+            ['name' => 'MVP iOS', 'price' => '₹5,59,999+', 'desc' => 'Market entry.', 'features' => ['Core Features', 'Standard UI', 'App Store Submit', 'Bug Fixes'], 'popular' => false],
+            ['name' => 'Premium iOS', 'price' => '₹11,99,999+', 'desc' => 'Polished experience.', 'features' => ['Custom Animations', 'Local Storage', 'Push Notif', 'Dashboard', 'Adv. Analytics'], 'popular' => true],
             ['name' => 'Flagship', 'price' => 'Custom', 'desc' => 'Industry leader.', 'features' => ['AR/ML Integration', 'Custom Encryption', 'Global CDNs', 'Dedicated Team'], 'popular' => false]
         ],
         'faq' => [
@@ -295,9 +295,9 @@ return [
             ['title' => 'NicheStore', 'desc' => 'National ranking for specific products.', 'metric_value' => '+150%', 'metric_name' => 'Organic Traffic']
         ],
         'plans' => [
-            ['name' => 'Local Starter', 'price' => '$500/mo', 'desc' => 'For local businesses.', 'features' => ['GMB Opt', '5 Keywords', 'On-Page Fixes', 'Monthly Report'], 'popular' => false],
-            ['name' => 'Growth', 'price' => '$1,200/mo', 'desc' => 'National reach.', 'features' => ['20 Keywords', 'Content Creation', 'Link Building', 'Tech Audit', 'Bi-Weekly Report'], 'popular' => true],
-            ['name' => 'Dominance', 'price' => '$2,500/mo', 'desc' => 'Aggressive growth.', 'features' => ['Unlimited Keywords', 'PR Outreach', 'Daily Tracking', 'Competitor Attack'], 'popular' => false]
+            ['name' => 'Local Starter', 'price' => '₹39,999/mo', 'desc' => 'For local businesses.', 'features' => ['GMB Opt', '5 Keywords', 'On-Page Fixes', 'Monthly Report'], 'popular' => false],
+            ['name' => 'Growth', 'price' => '₹95,999/mo', 'desc' => 'National reach.', 'features' => ['20 Keywords', 'Content Creation', 'Link Building', 'Tech Audit', 'Bi-Weekly Report'], 'popular' => true],
+            ['name' => 'Dominance', 'price' => '₹1,99,999/mo', 'desc' => 'Aggressive growth.', 'features' => ['Unlimited Keywords', 'PR Outreach', 'Daily Tracking', 'Competitor Attack'], 'popular' => false]
         ],
         'faq' => [
             ['q' => 'How long to see results?', 'a' => 'SEO is a long-term strategy. Significant results typically appear in 3-6 months.'],
@@ -328,8 +328,8 @@ return [
             ['title' => 'EventPass', 'desc' => 'Event ticketing system.', 'metric_value' => '100k+', 'metric_name' => 'Users']
         ],
         'plans' => [
-            ['name' => 'Hybrid MVP', 'price' => '$5,000+', 'desc' => 'Both platforms fast.', 'features' => ['Core Features', 'Standard UI', 'Both Stores', '1 Month Support'], 'popular' => true],
-            ['name' => 'Custom Hybrid', 'price' => '$10,000+', 'desc' => 'Feature rich.', 'features' => ['Custom Animations', 'Backend API', 'Push Notif', 'Analytics'], 'popular' => false],
+            ['name' => 'Hybrid MVP', 'price' => '₹3,99,999+', 'desc' => 'Both platforms fast.', 'features' => ['Core Features', 'Standard UI', 'Both Stores', '1 Month Support'], 'popular' => true],
+            ['name' => 'Custom Hybrid', 'price' => '₹7,99,999+', 'desc' => 'Feature rich.', 'features' => ['Custom Animations', 'Backend API', 'Push Notif', 'Analytics'], 'popular' => false],
             ['name' => 'Enterprise', 'price' => 'Custom', 'desc' => 'Large scale.', 'features' => ['Complex Logic', 'ERP Integration', 'SLA Support', 'Dedicated Team'], 'popular' => false]
         ],
         'faq' => [
@@ -361,12 +361,12 @@ return [
             ['title' => 'LawFirm', 'desc' => 'High-ticket lead generation.', 'metric_value' => '-50%', 'metric_name' => 'Cost Per Lead']
         ],
         'plans' => [
-            ['name' => 'Starter', 'price' => '$400/mo', 'desc' => 'Ad spend <$2k.', 'features' => ['Search Network', 'Basic Tracking', 'Monthly Report', '1 Campaign'], 'popular' => false],
-            ['name' => 'Growth', 'price' => '$800/mo', 'desc' => 'Ad spend <$5k.', 'features' => ['Search + Display', 'Remarketing', 'Bi-Weekly Report', 'A/B Testing'], 'popular' => true],
-            ['name' => 'Performance', 'price' => '15% of Spend', 'desc' => 'Ad spend >$5k.', 'features' => ['All Networks', 'Adv. Strategies', 'Video Ads', 'Weekly Calls'], 'popular' => false]
+            ['name' => 'Starter', 'price' => '₹31,999/mo', 'desc' => 'Ad spend <₹1.6L.', 'features' => ['Search Network', 'Basic Tracking', 'Monthly Report', '1 Campaign'], 'popular' => false],
+            ['name' => 'Growth', 'price' => '₹63,999/mo', 'desc' => 'Ad spend <₹4L.', 'features' => ['Search + Display', 'Remarketing', 'Bi-Weekly Report', 'A/B Testing'], 'popular' => true],
+            ['name' => 'Performance', 'price' => '15% of Spend', 'desc' => 'Ad spend >₹4L.', 'features' => ['All Networks', 'Adv. Strategies', 'Video Ads', 'Weekly Calls'], 'popular' => false]
         ],
         'faq' => [
-            ['q' => 'How much should I spend?', 'a' => 'We recommend starting with at least $1000/mo ad spend to get significant data.'],
+            ['q' => 'How much should I spend?', 'a' => 'We recommend starting with at least ₹80,000/mo ad spend to get significant data.'],
             ['q' => 'Does this include ad spend?', 'a' => 'No, our fee is for management. You pay Google directly for the ads.']
         ]
     ],
@@ -394,9 +394,9 @@ return [
             ['title' => 'B2BTech', 'desc' => 'LinkedIn lead generation.', 'metric_value' => '50+', 'metric_name' => 'Qualified Leads']
         ],
         'plans' => [
-            ['name' => 'Essential', 'price' => '$600/mo', 'desc' => 'Brand maintenance.', 'features' => ['12 Posts/mo', 'Community Mgmt', 'Basic Design', 'Monthly Report'], 'popular' => false],
-            ['name' => 'Growth', 'price' => '$1,200/mo', 'desc' => 'Active growth.', 'features' => ['20 Posts (inc Reels)', 'Ad Management', 'Graphic Design', 'Bi-Weekly Report'], 'popular' => true],
-            ['name' => 'Authority', 'price' => '$2,500/mo', 'desc' => 'Market leader.', 'features' => ['Daily Content', 'Video Production', 'Influencer Outreach', '24/7 Response'], 'popular' => false]
+            ['name' => 'Essential', 'price' => '₹47,999/mo', 'desc' => 'Brand maintenance.', 'features' => ['12 Posts/mo', 'Community Mgmt', 'Basic Design', 'Monthly Report'], 'popular' => false],
+            ['name' => 'Growth', 'price' => '₹95,999/mo', 'desc' => 'Active growth.', 'features' => ['20 Posts (inc Reels)', 'Ad Management', 'Graphic Design', 'Bi-Weekly Report'], 'popular' => true],
+            ['name' => 'Authority', 'price' => '₹1,99,999/mo', 'desc' => 'Market leader.', 'features' => ['Daily Content', 'Video Production', 'Influencer Outreach', '24/7 Response'], 'popular' => false]
         ],
         'faq' => [
             ['q' => 'Do you create the graphics?', 'a' => 'Yes, our design team creates all static and video assets.'],
@@ -425,9 +425,9 @@ return [
         'process' => ['Brief', 'Research', 'Concepts', 'Refinement', 'Delivery'],
         'use_cases' => ['Startups', 'Rebranding', 'Product Launch', 'Corporate Identity'],
         'plans' => [
-            ['name' => 'Startup Logo', 'price' => '$299', 'desc' => 'Quick launch.', 'features' => ['3 Concepts', '3 Revisions', 'Vector Files', 'Transparent PNG'], 'popular' => false],
-            ['name' => 'Brand Identity', 'price' => '$899', 'desc' => 'Full professional look.', 'features' => ['5 Concepts', 'Unlimited Revisions', 'Brand Guidelines', 'Social Kit', 'Stationery'], 'popular' => true],
-            ['name' => 'Premium Brand', 'price' => '$2,500', 'desc' => 'Strategic overhaul.', 'features' => ['Naming', 'Strategy Session', 'Full Guidelines', 'Marketing Collateral', 'Iconography'], 'popular' => false]
+            ['name' => 'Startup Logo', 'price' => '₹24,999', 'desc' => 'Quick launch.', 'features' => ['3 Concepts', '3 Revisions', 'Vector Files', 'Transparent PNG'], 'popular' => false],
+            ['name' => 'Brand Identity', 'price' => '₹71,999', 'desc' => 'Full professional look.', 'features' => ['5 Concepts', 'Unlimited Revisions', 'Brand Guidelines', 'Social Kit', 'Stationery'], 'popular' => true],
+            ['name' => 'Premium Brand', 'price' => '₹1,99,999', 'desc' => 'Strategic overhaul.', 'features' => ['Naming', 'Strategy Session', 'Full Guidelines', 'Marketing Collateral', 'Iconography'], 'popular' => false]
         ],
         'faq' => [
             ['q' => 'Do I own the copyright?', 'a' => 'Yes, full copyright is transferred to you upon final payment.'],
@@ -453,9 +453,9 @@ return [
         ],
         'tech_stack' => ['Figma', 'Adobe XD', 'Sketch', 'Maze', 'Zeplin'],
         'plans' => [
-            ['name' => 'Landing Page', 'price' => '$500', 'desc' => 'One page design.', 'features' => ['Desktop & Mobile', 'Figma Source', '2 Revisions', 'Asset Export'], 'popular' => false],
-            ['name' => 'App/Web Design', 'price' => '$2,000+', 'desc' => 'Full project.', 'features' => ['User Flow', 'Wireframes', 'Hi-Fi UI', 'Prototype', 'Design System'], 'popular' => true],
-            ['name' => 'Consultancy', 'price' => '$100/hr', 'desc' => 'Expert advice.', 'features' => ['UX Audit', 'Heuristic Analysis', 'Team Training', 'Strategy'], 'popular' => false]
+            ['name' => 'Landing Page', 'price' => '₹39,999', 'desc' => 'One page design.', 'features' => ['Desktop & Mobile', 'Figma Source', '2 Revisions', 'Asset Export'], 'popular' => false],
+            ['name' => 'App/Web Design', 'price' => '₹1,59,999+', 'desc' => 'Full project.', 'features' => ['User Flow', 'Wireframes', 'Hi-Fi UI', 'Prototype', 'Design System'], 'popular' => true],
+            ['name' => 'Consultancy', 'price' => '₹7,999/hr', 'desc' => 'Expert advice.', 'features' => ['UX Audit', 'Heuristic Analysis', 'Team Training', 'Strategy'], 'popular' => false]
         ],
         'faq' => [
             ['q' => 'Do you do the coding too?', 'a' => 'This service is design-only, but our development team can perfectly implement our designs.'],
@@ -480,9 +480,9 @@ return [
             ['title' => 'Ad Creatives', 'desc' => 'Banners for digital campaigns.', 'icon' => 'fa-ad']
         ],
         'plans' => [
-            ['name' => 'Hourly', 'price' => '$50/hr', 'desc' => 'Ad-hoc tasks.', 'features' => ['Fast Turnaround', 'Source Files', 'Print Ready', 'Any Format'], 'popular' => false],
+            ['name' => 'Hourly', 'price' => '₹3,999/hr', 'desc' => 'Ad-hoc tasks.', 'features' => ['Fast Turnaround', 'Source Files', 'Print Ready', 'Any Format'], 'popular' => false],
             ['name' => 'Project', 'price' => 'Custom', 'desc' => 'Fixed scope.', 'features' => ['Dedicated Designer', 'Concepts', 'Revisions', 'Full ownership'], 'popular' => true],
-            ['name' => 'Monthly', 'price' => '$1,500/mo', 'desc' => 'Unlimited requests.', 'features' => ['Unlimited Tasks', 'Priority Support', 'Dedicated Designer', 'Stock Assets'], 'popular' => false]
+            ['name' => 'Monthly', 'price' => '₹1,19,999/mo', 'desc' => 'Unlimited requests.', 'features' => ['Unlimited Tasks', 'Priority Support', 'Dedicated Designer', 'Stock Assets'], 'popular' => false]
         ],
         'faq' => [
             ['q' => 'Do you handle printing?', 'a' => 'We provide print-ready files but do not handle the physical printing process directly.']
@@ -507,9 +507,9 @@ return [
             ['title' => 'Performance', 'desc' => 'Regular speed optimization.', 'icon' => 'fa-tachometer-alt']
         ],
         'plans' => [
-            ['name' => 'Basic', 'price' => '$99/mo', 'desc' => 'Essential security.', 'features' => ['Weekly Updates', 'Daily Backups', 'Security Scan', 'Uptime Monitor'], 'popular' => false],
-            ['name' => 'Professional', 'price' => '$199/mo', 'desc' => 'Active management.', 'features' => ['Daily Updates', 'Real-time Security', '1hr Content Edits', 'Speed Opt'], 'popular' => true],
-            ['name' => 'Enterprise', 'price' => '$499/mo', 'desc' => 'Mission critical.', 'features' => ['Priority Support', 'Unlimited Edits', 'Dev Environment', 'Consulting'], 'popular' => false]
+            ['name' => 'Basic', 'price' => '₹7,999/mo', 'desc' => 'Essential security.', 'features' => ['Weekly Updates', 'Daily Backups', 'Security Scan', 'Uptime Monitor'], 'popular' => false],
+            ['name' => 'Professional', 'price' => '₹15,999/mo', 'desc' => 'Active management.', 'features' => ['Daily Updates', 'Real-time Security', '1hr Content Edits', 'Speed Opt'], 'popular' => true],
+            ['name' => 'Enterprise', 'price' => '₹39,999/mo', 'desc' => 'Mission critical.', 'features' => ['Priority Support', 'Unlimited Edits', 'Dev Environment', 'Consulting'], 'popular' => false]
         ],
         'faq' => [
             ['q' => 'Does this include hosting?', 'a' => 'Hosting is separate, but we can bundle it for a discount.'],
@@ -534,9 +534,9 @@ return [
             ['title' => '24/7 Support', 'desc' => 'Technical experts ready to help.', 'icon' => 'fa-headset']
         ],
         'plans' => [
-            ['name' => 'Shared', 'price' => '$10/mo', 'desc' => 'For small sites.', 'features' => ['1 Website', '10GB Storage', 'Free SSL', 'Email Accounts'], 'popular' => false],
-            ['name' => 'Cloud VPS', 'price' => '$40/mo', 'desc' => 'High performance.', 'features' => ['Dedicated CPU', '4GB RAM', 'NVMe Storage', 'Managed Support'], 'popular' => true],
-            ['name' => 'Dedicated', 'price' => '$150/mo', 'desc' => 'Maximum power.', 'features' => ['Full Server', 'Root Access', 'Premium Hardware', 'Priority Support'], 'popular' => false]
+            ['name' => 'Shared', 'price' => '₹799/mo', 'desc' => 'For small sites.', 'features' => ['1 Website', '10GB Storage', 'Free SSL', 'Email Accounts'], 'popular' => false],
+            ['name' => 'Cloud VPS', 'price' => '₹3,199/mo', 'desc' => 'High performance.', 'features' => ['Dedicated CPU', '4GB RAM', 'NVMe Storage', 'Managed Support'], 'popular' => true],
+            ['name' => 'Dedicated', 'price' => '₹11,999/mo', 'desc' => 'Maximum power.', 'features' => ['Full Server', 'Root Access', 'Premium Hardware', 'Priority Support'], 'popular' => false]
         ],
         'faq' => [
             ['q' => 'Do you help migrate?', 'a' => 'Yes, we provide free migration from your current host.'],
@@ -561,8 +561,8 @@ return [
             ['title' => 'Hack Recovery', 'desc' => 'Emergency cleanup services.', 'icon' => 'fa-broom']
         ],
         'plans' => [
-            ['name' => 'Audit', 'price' => '$299', 'desc' => 'One-time check.', 'features' => ['Full Scan', 'Vulnerability Report', 'Fix Recommendations', 'Consultation'], 'popular' => false],
-            ['name' => 'Protection', 'price' => '$49/mo', 'desc' => 'Ongoing defense.', 'features' => ['WAF Setup', 'Daily Scans', 'Malware Cleanup', 'DDoS Protection'], 'popular' => true],
+            ['name' => 'Audit', 'price' => '₹24,999', 'desc' => 'One-time check.', 'features' => ['Full Scan', 'Vulnerability Report', 'Fix Recommendations', 'Consultation'], 'popular' => false],
+            ['name' => 'Protection', 'price' => '₹3,999/mo', 'desc' => 'Ongoing defense.', 'features' => ['WAF Setup', 'Daily Scans', 'Malware Cleanup', 'DDoS Protection'], 'popular' => true],
             ['name' => 'Enterprise', 'price' => 'Custom', 'desc' => 'Corporate security.', 'features' => ['Penetration Testing', 'Compliance (GDPR/HIPAA)', 'Training', 'SLA'], 'popular' => false]
         ],
         'faq' => [
@@ -588,8 +588,8 @@ return [
             ['title' => 'ERP connects', 'desc' => 'Syncing with external inventory tools.', 'icon' => 'fa-database']
         ],
         'plans' => [
-            ['name' => 'Store Setup', 'price' => '$1,500', 'desc' => 'Turnkey solution.', 'features' => ['Woo Installation', 'Theme Setup', 'Payment/Ship Config', '10 Products'], 'popular' => false],
-            ['name' => 'Custom Store', 'price' => '$3,500', 'desc' => 'Brand focused.', 'features' => ['Custom Theme', 'Adv. Functionality', 'Speed Optimization', 'SEO Pack'], 'popular' => true],
+            ['name' => 'Store Setup', 'price' => '₹1,19,999', 'desc' => 'Turnkey solution.', 'features' => ['Woo Installation', 'Theme Setup', 'Payment/Ship Config', '10 Products'], 'popular' => false],
+            ['name' => 'Custom Store', 'price' => '₹2,79,999', 'desc' => 'Brand focused.', 'features' => ['Custom Theme', 'Adv. Functionality', 'Speed Optimization', 'SEO Pack'], 'popular' => true],
             ['name' => 'Complex', 'price' => 'Custom', 'desc' => 'Large scale.', 'features' => ['Multi-Vendor', 'Custom Plugins', 'API Integrations', 'High Availability'], 'popular' => false]
         ],
         'faq' => [
@@ -613,7 +613,7 @@ return [
             ['title' => 'Invoicing', 'desc' => 'Automated receipt generation.', 'icon' => 'fa-file-invoice-dollar']
         ],
         'plans' => [
-            ['name' => 'Standard', 'price' => '$299', 'desc' => 'One gateway.', 'features' => ['Stripe/PayPal', 'Testing', 'Webhooks', 'Launch Support'], 'popular' => true],
+            ['name' => 'Standard', 'price' => '₹24,999', 'desc' => 'One gateway.', 'features' => ['Stripe/PayPal', 'Testing', 'Webhooks', 'Launch Support'], 'popular' => true],
             ['name' => 'Complex', 'price' => 'Custom', 'desc' => 'Advanced logic.', 'features' => ['Multi-Gateway', 'Subscriptions', 'Custom UI', 'Compliance Audit'], 'popular' => false]
         ],
         'faq' => [

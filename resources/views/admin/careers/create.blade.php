@@ -104,7 +104,7 @@
                         <label for="salary_range" class="form-label fw-bold">Salary Information</label>
                         <input type="text" class="form-control" id="salary_range" name="salary_range"
                             value="{{ old('salary_range', $job->salary_range ?? '') }}"
-                            placeholder="e.g. $80k - $120k or Not Disclosed">
+                            placeholder="e.g. ₹5L - ₹10L or Not Disclosed">
                     </div>
                     <div class="col-md-2">
                         <label for="positions" class="form-label fw-bold">No. of Openings</label>
