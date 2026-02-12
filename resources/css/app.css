@@ -4643,3 +4643,306 @@ html.lenis {
     /* Point up-right */
     /* Point up-right */
 }
+
+/* ==========================================================================
+   Careers & Job Details Page - Premium Academic Aesthetic
+   ========================================================================== */
+
+.job-details-page {
+    padding-top: 110px;
+    /* Accounts for fixed header */
+}
+
+/* Job Hero Section */
+/* Job Hero Section - Light Theme Refined Spacing */
+.job-hero {
+    background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+    padding: 120px 0 0px;
+    /* Removed bottom padding to control gap from section padding */
+    position: relative;
+    border-bottom: 1px solid #e2e8f0;
+    overflow: hidden;
+}
+
+.job-hero::after {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
+    z-index: 1;
+}
+
+.job-hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.job-badge {
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: inline-block;
+    margin-bottom: 20px;
+    /* Reduced gap */
+    border: 1px solid #bae6fd;
+}
+
+.job-main-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    /* Responsive title size */
+    font-weight: 900;
+    margin-bottom: 25px;
+    color: #0f172a;
+    letter-spacing: -2px;
+    line-height: 1.1;
+}
+
+.job-hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 35px;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #475569;
+    font-size: 1.05rem;
+    font-weight: 500;
+}
+
+.meta-item i {
+    color: #2563eb;
+    font-size: 1.15rem;
+}
+
+.btn-apply-hero {
+    background: #2563eb;
+    color: white !important;
+    padding: 18px 40px;
+    border-radius: 12px;
+    font-weight: 800;
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 0.95rem;
+}
+
+.btn-apply-hero:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(37, 99, 235, 0.3);
+    background: #1d4ed8;
+}
+
+.btn-share {
+    background: white;
+    border: 1px solid #e2e8f0;
+    color: #475569;
+    width: 62px;
+    height: 62px;
+    border-radius: 12px;
+    margin-left: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+.btn-share:hover {
+    background: #f1f5f9;
+    color: #2563eb;
+    border-color: #2563eb;
+}
+
+/* Content Blocks Spacing Refined */
+.job-details-page {
+    background-color: #f8fafc;
+    /* Subtle off-white for better card contrast */
+}
+
+.job-content-section {
+    padding: 40px 0 !important;
+    /* Consistent 40px gap */
+}
+
+.job-main-card {
+    background: white;
+    border-radius: 24px;
+    padding: 45px 50px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.03);
+    margin-bottom: 40px;
+    /* Space between main card and CTA below it */
+}
+
+.content-block {
+    margin-bottom: 50px;
+}
+
+.content-block:last-child {
+    margin-bottom: 0;
+}
+
+.block-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 20px;
+    /* Reduced from 30px */
+    display: flex;
+    align-items: center;
+}
+
+.block-title::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(to right, #e2e8f0, transparent);
+    margin-left: 20px;
+}
+
+.block-text {
+    color: #334155;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Sidebar Items Spacing Refined */
+.sidebar-card {
+    background: white;
+    border-radius: 24px;
+    padding: 35px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 40px;
+    /* Increased for better separation */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+}
+
+.sidebar-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.summary-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px dashed #f1f5f9;
+}
+
+.summary-list .label {
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+.summary-list .value {
+    color: #0f172a;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+/* Hiring Process Timeline Refined */
+.hiring-steps {
+    position: relative;
+    padding-left: 35px;
+}
+
+.hiring-steps::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 5px;
+    bottom: 5px;
+    width: 2px;
+    background: #eff6ff;
+}
+
+.hiring-step {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.step-dot {
+    position: absolute;
+    left: -35px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border: 3px solid #2563eb;
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 0 4px #eff6ff;
+}
+
+.step-info h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: #0f172a;
+}
+
+/* CTA Block Refined */
+.application-cta-bottom {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    border-radius: 24px;
+    padding: 50px 40px;
+    /* Reduced vertical padding */
+    text-align: center;
+    color: white;
+    box-shadow: 0 15px 30px rgba(37, 99, 235, 0.2);
+    margin-top: 40px !important;
+    margin-bottom: 40px;
+    /* Consistent 40px gap below the card */
+}
+
+.application-cta-bottom h3 {
+    font-size: 2.2rem;
+    font-weight: 900;
+    margin-bottom: 15px;
+}
+
+.application-cta-bottom p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 35px;
+    font-size: 1.2rem;
+}
+
+.application-cta-bottom .btn-apply-hero {
+    background: white;
+    color: #2563eb !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 991px) {
+    .job-main-title {
+        font-size: 2.8rem;
+    }
+
+    .job-hero {
+        padding: 60px 0;
+    }
+
+    .job-main-card {
+        padding: 30px;
+    }
+}

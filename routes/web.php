@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SocialLinkController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\Auth\LoginController;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,14 +41,25 @@ Route::get('/', function () {
         return \App\Models\PricingPlan::orderBy('sort_order')->get();
     });
 
+    $featured_products = \Illuminate\Support\Facades\Cache::remember('home_featured_products', 3600, function () {
+        return \App\Models\Product::where('is_featured', true)
+            ->where('is_active', true)
+            ->orderBy('sort_order')
+            ->limit(6)
+            ->get();
+    });
+
     $blog_posts = \App\Models\BlogPost::published()->latest('published_at')->limit(3)->get();
 
-    return view('home', compact('partners', 'industries', 'global_solutions', 'pricing_plans', 'blog_posts'));
+    return view('home', compact('partners', 'industries', 'global_solutions', 'pricing_plans', 'blog_posts', 'featured_products'));
 });
 
 Route::get('/about', [App\Http\Controllers\CompanyController::class, 'about'])->name('about');
 Route::get('/contact', [App\Http\Controllers\CompanyController::class, 'contact'])->name('contact');
 Route::get('/careers', [App\Http\Controllers\CompanyController::class, 'careers'])->name('careers');
+Route::get('/jobs/{slug}', [App\Http\Controllers\JobController::class, 'show'])->name('jobs.show');
+Route::get('/jobs/{slug}/apply', [App\Http\Controllers\JobController::class, 'showApplyPage'])->name('jobs.apply.page');
+Route::post('/jobs/{slug}/apply', [App\Http\Controllers\JobController::class, 'apply'])->name('jobs.apply');
 Route::get('/privacy-policy', [App\Http\Controllers\CompanyController::class, 'privacy'])->name('privacy');
 Route::get('/terms', [App\Http\Controllers\CompanyController::class, 'terms'])->name('terms');
 
@@ -64,6 +76,11 @@ Route::get('/industries/{slug}', [App\Http\Controllers\IndustryController::class
 // Solutions Routes
 Route::get('/solutions', [App\Http\Controllers\SolutionController::class, 'index'])->name('solutions.index');
 Route::get('/solutions/{slug}', [App\Http\Controllers\SolutionController::class, 'show'])->name('solutions.show');
+
+// Products Routes
+Route::get('/products', [App\Http\Controllers\ProductController::class, 'index'])->name('products.index');
+Route::get('/products/category/{category}', [App\Http\Controllers\ProductController::class, 'category'])->name('products.category');
+Route::get('/products/{slug}', [App\Http\Controllers\ProductController::class, 'show'])->name('products.show');
 
 // Blog Routes (Public)
 Route::get('/blog', [App\Http\Controllers\BlogController::class, 'index'])->name('blog');
@@ -180,12 +197,19 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
     // Career Management
     Route::resource('careers', App\Http\Controllers\Admin\CareerController::class)->names('admin.careers');
+    Route::get('/job-applications', [App\Http\Controllers\Admin\JobApplicationController::class, 'index'])->name('admin.job-applications.index');
+    Route::get('/job-applications/download/{id}', [App\Http\Controllers\Admin\JobApplicationController::class, 'download'])->name('admin.job-applications.download');
+    Route::get('/job-applications/{id}', [App\Http\Controllers\Admin\JobApplicationController::class, 'show'])->name('admin.job-applications.show');
+    Route::delete('/job-applications/{id}', [App\Http\Controllers\Admin\JobApplicationController::class, 'destroy'])->name('admin.job-applications.destroy');
 
     // Team Member Management
     Route::resource('team', App\Http\Controllers\Admin\TeamMemberController::class)->names('admin.team');
 
     // Pricing Plans
     Route::resource('pricing', App\Http\Controllers\Admin\PricingPlanController::class)->names('admin.pricing');
+
+    // Products Management
+    Route::resource('products', App\Http\Controllers\Admin\ProductController::class)->names('admin.products');
 });
 
 // Demo Preview

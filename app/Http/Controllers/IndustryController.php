@@ -387,6 +387,30 @@ class IndustryController extends Controller
                 ['q' => 'Can you customizing Moodle?', 'a' => 'Yes, we are experts in Moodle customization.'],
                 ['q' => 'Do you support SCORM?', 'a' => 'Yes, our LMS solutions are SCORM compliant.']
             ]
+        ],
+        'manufacturing' => [
+            'id' => 'manufacturing',
+            'title' => 'Manufacturing',
+            'icon' => 'fa-industry',
+            'hero_highlight' => 'Industry 4.0',
+            'subtitle' => 'Smart manufacturing solutions for the modern factory.',
+            'hero_image' => 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1600&auto=format&fit=crop',
+            'about_image' => 'https://images.unsplash.com/photo-1537462715116-402bbd4c3862?q=80&w=800&auto=format&fit=crop',
+            'trust_points' => ['IoT', 'Automation', 'Supply Chain', 'Analytics'],
+            'about_text' => 'Optimizing production with digital intelligence. We build software that connects machines, data, and people to drive efficiency.',
+            'features' => [
+                ['title' => 'Smart Factory IoT', 'desc' => 'Connect machines for real-time monitoring.', 'icon' => 'fa-network-wired'],
+                ['title' => 'Production Planning', 'desc' => 'Software to schedule and track manufacturing.', 'icon' => 'fa-tasks'],
+                ['title' => 'Inventory Control', 'desc' => 'Precise tracking of raw materials and goods.', 'icon' => 'fa-boxes'],
+                ['title' => 'Quality Management', 'desc' => 'Automated QA processes and reporting.', 'icon' => 'fa-check-double']
+            ],
+            'tech_stack' => ['Python', 'IoT', 'AWS Greengrass', 'TensorFlow', 'React'],
+            'process' => ['Audit', 'IoT Sensory', 'Data Pipeline', 'Dashboard', 'Optimization'],
+            'benefits' => ['Reduced Downtime', 'Higher Quality', 'Cost Savings', 'Safety'],
+            'faq' => [
+                ['q' => 'Can you connect legacy machines?', 'a' => 'Yes, we use retrofitting sensors for older equipment.'],
+                ['q' => 'Do you offer predictive maintenance?', 'a' => 'Yes, AI models to predict failures before they happen.']
+            ]
         ]
     ];
 
@@ -399,11 +423,100 @@ class IndustryController extends Controller
 
     public function show($slug)
     {
-        if (!array_key_exists($slug, $this->industries)) {
-            abort(404);
+        // Comprehensive Slug Mapping for all URL variations (URL Slug -> Internal Key)
+        $slugMapping = [
+            // Transportation & Logistics variations
+            'transportation-and-logistics' => 'logistics',
+            'transportation-logistics' => 'logistics',
+
+            // Utilities & On-Demand variations
+            'utilities-and-on-demand' => 'on-demand',
+            'utilities-on-demand' => 'on-demand',
+
+            // Finance variations
+            'finance-and-insurance' => 'finance',
+            'finance-insurance' => 'finance',
+
+            // Media & Entertainment variations
+            'media-and-entertainment' => 'entertainment',
+            'media-entertainment' => 'entertainment',
+
+            // E-commerce variations
+            'e-commerce-multi-vendor' => 'e-commerce',
+            'ecommerce' => 'e-commerce',
+
+            // Real Estate variations
+            'real-estate-construction' => 'real-estate',
+            'realestate' => 'real-estate',
+
+            // Travel variations
+            'travel-hospitality' => 'travel',
+            'travel-and-hospitality' => 'travel',
+
+            // Healthcare variations
+            'medical-healthcare' => 'healthcare',
+            'medical-and-healthcare' => 'healthcare',
+
+            // Education variations
+            'edtech-e-learning' => 'education',
+            'edtech-elearning' => 'education',
+            'e-learning' => 'education',
+
+            // Manufacturing (direct)
+            'manufacturing' => 'manufacturing',
+
+            // Startup variations
+            'startup' => 'start-up',
+
+            // Retail variations
+            'retail' => 'retail',
+
+            // Wearable variations
+            'wearable' => 'wearable',
+
+            // Automotive variations
+            'automotive' => 'automotive',
+
+            // Electric Vehicle variations
+            'electric-vehicle' => 'electric-vehicle',
+            'ev' => 'electric-vehicle',
+
+            // Game variations
+            'game' => 'game',
+            'gaming' => 'game'
+        ];
+
+        // Apply slug mapping if exists
+        if (array_key_exists($slug, $slugMapping)) {
+            $slug = $slugMapping[$slug];
         }
 
-        $service = (object) $this->industries[$slug];
+        // 1. Direct Match
+        if (array_key_exists($slug, $this->industries)) {
+            $service = (object) $this->industries[$slug];
+        } else {
+            // 2. Fuzzy matching by normalizing both slug and keys
+            // Removes hyphens, spaces, 'and', '&' for comparison
+            $foundKey = null;
+            $normalizedSlug = str_replace(['-', ' ', 'and', '&'], '', strtolower($slug));
+
+            foreach ($this->industries as $key => $data) {
+                $normalizedKey = str_replace(['-', ' ', 'and', '&'], '', strtolower($key));
+
+                if ($normalizedKey === $normalizedSlug) {
+                    $foundKey = $key;
+                    break;
+                }
+            }
+
+            if ($foundKey) {
+                $service = (object) $this->industries[$foundKey];
+            } else {
+                // Log the failed slug for debugging
+                \Log::warning("Industry not found for slug: {$slug}");
+                abort(404);
+            }
+        }
 
         $service->features = json_decode(json_encode($service->features));
         $service->faq = json_decode(json_encode($service->faq ?? []));

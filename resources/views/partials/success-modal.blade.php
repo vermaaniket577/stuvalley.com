@@ -3,9 +3,6 @@
     <div class="premium-modal success-modal-pro">
         <div class="modal-accent-line"></div>
 
-        <button class="modal-close-btn" onclick="closeModal()">
-            <i class="fas fa-times"></i>
-        </button>
 
         <div class="modal-content-wrapper success-content">
             <div class="success-icon-badge">
@@ -27,9 +24,9 @@
                 </button>
             </div>
 
-            <button class="btn-finish-pro" onclick="closeModal()">
+            <a href="{{ route('careers') }}" class="btn-finish-pro" style="text-decoration: none;">
                 BACK TO SITE <i class="fas fa-arrow-right"></i>
-            </button>
+            </a>
         </div>
     </div>
 </div>
@@ -228,10 +225,15 @@
         window.showModal = function () {
             modal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
+
+            // Fix: Chrome autoplay policy often blocks audio after timeouts. 
+            // Triggering immediately upon function call (which comes from user click) is safer.
+            if (window.speechSynthesis.paused) window.speechSynthesis.resume();
+            playVoiceMessage();
+
             setTimeout(() => {
                 modal.classList.add('active');
-                playVoiceMessage();
-            }, 10);
+            }, 50);
         };
 
         window.closeModal = function () {
@@ -246,10 +248,17 @@
         window.playVoiceMessage = function () {
             if (synth) {
                 stopVoice();
-                const text = "Your inquiry has been successfully transmitted. Our team will contact you shortly.";
+                // Dynamic text from modal content
+                const title = modal.querySelector('.modal-title').innerText;
+                const sub = modal.querySelector('.modal-subtitle').innerText;
+                const text = title + ". " + sub;
+
                 utterance = new SpeechSynthesisUtterance(text);
                 utterance.rate = 0.95;
-                utterance.onend = () => updateVoiceBtn(false);
+                utterance.onend = () => {
+                    isPlaying = false;
+                    updateVoiceBtn(false);
+                };
                 synth.speak(utterance);
                 isPlaying = true;
                 updateVoiceBtn(true);
@@ -272,11 +281,14 @@
         function updateVoiceBtn(active) {
             if (!voiceBtn) return;
             const btnText = voiceBtn.querySelector('.btn-text');
+            const icon = voiceBtn.querySelector('i');
             if (active) {
-                btnText.textContent = 'PLAYING CONFIRMATION...';
+                btnText.textContent = 'PLAYING...';
+                icon.className = 'fas fa-volume-up';
                 voiceBtn.classList.add('active');
             } else {
                 btnText.textContent = 'REPLAY CONFIRMATION';
+                icon.className = 'fas fa-play';
                 voiceBtn.classList.remove('active');
             }
         }

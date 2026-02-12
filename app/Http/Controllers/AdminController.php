@@ -9,7 +9,59 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboard');
+        // Monthly Blog Posts (Current Year)
+        $blogChartData = \App\Models\BlogPost::selectRaw('MONTH(created_at) as month, COUNT(*) as count')
+            ->whereYear('created_at', date('Y'))
+            ->groupBy('month')
+            ->orderBy('month')
+            ->pluck('count', 'month')
+            ->toArray();
+
+        // Monthly Leads (Current Year)
+        $leadChartData = \App\Models\Lead::selectRaw('MONTH(created_at) as month, COUNT(*) as count')
+            ->whereYear('created_at', date('Y'))
+            ->groupBy('month')
+            ->orderBy('month')
+            ->pluck('count', 'month')
+            ->toArray();
+
+        // Vacancy Stats
+        $vacancyChartData = [
+            'open' => \App\Models\JobPosting::where('is_active', true)->count(),
+            'closed' => \App\Models\JobPosting::where('is_active', false)->count(),
+        ];
+
+        // Service Distribution
+        $serviceChartData = \App\Models\Lead::selectRaw('service, COUNT(*) as count')
+            ->whereNotNull('service')
+            ->groupBy('service')
+            ->pluck('count', 'service')
+            ->toArray();
+
+        // Fill missing months with 0
+        $blogData = [];
+        $leadData = [];
+        for ($i = 1; $i <= 12; $i++) {
+            $blogData[] = $blogChartData[$i] ?? 0;
+            $leadData[] = $leadChartData[$i] ?? 0;
+        }
+
+        // Count Variables for Stats
+        $blogCount = \App\Models\BlogPost::count();
+        $vacancyCount = \App\Models\JobPosting::count();
+        $leadCount = \App\Models\Lead::count();
+        $industryCount = \App\Models\Industry::count();
+
+        return view('admin.dashboard', compact(
+            'blogData',
+            'leadData',
+            'vacancyChartData',
+            'serviceChartData',
+            'blogCount',
+            'vacancyCount',
+            'leadCount',
+            'industryCount'
+        ));
     }
 
     public function settings()

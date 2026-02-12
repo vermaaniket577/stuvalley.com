@@ -11,7 +11,9 @@ class CareerController extends Controller
 {
     public function index()
     {
-        $jobs = JobPosting::orderBy('created_at', 'desc')->paginate(10);
+        $jobs = JobPosting::where('slug', '!=', 'open-application')
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
         return view('admin.careers.index', compact('jobs'));
     }
 

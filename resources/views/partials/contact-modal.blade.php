@@ -2,9 +2,6 @@
 <div id="globalContactModal" class="modal-overlay">
     <div class="premium-modal contact-modal-light">
         <!-- Close Button -->
-        <button class="modal-close-btn" onclick="closeContactModal()" aria-label="Close Modal">
-            <i class="fas fa-times"></i>
-        </button>
 
         <!-- Top Accent Line -->
         <div class="modal-accent-line"></div>

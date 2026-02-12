@@ -8,6 +8,7 @@
     <title>Admin Dashboard - Stuvalley</title>
     <link rel="icon" href="{{ asset('favicon.jpg') }}?v={{ time() }}" type="image/jpeg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
             --primary: #f36f21;
@@ -344,6 +345,25 @@
                 opacity: 1;
             }
         }
+
+        /* Sidebar Notification Badge */
+        .nav-link-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .notification-badge {
+            background: var(--primary);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 50px;
+            font-size: 0.65rem;
+            font-weight: 800;
+            box-shadow: 0 4px 6px rgba(243, 111, 33, 0.3);
+            animation: bounce-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
     </style>
 </head>
 
@@ -417,6 +437,15 @@
                 <a href="{{ route('admin.careers.index') }}"
                     class="nav-link {{ request()->routeIs('admin.careers.*') ? 'active' : '' }}">
                     <i class="fas fa-briefcase"></i> Vacancy Management
+                </a>
+                <a href="{{ route('admin.job-applications.index') }}"
+                    class="nav-link {{ request()->routeIs('admin.job-applications.*') ? 'active' : '' }}">
+                    <div class="nav-link-container">
+                        <span><i class="fas fa-user-tie"></i> Candidates (CVs)</span>
+                        @if (isset($pending_cv_count) && $pending_cv_count > 0)
+                            <span class="notification-badge">{{ $pending_cv_count }}</span>
+                        @endif
+                    </div>
                 </a>
                 <a href="{{ route('admin.settings') }}"
                     class="nav-link {{ request()->routeIs('admin.settings') ? 'active' : '' }}">
