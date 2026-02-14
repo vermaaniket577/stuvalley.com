@@ -75,11 +75,10 @@ class BlogPost extends Model
         // For files in public directory (images/blog/filename.jpg)
         // or old storage paths (blog/filename.jpg)
         if (Str::startsWith($this->featured_image, 'images/')) {
-            // FIX: Explicitly prepend 'public/' because the web server root is strictly the app root
-            return asset('public/' . $this->featured_image);
+            return asset($this->featured_image);
         }
 
-        // Legacy: storage path (also needs public/)
-        return asset('public/storage/' . $this->featured_image);
+        // Legacy: storage path
+        return asset('storage/' . $this->featured_image);
     }
 }

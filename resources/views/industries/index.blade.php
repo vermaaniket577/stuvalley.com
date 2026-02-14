@@ -31,20 +31,23 @@
     </section>
 
     <!-- Industries Grid -->
-    <section style="padding: 80px 0; background: #0b1120;">
+    <section style="padding: 100px 0; background: #0b1120;">
         <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 60px 35px;">
                 @foreach($industries as $industry)
                     @php
                         $slug = $industry->id; // Use ID as slug directly from controller
                     @endphp
-                    <a href="{{ route('industries.show', $slug) }}" style="text-decoration: none; display: block;">
-                        <div style="background: rgba(30, 41, 59, 0.5); padding: 50px 30px; border-radius: 16px; text-align: center; transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 4px 6px rgba(0,0,0,0.2); height: 100%; position: relative; overflow: hidden;"
+                    <a href="{{ route('industries.show', $slug) }}"
+                        style="text-decoration: none; display: flex; flex-direction: column; height: 100%;">
+                        <div style="background: rgba(30, 41, 59, 0.5); padding: 50px 35px; border-radius: 20px; text-align: center; transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 4px 6px rgba(0,0,0,0.2); position: relative; overflow: hidden; flex-grow: 1; display: flex; flex-direction: column; align-items: center;"
                             onmouseover="this.style.background='rgba(30, 41, 59, 0.8)'; this.style.borderColor='#3b82f6'; this.style.transform='translateY(-10px) scale(1.02)'; this.style.boxShadow='0 20px 40px rgba(59, 130, 246, 0.15)'; this.querySelector('.ind-icon').style.color='#60a5fa'; this.querySelector('.ind-icon').style.transform='scale(1.1) rotate(5deg)'; this.querySelector('.ind-title').style.color='#ffffff';"
                             onmouseout="this.style.background='rgba(30, 41, 59, 0.5)'; this.style.borderColor='rgba(255, 255, 255, 0.05)'; this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 4px 6px rgba(0,0,0,0.2)'; this.querySelector('.ind-icon').style.color='#3b82f6'; this.querySelector('.ind-icon').style.transform='scale(1) rotate(0deg)'; this.querySelector('.ind-title').style.color='#f8fafc';">
 
                             <!-- Glow Effect -->
-                            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at top, rgba(59, 130, 246, 0.1), transparent 70%); pointer-events: none;"></div>
+                            <div
+                                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at top, rgba(59, 130, 246, 0.1), transparent 70%); pointer-events: none;">
+                            </div>
 
                             @if($industry->icon)
                                 <div class="ind-icon"
@@ -59,7 +62,8 @@
                             </h3>
 
                             @if($industry->subtitle)
-                                <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin: 0; position: relative; z-index: 2;">
+                                <p
+                                    style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin: 0; position: relative; z-index: 2;">
                                     {{ Str::limit($industry->subtitle, 100) }}
                                 </p>
                             @endif
@@ -76,7 +80,8 @@
     </section>
 
     <!-- CTA Section -->
-    <section style="padding: 80px 0; background: linear-gradient(135deg, #0f172a 0%, #0b1120 100%); border-top: 1px solid rgba(255,255,255,0.05);">
+    <section
+        style="padding: 80px 0; background: linear-gradient(135deg, #0f172a 0%, #0b1120 100%); border-top: 1px solid rgba(255,255,255,0.05);">
         <div class="container" style="max-width: 900px; margin: 0 auto; padding: 0 20px; text-align: center;">
             <h2 style="font-size: 2.5rem; color: #ffffff; margin-bottom: 20px; font-weight: 700;">
                 Don't See Your Industry?

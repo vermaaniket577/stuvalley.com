@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('header_class', 'scrolled')
+@section('header_class', '')
 
 @section('content')
     <div class="service-detail-page">
@@ -338,9 +338,9 @@
             background-attachment: fixed;
             position: relative;
             display: flex;
-            align-items: center;
-            padding-top: 60px;
-            /* Critical fix for header overlap */
+            align-items: flex-start;
+            padding-top: 180px;
+            /* Adjusted for new 85px header + 40px top bar */
         }
 
         .hero-overlay {
@@ -366,20 +366,23 @@
         .hero-highlight {
             color: #38bdf8 !important;
             font-weight: 700;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             display: block;
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            font-family: 'Inter', sans-serif;
         }
 
         .service-title {
-            font-size: 4rem;
+            font-size: 4.5rem;
             line-height: 1.1;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: #ffffff !important;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            font-weight: 800;
+            letter-spacing: -1px;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
         }
 
         .service-subtitle {
@@ -400,15 +403,23 @@
         }
 
         .trust-pill {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 8px 16px;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 8px 18px;
             border-radius: 50px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             color: #e2e8f0;
+            transition: all 0.3s;
+            backdrop-filter: blur(5px);
+        }
+
+        .trust-pill:hover {
+            border-color: #38bdf8;
+            background: rgba(15, 23, 42, 0.8);
+            transform: translateY(-2px);
         }
 
         .trust-pill i {
@@ -416,23 +427,26 @@
         }
 
         .btn-hero-glow {
-            background: var(--primary);
-            color: #0b1120;
-            padding: 16px 40px;
+            background: #38bdf8 !important;
+            /* Sky blue solid */
+            color: #0b1120 !important;
+            padding: 18px 45px;
             border-radius: 50px;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             text-decoration: none;
             display: inline-block;
-            transition: 0.3s;
-            box-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.5);
+            border: 2px solid transparent;
         }
 
         .btn-hero-glow:hover {
             transform: translateY(-3px);
-            background: #fff;
-            box-shadow: 0 0 40px rgba(56, 189, 248, 0.6);
+            background: #fff !important;
+            color: #38bdf8 !important;
+            box-shadow: 0 0 50px rgba(56, 189, 248, 0.8);
         }
 
         /* Grid Layouts */
@@ -452,11 +466,12 @@
             margin-bottom: 5px;
             text-align: left;
             width: 100%;
+            color: #ffffff;
         }
 
         .section-lead {
             font-size: 1.1rem;
-            color: var(--text-muted);
+            color: #cbd5e1;
             margin-bottom: 30px;
             line-height: 1.8;
         }
@@ -509,34 +524,51 @@
         }
 
         .feature-card {
-            background: var(--bg-panel);
-            padding: 40px 30px;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: 0.3s;
+            background: #111827;
+            /* Dark Slate / Navy */
+            padding: 50px 40px;
+            border-radius: 24px;
+            border: none;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            height: 100%;
         }
 
         .feature-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
+            transform: translateY(-8px);
+            background: #1f2937;
+            box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.3);
         }
 
         .f-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 25px;
+            font-size: 3rem;
+            color: #38bdf8;
+            margin-bottom: 30px;
+            background: transparent;
+            width: auto;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
         }
 
         .feature-card h3 {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             margin-bottom: 15px;
+            color: #ffffff;
+            font-weight: 700;
+            line-height: 1.3;
         }
 
         .feature-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
+            color: #9ca3af;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin: 0;
         }
 
         .f-glow {
@@ -564,13 +596,17 @@
         }
 
         .tech-pill {
-            padding: 12px 30px;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 30px;
-            color: #cbd5e1;
-            font-weight: 600;
-            transition: 0.3s;
+            padding: 15px 40px;
+            background: #111827;
+            /* Dark BG */
+            border: 1px solid #1f2937;
+            border-radius: 12px;
+            color: #d1d5db;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            min-width: 120px;
+            text-align: center;
         }
 
         .tech-pill:hover {
@@ -597,20 +633,23 @@
         }
 
         .step-num {
-            width: 65px;
-            height: 65px;
-            background: rgba(30, 41, 59, 0.8);
-            border: 2px solid var(--primary);
+            width: 80px;
+            height: 80px;
+            background: #020617;
+            /* Very Dark */
+            border: 2px solid #38bdf8;
             color: #fff;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            margin: 0 auto 20px;
-            box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+            margin: 0 auto 25px;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.4), inset 0 0 10px rgba(56, 189, 248, 0.2);
             transition: 0.3s;
+            position: relative;
+            z-index: 2;
         }
 
         .p-step:hover .step-num {
@@ -666,9 +705,10 @@
 
         .cta-content h2 {
             margin-bottom: 20px;
-            font-size: 2.8rem;
+            font-size: 3rem;
             line-height: 1.2;
             font-weight: 800;
+            color: #ffffff;
         }
 
         .cta-content p {
@@ -879,13 +919,13 @@
         }
 
         .section-label {
-            color: var(--primary);
-            font-size: 0.85rem;
+            color: #38bdf8;
+            font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 2.5px;
             font-weight: 700;
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         /* Case Studies */
@@ -1029,101 +1069,148 @@
             color: #0b1120;
         }
 
-        /* Sticky CTA */
+        /* Sticky CTA - Floating Capsule Design */
+        /* Sticky CTA - Floating Capsule Design */
         .sticky-cta-bar {
             position: fixed;
-            bottom: 20px;
+            bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 12px 30px;
-            border-radius: 50px;
-            z-index: 999;
-            width: 90%;
-            max-width: 800px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            display: block;
+            background: #0f172a;
+            /* Solid Dark Navy */
+            border: 1px solid #1e293b;
+            padding: 15px 40px;
+            border-radius: 100px;
+            z-index: 1000;
+            width: auto;
+            min-width: unset;
+            white-space: nowrap;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            animation: slideUp 0.5s ease-out 1s backwards;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translate(-50%, 100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translate(-50%, 0);
+                opacity: 1;
+            }
         }
 
         .flex-cta {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 !important;
+            width: 100%;
+            gap: 40px;
+        }
+
+        .cta-text-nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
         .cta-label {
-            color: #94a3b8;
-            margin-right: 15px;
-            font-size: 0.9rem;
+            color: #cbd5e1;
+            font-size: 1rem;
+            font-weight: 500;
         }
 
         .cta-phone {
             color: #fff;
             font-weight: 700;
-            font-size: 1rem;
-        }
-
-        .cta-actions-nav {
-            display: flex;
-            gap: 15px;
-        }
-
-        .btn-whatsapp-sticky {
-            background: #25D366;
-            color: #fff;
-            padding: 8px 18px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 1.1rem;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .btn-talk-sticky {
-            background: var(--primary);
-            color: #0b1120;
-            padding: 8px 18px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.85rem;
+        .cta-phone i {
+            color: #38bdf8;
         }
 
-        @media(max-width: 768px) {
+        .cta-actions-nav {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn-whatsapp-sticky {
+            background: #25d366;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-whatsapp-sticky:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+            background: #22c55e;
+        }
+
+        .btn-talk-sticky {
+            background: #38bdf8;
+            /* Cyan Blue */
+            color: #0f172a;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+        }
+
+        .btn-talk-sticky:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.5);
+            background: #0ea5e9;
+        }
+
+
+
+        @media(max-width: 991px) {
             .sticky-cta-bar {
-                bottom: 15px;
-                /* Add margin at bottom */
                 width: 94%;
-                /* Card width */
-                left: 3%;
-                /* Center it manually */
-                transform: none;
-                border-radius: 16px;
-                /* Rounded corners */
-                padding: 15px 20px;
-                border: 1px solid rgba(255, 255, 255, 0.1);
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+                min-width: auto;
+                bottom: 20px;
+                flex-direction: column;
+                padding: 15px;
+                gap: 15px;
+            }
+
+            .flex-cta {
+                flex-direction: column;
+                gap: 15px;
             }
 
             .cta-text-nav {
-                display: none;
+                width: 100%;
+                justify-content: center;
             }
 
             .cta-actions-nav {
                 width: 100%;
-                justify-content: space-between;
-            }
-
-            .btn-whatsapp-sticky,
-            .btn-talk-sticky {
-                flex: 1;
                 justify-content: center;
             }
+
+
         }
 
         .bg-light .section-lead,

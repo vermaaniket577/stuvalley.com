@@ -182,7 +182,7 @@
                     </p>
                 </div>
 
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 50px 35px;">
                     @foreach ($industry->solutions as $solution)
                         <div class="solution-glass-card"
                             style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 40px; backdrop-filter: blur(10px); transition: all 0.4s ease; position: relative; overflow: hidden;"
@@ -224,7 +224,7 @@
                     </h2>
                 </div>
 
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 55px 40px;">
                     @foreach ($industry->benefits as $benefit)
                         <div style="display: flex; gap: 25px; padding: 35px; background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border-radius: 20px; border-left: 4px solid #3b82f6; transition: all 0.3s ease;"
                             onmouseover="this.style.transform='translateX(10px)'; this.style.boxShadow='0 10px 30px rgba(59,130,246,0.1)';"

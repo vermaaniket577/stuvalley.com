@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('header_class', 'scrolled')
+@section('header_class', '')
 
 @section('content')
     <div class="company-page terms-page">
@@ -133,7 +133,8 @@
                         <h2>10. Governing Law</h2>
                         <p>These Terms shall be governed and interpreted in accordance with the laws of
                             <strong>India</strong>. Any disputes shall be subject to the jurisdiction of courts located in
-                            <strong>Gurugram, Haryana</strong>.</p>
+                            <strong>Gurugram, Haryana</strong>.
+                        </p>
                     </div>
 
                     <div class="terms-divider"></div>

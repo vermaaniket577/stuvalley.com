@@ -1,6 +1,131 @@
 @extends('layouts.app')
 
 @section('content')
+    <style>
+        /* Home Page Specific Header Overrides - Overlay & Glass Effect */
+        #header-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 50;
+        }
+
+        /* UPDATE: Darker Top Bar for High Contrast */
+        /* UPDATE: Darker Top Bar & Layout Fix */
+        #header-wrapper .top-bar {
+            background: #000000 !important;
+            /* Matches Global Top Bar */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+            backdrop-filter: blur(10px) !important;
+        }
+
+        #header-wrapper .top-bar .tb-flex {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            width: 100%;
+        }
+
+        #header-wrapper .top-bar .tb-social {
+            display: flex !important;
+            gap: 15px;
+        }
+
+        /* UPDATE: Sleek Dark Header Overlay */
+        /* UPDATE: Sleek Dark Header Overlay */
+        #header-wrapper header {
+            background: #050a14 !important;
+            /* Matches Global Header */
+            backdrop-filter: blur(20px) !important;
+            /* Stronger Blur */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+        }
+
+        /* Highlight Active Home Link */
+        /* Highlight Active Home Link - Clean Blue Text Only */
+        #header-wrapper .nav-links>li>a[href="/"] {
+            color: #38bdf8 !important;
+            /* Cyan Active Color */
+            text-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+            /* Subtle Glow */
+        }
+
+        #header-wrapper .nav-links>li>a[href="/"] i {
+            color: #38bdf8 !important;
+        }
+
+        #header-wrapper .nav-links>li>a[href="/"]::after {
+            content: none !important;
+        }
+
+        /* Force White Text for Home Page Header */
+        #header-wrapper .top-bar,
+        #header-wrapper .top-bar a,
+        #header-wrapper .nav-links>li>a,
+        #header-wrapper .dropbtn {
+            color: #ffffff !important;
+        }
+
+        /* FIX: Ensure Mega Menu Layout Matches Design */
+        #header-wrapper .mega-dropdown-content a,
+        #header-wrapper .mega-links a {
+            color: #334155 !important;
+            /* Slate 700 text */
+            font-weight: 600;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            padding: 8px 0 !important;
+            text-decoration: none !important;
+            transition: all 0.2s ease;
+        }
+
+        /* Arrow Icon Styling */
+        #header-wrapper .mega-links a i,
+        #header-wrapper .mega-links a .arrow-anim {
+            color: #cbd5e1 !important;
+            /* Light Gray for arrow */
+            font-size: 0.85em;
+            transition: all 0.2s ease;
+        }
+
+        #header-wrapper .mega-dropdown-content a:hover,
+        #header-wrapper .mega-links a:hover {
+            color: #3b82f6 !important;
+            /* Blue Text on Hover */
+            padding-left: 5px !important;
+            /* Subtle slide */
+        }
+
+        #header-wrapper .mega-links a:hover i,
+        #header-wrapper .mega-links a:hover .arrow-anim {
+            color: #3b82f6 !important;
+            /* Blue Arrow on Hover */
+            transform: translateX(5px);
+        }
+
+        /* Reduced overlay transition as requested */
+        .hero::before {
+            background: linear-gradient(to right,
+                    rgba(2, 6, 23, 0.4) 0%,
+                    rgba(2, 6, 23, 0.2) 40%,
+                    rgba(2, 6, 23, 0.0) 100%) !important;
+        }
+
+        /* Responsive Fixes */
+        @media (max-width: 992px) {
+            .hero {
+                padding-top: 180px !important;
+                /* Ensure content clears fixed header */
+            }
+
+            .hero-title {
+                font-size: 2.5rem !important;
+            }
+        }
+    </style>
     <!-- Global Parallax Background -->
     <div class="parallax-bg-container"
         style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: #000; z-index: 0; pointer-events: none; overflow: hidden;">
@@ -23,7 +148,7 @@
     <section class="hero" id="home">
         <!-- Background Video -->
         <video autoplay muted loop playsinline preload="auto" poster="{{ asset('images/hero-bg-full.png') }}"
-            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; filter: brightness(0.9); display: block;">
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; display: block;">
             <source src="{{ asset('videos/hero-loop.mp4') }}" type="video/mp4">
         </video>
 
@@ -287,13 +412,13 @@
 
                 <h2
                     style="
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  margin:0 0 22px 0;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  font-weight:800;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  line-height:1.08;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  color:#1e293b;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  font-size:clamp(2.1rem, 3.6vw, 3.4rem);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  max-width: 1100px;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      margin:0 0 22px 0;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      font-weight:800;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      line-height:1.08;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      color:#1e293b;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      font-size:clamp(2.1rem, 3.6vw, 3.4rem);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      max-width: 1100px;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ">
                     Custom-Built Systems for a
                     <span style="color:#3b82f6;">Smarter, Scalable</span>
                     Business
@@ -301,13 +426,13 @@
 
                 <p
                     style="
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  margin:0;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  color:#64748b;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  font-size:clamp(1rem, 1.05vw, 1.15rem);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  line-height:1.85;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  max-width: 1100px;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  allign: justify;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      margin:0;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      color:#64748b;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      font-size:clamp(1rem, 1.05vw, 1.15rem);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      line-height:1.85;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      max-width: 1100px;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      allign: justify;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ">
                     Take your business to new heights with our custom, intelligent, and adaptable web design and
                     development services in India – trusted by clients worldwide. We build powerful and innovative
                     platforms that simplify operations, automate workflows, and drive productivity. When you're ready
@@ -643,7 +768,7 @@
         </style>
 
         <script>
-            // Simple CountUp Animation
+            // Simple CountUp An            imation
             document.addEventListener('DOMContentLoaded', () => {
                 const stats = document.querySelectorAll('.stat-number');
 
@@ -936,19 +1061,21 @@
                         @if(isset($featured_products) && count($featured_products) > 0)
                             @foreach($featured_products as $index => $product)
                                 <a href="{{ route('products.show', $product->slug) }}"
-                                   style="text-decoration: none; color: inherit; display: block;">
+                                    style="text-decoration: none; color: inherit; display: block;">
                                     <div class="pro-card reveal {{ $index > 0 ? 'delay-' . ($index * 100) : '' }}">
                                         <div class="pro-card-image">
-                                            <span class="pro-label" style="background: {{ $product->color_scheme }};">{{ $product->category ?? 'Product' }}</span>
-                                            <img src="{{ $product->featured_image_url }}"
-                                                loading="lazy" alt="{{ $product->title }}">
+                                            <span class="pro-label"
+                                                style="background: {{ $product->color_scheme }};">{{ $product->category ?? 'Product' }}</span>
+                                            <img src="{{ $product->featured_image_url }}" loading="lazy"
+                                                alt="{{ $product->title }}">
                                             <div class="pro-overlay"></div>
                                         </div>
                                         <div class="pro-content">
                                             <h3>{{ $product->title }}</h3>
                                             <p>{{ \Illuminate\Support\Str::limit($product->short_description, 100) }}</p>
                                             <div class="pro-meta">
-                                                <span class="pro-tag"><i class="fas {{ $product->icon ?? 'fa-cube' }}"></i> {{ $product->industry ?? 'Tech' }}</span>
+                                                <span class="pro-tag"><i class="fas {{ $product->icon ?? 'fa-cube' }}"></i>
+                                                    {{ $product->industry ?? 'Tech' }}</span>
                                                 <span class="pro-cta">View Case Study <i class="fas fa-arrow-right"></i></span>
                                             </div>
                                         </div>
@@ -957,16 +1084,19 @@
                             @endforeach
                         @else
                             <!-- Fallback Static Cards -->
-                            <a href="{{ route('products.show', 'simaura') }}" style="text-decoration: none; color: inherit; display: block;">
+                            <a href="{{ route('products.show', 'simaura') }}"
+                                style="text-decoration: none; color: inherit; display: block;">
                                 <div class="pro-card reveal">
                                     <div class="pro-card-image">
                                         <span class="pro-label">E-Commerce</span>
-                                        <img src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?auto=format&fit=crop&q=80&w=800" loading="lazy" alt="Simaura Project">
+                                        <img src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?auto=format&fit=crop&q=80&w=800"
+                                            loading="lazy" alt="Simaura Project">
                                         <div class="pro-overlay"></div>
                                     </div>
                                     <div class="pro-content">
                                         <h3>SIMAURA</h3>
-                                        <p>A scalable, multi-vendor marketplace platform optimized for high-volume transactions and seamless logistics integration.</p>
+                                        <p>A scalable, multi-vendor marketplace platform optimized for high-volume transactions
+                                            and seamless logistics integration.</p>
                                         <div class="pro-meta">
                                             <span class="pro-tag"><i class="fas fa-shopping-cart"></i> Retail Tech</span>
                                             <span class="pro-cta">View Case Study <i class="fas fa-arrow-right"></i></span>
@@ -975,16 +1105,19 @@
                                 </div>
                             </a>
                             <!-- Card 2: MENBITA -->
-                            <a href="{{ route('products.show', 'menbita') }}" style="text-decoration: none; color: inherit; display: block;">
+                            <a href="{{ route('products.show', 'menbita') }}"
+                                style="text-decoration: none; color: inherit; display: block;">
                                 <div class="pro-card reveal delay-100">
                                     <div class="pro-card-image">
                                         <span class="pro-label" style="background: rgba(239, 68, 68, 0.9);">Corporate</span>
-                                        <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=800" loading="lazy" alt="Menbita Project">
+                                        <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=800"
+                                            loading="lazy" alt="Menbita Project">
                                         <div class="pro-overlay"></div>
                                     </div>
                                     <div class="pro-content">
                                         <h3>MENBITA</h3>
-                                        <p>An enterprise event management ecosystem facilitating corporate networking, scheduling, and real-time collaboration.</p>
+                                        <p>An enterprise event management ecosystem facilitating corporate networking,
+                                            scheduling, and real-time collaboration.</p>
                                         <div class="pro-meta">
                                             <span class="pro-tag"><i class="fas fa-building"></i> Enterprise</span>
                                             <span class="pro-cta">View Case Study <i class="fas fa-arrow-right"></i></span>
@@ -1555,9 +1688,9 @@
         <style>
             .industries-grid {
                 display: grid;
-                grid-template-columns: repeat(5, 1fr);
-                gap: 35px;
-                /* Increased gap for better separation */
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 55px 35px;
+                /* Increased gap for better separation and equal vertical/horizontal spacing feel */
             }
 
             .industry-card-glass {
@@ -1815,7 +1948,7 @@
                 .blog-grid {
                     display: grid;
                     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-                    gap: 40px;
+                    gap: 60px 40px;
                 }
 
                 .card:hover {

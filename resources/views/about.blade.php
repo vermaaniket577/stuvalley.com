@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('header_class', 'scrolled')
+@section('header_class', '')
 
 @section('content')
     <div class="about-page-premium">
@@ -217,7 +217,8 @@
             display: flex;
             align-items: center;
             position: relative;
-            padding-top: 100px;
+            padding: 120px 100px;
+            /* Increased equally on all sides for a more framed, luxury look */
             overflow: hidden;
             background: radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.05) 0%, transparent 40%),
                 radial-gradient(circle at 90% 80%, rgba(2, 132, 199, 0.05) 0%, transparent 40%),
@@ -323,6 +324,8 @@
             border-radius: 35px;
             box-shadow: 0 40px 100px rgba(0, 0, 0, 0.08);
             z-index: 5;
+            margin: 30px;
+            /* Added equal margin for better breathing room */
         }
 
         .card-icon-sphere {

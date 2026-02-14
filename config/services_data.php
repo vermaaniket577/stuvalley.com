@@ -4,12 +4,12 @@ return [
     // --- WEBSITE DEVELOPMENT ---
     'business-website' => [
         'title' => 'Business Website',
-        'subtitle' => 'Professional, high-converting corporate websites tailored to your brand identity.',
+        'subtitle' => 'Professional, high-converting corporate websites designed to reflect your brand and turn visitors into customers.',
         'hero_highlight' => 'Corporate Identity',
         'hero_image' => 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1600&auto=format&fit=crop',
         'about_image' => 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800&auto=format&fit=crop',
         'trust_points' => ['SEO Optimized', 'Mobile Responsive', 'Fast Loading', 'Secure'],
-        'about_text' => 'Your website is your digital storefront. We build professional, trustworthy business websites that communicate your value proposition clearly and drive visitor engagement.',
+        'about_text' => 'Your website is your digital storefront. We create professional, trustworthy websites that clearly showcase your brand, communicate your value, and engage visitors to drive real business growth.',
         'features' => [
             ['title' => 'Responsive Design', 'desc' => 'Looks perfect on desktops, tablets, and mobile devices.', 'icon' => 'fa-mobile-alt'],
             ['title' => 'SEO Foundation', 'desc' => 'Built with clean code and structure for better search rankings.', 'icon' => 'fa-search'],
@@ -32,17 +32,25 @@ return [
         ],
         'faq' => [
             ['q' => 'How long does it take?', 'a' => 'Typically 2-4 weeks depending on the complexity.'],
-            ['q' => 'Can I update the content myself?', 'a' => 'Yes, we provide an easy-to-use CMS implementation.']
+            ['q' => 'Can I update the content myself?', 'a' => 'Yes, we provide an easy-to-use CMS implementation.'],
+            ['q' => 'Will my website be mobile-friendly?', 'a' => 'Yes, all our websites are fully responsive and optimized for all devices.'],
+            ['q' => 'Do you provide SEO services?', 'a' => 'Yes, we build SEO-friendly websites and offer advanced SEO optimization services.'],
+            ['q' => 'Can you redesign my existing website?', 'a' => 'Yes, we can revamp your current site to improve design, speed, and performance.'],
+            ['q' => 'Is my website secure?', 'a' => 'Absolutely, we follow best security practices including SSL integration and secure coding standards.'],
+            ['q' => 'Do you offer ongoing support?', 'a' => 'Yes, we provide maintenance and support plans to keep your website updated and secure.'],
+            ['q' => 'Can you integrate third-party tools?', 'a' => 'Yes, we can integrate payment gateways, CRMs, APIs, and other business tools.'],
+            ['q' => 'Will my website be fast?', 'a' => 'Yes, we optimize every website for speed and high performance.'],
+            ['q' => 'Do you offer custom web development?', 'a' => 'Yes, we build fully customized web applications tailored to your business needs.']
         ]
     ],
     'custom-web-development' => [
         'title' => 'Custom Web Development',
-        'subtitle' => 'Bespoke web solutions architected for your specific business logic and workflows.',
+        'subtitle' => 'Tailor-made web solutions built to match your unique business needs, workflows, and goals — scalable, efficient, and built for performance.',
         'hero_highlight' => 'Tailored Engineering',
         'hero_image' => 'https://images.unsplash.com/photo-1555099962-4199c345e5dd?q=80&w=1600&auto=format&fit=crop',
         'about_image' => 'https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=800&auto=format&fit=crop',
         'trust_points' => ['Scalable', 'Secure', 'API Integration', 'Cloud Native'],
-        'about_text' => 'When off-the-shelf software isn\'t enough, we build custom web applications that solve unique challenges, streamline operations, and give you a competitive edge.',
+        'about_text' => 'When standard solutions fall short, we build powerful custom web applications tailored to your exact business needs. Our solutions streamline operations, improve efficiency, and give you a strong competitive advantage.',
         'features' => [
             ['title' => 'Complex Logic', 'desc' => 'Translating intricate business rules into code.', 'icon' => 'fa-cogs'],
             ['title' => 'Database Design', 'desc' => 'Efficient schema design for high-volume data.', 'icon' => 'fa-database'],
@@ -65,17 +73,25 @@ return [
         ],
         'faq' => [
             ['q' => 'Do I own the code?', 'a' => 'Yes, you receive full intellectual property rights upon completion.'],
-            ['q' => 'What tech stack do you use?', 'a' => 'We prefer Laravel + Vue for PHP stacks, or MERN for JS stacks, but we adapt to your needs.']
+            ['q' => 'What tech stack do you use?', 'a' => 'We prefer Laravel + Vue for PHP stacks, or MERN for JS stacks, but we adapt to your needs.'],
+            ['q' => 'Can you work with our existing system?', 'a' => 'Yes, we can integrate with or enhance your current system without disrupting operations.'],
+            ['q' => 'Is the solution scalable?', 'a' => 'Yes, we design systems that are scalable and ready to grow with your business.'],
+            ['q' => 'Do you provide API integrations?', 'a' => 'Yes, we integrate third-party APIs, payment gateways, CRMs, and other tools.'],
+            ['q' => 'Will the application be secure?', 'a' => 'Yes, we follow best security practices including secure authentication and data protection measures.'],
+            ['q' => 'Do you offer post-launch support?', 'a' => 'Yes, we provide maintenance and ongoing technical support after deployment.'],
+            ['q' => 'Can you build custom dashboards?', 'a' => 'Yes, we develop tailored dashboards and admin panels based on your workflow needs.'],
+            ['q' => 'How do you ensure performance?', 'a' => 'We optimize database queries, caching, and architecture for high performance and speed.'],
+            ['q' => 'Do you sign NDAs?', 'a' => 'Yes, we are happy to sign an NDA to protect your business confidentiality.']
         ]
     ],
     'wordpress-development' => [
         'title' => 'WordPress Development',
-        'subtitle' => 'Scalable, secure, and custom WordPress solutions for modern publishers and businesses.',
+        'subtitle' => 'Scalable, secure, and fully customized WordPress solutions built to power modern businesses and content-driven websites.',
         'hero_highlight' => 'CMS Powerhouse',
         'hero_image' => 'https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=1600&auto=format&fit=crop',
         'about_image' => 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=800&auto=format&fit=crop',
         'trust_points' => ['Custom Themes', 'Plugin Dev', 'Performance-Tuned', 'Secure'],
-        'about_text' => 'We go beyond basic templates. We engineer custom WordPress themes and plugins that provide uniqueness, speed, and security, giving you the flexibility of the world\'s most popular CMS without the bloat.',
+        'about_text' => 'We go beyond templates to build custom WordPress themes and plugins tailored to your needs. Enjoy a fast, secure, and flexible website — without unnecessary bloat.',
         'tech_stack' => ['WordPress', 'PHP', 'MySQL', 'React (Gutenberg)', 'WooCommerce'],
         'features' => [
             ['title' => 'Custom Themes', 'desc' => 'Hand-coded themes matching your design exactly.', 'icon' => 'fa-palette'],
@@ -98,17 +114,25 @@ return [
         ],
         'faq' => [
             ['q' => 'Is WordPress secure?', 'a' => 'Yes, when properly maintained and hardened, which is part of our standard process.'],
-            ['q' => 'Can you fix my hacked site?', 'a' => 'Yes, we offer emergency malware removal and recovery services.']
+            ['q' => 'Can you fix my hacked site?', 'a' => 'Yes, we offer emergency malware removal and recovery services.'],
+            ['q' => 'Do you build custom WordPress themes?', 'a' => 'Yes, we create fully custom themes tailored to your brand and business needs.'],
+            ['q' => 'Can you develop custom plugins?', 'a' => 'Yes, we build custom plugins to add specific functionality without unnecessary bloat.'],
+            ['q' => 'Will my website be fast?', 'a' => 'Yes, we optimize WordPress with caching, performance tuning, and clean code practices.'],
+            ['q' => 'Do you provide ongoing maintenance?', 'a' => 'Yes, we offer regular updates, backups, and security monitoring services.'],
+            ['q' => 'Can you migrate my existing website?', 'a' => 'Yes, we handle seamless WordPress migrations with zero data loss.'],
+            ['q' => 'Is the website SEO-friendly?', 'a' => 'Yes, we implement SEO best practices including clean URLs, schema, and optimized structure.'],
+            ['q' => 'Can I manage content easily?', 'a' => 'Yes, WordPress provides an intuitive dashboard for easy content management.'],
+            ['q' => 'Do you integrate third-party tools?', 'a' => 'Yes, we integrate payment gateways, CRMs, marketing tools, and APIs as needed.']
         ]
     ],
     'website-redesign' => [
         'title' => 'Website Redesign',
-        'subtitle' => 'Modernize your digital presence with a design overhaul that improves aesthetics and performance.',
+        'subtitle' => 'Refresh your digital presence with a modern redesign that enhances visuals, performance, and user experience.',
         'hero_highlight' => 'Revitalize',
         'hero_image' => 'https://images.unsplash.com/photo-1542744094-3a31f272c490?q=80&w=1600&auto=format&fit=crop',
         'about_image' => 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=800&auto=format&fit=crop',
         'trust_points' => ['Modern UI', 'Better UX', 'SEO Retention', 'Mobile First'],
-        'about_text' => 'Outdated websites cost you business. We transform legacy sites into modern, high-performance assets that reflect your current brand excellence and convert visitors.',
+        'about_text' => 'Outdated websites can hold your business back. We transform old sites into modern, high-performance platforms that reflect your brand and turn visitors into customers.',
         'features' => [
             ['title' => 'Visual Modernization', 'desc' => 'Updating layouts to current design trends.', 'icon' => 'fa-paint-roller'],
             ['title' => 'UX Improvement', 'desc' => 'Fixing navigation and user flow issues.', 'icon' => 'fa-users'],
@@ -130,14 +154,20 @@ return [
             ['name' => 'Strategic', 'price' => 'Custom', 'desc' => 'Data-driven redesign.', 'features' => ['User Testing', 'A/B Testing', 'Conversion Strategy', 'Full Rebrand'], 'popular' => false]
         ],
         'faq' => [
-            ['q' => 'Will I lose my SEO rankings?', 'a' => 'No, we implementing strict SEO migration protocols to preserve and improve rankings.'],
-            ['q' => 'Can you keep my existing content?', 'a' => 'Yes, we will migrate all relevant content to the new design.']
+            ['q' => 'Will I lose my SEO rankings?', 'a' => 'No, we implement strict SEO migration protocols to preserve and improve your rankings.'],
+            ['q' => 'Can you keep my existing content?', 'a' => 'Yes, we migrate all relevant content to the new design seamlessly.'],
+            ['q' => 'Will my website experience downtime?', 'a' => 'We minimize downtime by staging and testing the new site before launch.'],
+            ['q' => 'Do you improve website speed during redesign?', 'a' => 'Yes, performance optimization is a key part of our redesign process.'],
+            ['q' => 'Can you improve user experience?', 'a' => 'Yes, we restructure layouts and navigation to enhance usability and engagement.'],
+            ['q' => 'Will the new design be mobile-friendly?', 'a' => 'Absolutely, every redesign is fully responsive across all devices.'],
+            ['q' => 'Can you update the branding during redesign?', 'a' => 'Yes, we align the new website with your updated brand identity and messaging.'],
+            ['q' => 'Do you provide post-launch support?', 'a' => 'Yes, we offer support and maintenance after the redesigned site goes live.']
         ]
     ],
     // --- ECOMMERCE SOLUTIONS ---
     'ecommerce-website' => [
         'title' => 'Ecommerce Website',
-        'subtitle' => 'Revenue-generating online stores designed for conversion and scalability.',
+        'subtitle' => 'High-converting ecommerce websites built to drive sales, streamline operations, and scale with your business. We design secure, user-friendly online stores optimized for performance, seamless checkout, and maximum revenue growth.',
         'hero_highlight' => 'Digital Retail',
         'hero_image' => 'https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?q=80&w=1600&auto=format&fit=crop',
         'about_image' => 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop',
@@ -165,12 +195,20 @@ return [
         ],
         'faq' => [
             ['q' => 'Which platform is best?', 'a' => 'Shopify is best for ease of use, WooCommerce for ownership and flexibility.'],
-            ['q' => 'Do you take a commission?', 'a' => 'No, we charge flat development fees. Transaction fees depend on the payment gateway.']
+            ['q' => 'Do you take a commission?', 'a' => 'No, we charge flat development fees. Transaction fees depend on the payment gateway.'],
+            ['q' => 'Can you integrate payment gateways?', 'a' => 'Yes, we integrate Razorpay, Stripe, PayPal, and other major gateways.'],
+            ['q' => 'Will my store be mobile-friendly?', 'a' => 'Yes, all our ecommerce websites are fully responsive and optimized for mobile shopping.'],
+            ['q' => 'Do you provide product upload support?', 'a' => 'Yes, we can upload products and set up categories, filters, and variations.'],
+            ['q' => 'Is the website SEO-friendly?', 'a' => 'Yes, we implement ecommerce SEO best practices for better product visibility.'],
+            ['q' => 'Can you integrate shipping APIs?', 'a' => 'Yes, we integrate shipping providers for real-time rates and order tracking.'],
+            ['q' => 'Do you offer ongoing maintenance?', 'a' => 'Yes, we provide support plans to keep your store secure and updated.'],
+            ['q' => 'Can the store scale as my business grows?', 'a' => 'Yes, we build scalable ecommerce solutions designed for long-term growth.']
         ]
+
     ],
     'shopify-development' => [
         'title' => 'Shopify Development',
-        'subtitle' => 'Expert Shopify design and development for brands that demand excellence.',
+        'subtitle' => 'Expert Shopify design and development tailored for ambitious brands that demand performance, precision, and premium online experiences.',
         'hero_highlight' => 'Shopify Experts',
         'hero_image' => 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1600&auto=format&fit=crop',
         'about_image' => 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=800&auto=format&fit=crop',
@@ -197,15 +235,23 @@ return [
             ['name' => 'Plus Scale', 'price' => 'Custom', 'desc' => 'Shopify Plus.', 'features' => ['B2B Features', 'Checkout Scripts', 'International Markets', 'Dedicated Manager'], 'popular' => false]
         ],
         'faq' => [
-            ['q' => 'Why Shopify?', 'a' => 'It is the most reliable, hosted solution, meaning you don\'t worry about servers or security.'],
-            ['q' => 'Can I edit the site myself?', 'a' => 'Yes, Shopify\'s editor is extremely user-friendly.']
+            ['q' => 'Why Shopify?', 'a' => 'It is the most reliable hosted solution, so you don’t have to worry about servers or security.'],
+            ['q' => 'Can I edit the site myself?', 'a' => 'Yes, Shopify’s editor is extremely user-friendly and easy to manage.'],
+            ['q' => 'Can you create custom Shopify themes?', 'a' => 'Yes, we design and develop fully custom Shopify themes tailored to your brand.'],
+            ['q' => 'Do you integrate third-party apps?', 'a' => 'Yes, we integrate apps for payments, shipping, marketing, and automation.'],
+            ['q' => 'Is Shopify good for scaling?', 'a' => 'Yes, Shopify supports businesses from startups to enterprise-level brands.'],
+            ['q' => 'Do you optimize for conversions?', 'a' => 'Yes, we design stores with CRO best practices to maximize sales.'],
+            ['q' => 'Can you migrate my store to Shopify?', 'a' => 'Yes, we handle seamless migration from other platforms without data loss.'],
+            ['q' => 'Do you provide ongoing support?', 'a' => 'Yes, we offer maintenance and growth support after launch.']
         ]
+
+
     ],
 
     // --- APP DEVELOPMENT ---
     'android-app-development' => [
         'title' => 'Android App Development',
-        'subtitle' => 'Native Android applications built for performance, stability, and broad reach.',
+        'subtitle' => 'Native Android applications engineered for high performance, long-term stability, and maximum reach across the Android ecosystem.',
         'hero_highlight' => 'Google Play',
         'hero_image' => 'https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?q=80&w=1600&auto=format&fit=crop',
         'about_image' => 'https://images.unsplash.com/photo-1551650992-ee4fd47df41f?q=80&w=800&auto=format&fit=crop',
@@ -233,7 +279,13 @@ return [
         ],
         'faq' => [
             ['q' => 'Do you support tablets?', 'a' => 'Yes, we optimize layouts for both phones and tablets.'],
-            ['q' => 'How do updates work?', 'a' => 'We offer maintenance packages to handle regular updates and OS compatibility.']
+            ['q' => 'How do updates work?', 'a' => 'We offer maintenance packages to handle regular updates and OS compatibility.'],
+            ['q' => 'Will my app be published on Google Play?', 'a' => 'Yes, we handle the complete deployment process including Play Store submission.'],
+            ['q' => 'Do you build custom features?', 'a' => 'Yes, we develop fully customized features based on your business requirements.'],
+            ['q' => 'Is the app secure?', 'a' => 'Yes, we implement secure authentication, data encryption, and best coding practices.'],
+            ['q' => 'Can you integrate APIs and third-party services?', 'a' => 'Yes, we integrate payment gateways, CRMs, maps, and other APIs as needed.'],
+            ['q' => 'Do you provide UI/UX design for the app?', 'a' => 'Yes, our design team creates intuitive and modern app interfaces.'],
+            ['q' => 'Can the app scale as users grow?', 'a' => 'Yes, we build scalable architecture to support future growth and high traffic.']
         ]
     ],
     'ios-app-development' => [
@@ -265,15 +317,22 @@ return [
             ['name' => 'Flagship', 'price' => 'Custom', 'desc' => 'Industry leader.', 'features' => ['AR/ML Integration', 'Custom Encryption', 'Global CDNs', 'Dedicated Team'], 'popular' => false]
         ],
         'faq' => [
-            ['q' => 'Will it work on iPad?', 'a' => 'Yes, we can build universal apps that adapt to both iPhone and iPad.'],
-            ['q' => 'How long is the review process?', 'a' => 'Typically Apple takes 24-48 hours to review apps, but we prepare everything to ensure smooth approval.']
+            ['q' => 'Will it work on iPad?', 'a' => 'Yes, we can build universal apps that adapt seamlessly to both iPhone and iPad.'],
+            ['q' => 'How long is the review process?', 'a' => 'Apple typically takes 24–48 hours for review, and we prepare everything to ensure smooth approval.'],
+            ['q' => 'Will you handle App Store submission?', 'a' => 'Yes, we manage the complete submission process including compliance and metadata setup.'],
+            ['q' => 'Do you support future iOS updates?', 'a' => 'Yes, we offer maintenance plans to ensure compatibility with future iOS versions.'],
+            ['q' => 'Can you integrate Apple Pay?', 'a' => 'Yes, we can integrate Apple Pay and other secure payment solutions.'],
+            ['q' => 'Is the app optimized for performance?', 'a' => 'Yes, we follow native development best practices for speed and stability.'],
+            ['q' => 'Do you provide UI/UX design?', 'a' => 'Yes, our team designs intuitive interfaces aligned with Apple’s Human Interface Guidelines.'],
+            ['q' => 'Can the app scale as users grow?', 'a' => 'Yes, we build scalable architecture to support increasing user demand.']
         ]
     ],
 
     // --- DIGITAL MARKETING ---
     'seo-services' => [
         'title' => 'SEO Services',
-        'subtitle' => 'Data-driven search engine optimization to maximize visibility and revenue.',
+        'subtitle' => 'Strategic SEO that boosts visibility and drives targeted traffic.
+We optimize your site for better rankings and real business growth.',
         'hero_highlight' => 'Rank Higher',
         'hero_image' => 'https://images.unsplash.com/photo-1571786256017-aee7a0c009b6?q=80&w=1600&auto=format&fit=crop',
         'about_image' => 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=800&auto=format&fit=crop',
@@ -301,12 +360,18 @@ return [
         ],
         'faq' => [
             ['q' => 'How long to see results?', 'a' => 'SEO is a long-term strategy. Significant results typically appear in 3-6 months.'],
-            ['q' => 'Is it permanent?', 'a' => 'Rankings can fluctuate, but our solid foundation ensures long-term stability.']
+            ['q' => 'Is it permanent?', 'a' => 'Rankings can fluctuate, but our solid foundation ensures long-term stability.'],
+            ['q' => 'Do you guarantee #1 rankings?', 'a' => 'No ethical SEO agency can guarantee rankings, but we follow proven strategies to achieve strong, sustainable growth.'],
+            ['q' => 'Do you perform keyword research?', 'a' => 'Yes, we conduct in-depth keyword and competitor research to target high-value search terms.'],
+            ['q' => 'Will SEO increase my sales?', 'a' => 'SEO brings qualified traffic, which significantly improves your chances of generating leads and sales.'],
+            ['q' => 'Do you provide SEO reports?', 'a' => 'Yes, we provide regular performance reports with clear metrics and insights.'],
+            ['q' => 'Is local SEO included?', 'a' => 'Yes, we optimize Google Business profiles and local listings for better regional visibility.'],
+            ['q' => 'Can you optimize an existing website?', 'a' => 'Yes, we audit and improve existing websites to enhance performance and rankings.']
         ]
     ],
     'hybrid-app-development' => [
         'title' => 'Hybrid App Development',
-        'subtitle' => 'Cost-effective cross-platform solutions that work everywhere.',
+        'subtitle' => 'Cost-effective hybrid app solutions built to run seamlessly across Android and iOS, delivering consistent performance, faster development cycles, and wider market reach.',
         'hero_highlight' => 'Cross Platform',
         'hero_image' => 'https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=1600&auto=format&fit=crop',
         'about_image' => 'https://images.unsplash.com/photo-1555421689-d68471e189f2?q=80&w=800&auto=format&fit=crop',
@@ -333,14 +398,20 @@ return [
             ['name' => 'Enterprise', 'price' => 'Custom', 'desc' => 'Large scale.', 'features' => ['Complex Logic', 'ERP Integration', 'SLA Support', 'Dedicated Team'], 'popular' => false]
         ],
         'faq' => [
-            ['q' => 'Is native better than hybrid?', 'a' => 'For 90% of apps, hybrid (Flutter/React Native) provides an indistinguishable experience at a lower cost.'],
-            ['q' => 'Can we switch to native later?', 'a' => 'Yes, but usually it is not necessary as hybrid apps scale very well.']
+            ['q' => 'Is native better than hybrid?', 'a' => 'For most apps, hybrid frameworks like Flutter or React Native deliver near-native performance at a lower cost.'],
+            ['q' => 'Can we switch to native later?', 'a' => 'Yes, migration is possible, but modern hybrid apps scale efficiently for long-term growth.'],
+            ['q' => 'Will the app run on both Android and iOS?', 'a' => 'Yes, hybrid development allows a single codebase to run smoothly on both platforms.'],
+            ['q' => 'Is performance compromised in hybrid apps?', 'a' => 'No, with proper architecture and optimization, performance is highly competitive.'],
+            ['q' => 'Do you handle app store submissions?', 'a' => 'Yes, we manage deployment on both Google Play and Apple App Store.'],
+            ['q' => 'Can you integrate third-party APIs?', 'a' => 'Yes, we integrate payment gateways, maps, CRMs, and other services as needed.'],
+            ['q' => 'Is hybrid development cost-effective?', 'a' => 'Yes, it reduces development time and cost by using a shared codebase.'],
+            ['q' => 'Do you provide ongoing maintenance?', 'a' => 'Yes, we offer support packages for updates, bug fixes, and feature enhancements.']
         ]
     ],
 
     'google-ads' => [
         'title' => 'Google Ads Management',
-        'subtitle' => 'Precision-targeted PPC campaigns that deliver instant ROI.',
+        'subtitle' => 'Precision-targeted PPC campaigns designed to drive immediate traffic, qualified leads, and measurable ROI from day one.',
         'hero_highlight' => 'Instant Traffic',
         'hero_image' => 'https://images.unsplash.com/photo-1533750516457-a7f992034fec?q=80&w=1600&auto=format&fit=crop',
         'about_image' => 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop',
@@ -366,19 +437,25 @@ return [
             ['name' => 'Performance', 'price' => '15% of Spend', 'desc' => 'Ad spend >₹4L.', 'features' => ['All Networks', 'Adv. Strategies', 'Video Ads', 'Weekly Calls'], 'popular' => false]
         ],
         'faq' => [
-            ['q' => 'How much should I spend?', 'a' => 'We recommend starting with at least ₹80,000/mo ad spend to get significant data.'],
-            ['q' => 'Does this include ad spend?', 'a' => 'No, our fee is for management. You pay Google directly for the ads.']
+            ['q' => 'How much should I spend?', 'a' => 'We recommend starting with at least ₹80,000/mo ad spend to gather meaningful performance data.'],
+            ['q' => 'Does this include ad spend?', 'a' => 'No, our fee covers campaign strategy and management. You pay the ad platform directly.'],
+            ['q' => 'How quickly will I see results?', 'a' => 'PPC campaigns can start generating traffic and leads within days of launch.'],
+            ['q' => 'Which platforms do you manage?', 'a' => 'We manage Google Ads, Meta Ads, LinkedIn Ads, and other major PPC platforms.'],
+            ['q' => 'Do you provide performance reports?', 'a' => 'Yes, we share detailed reports covering clicks, conversions, and ROI metrics.'],
+            ['q' => 'Can you optimize existing campaigns?', 'a' => 'Yes, we audit and optimize underperforming campaigns to improve ROI.'],
+            ['q' => 'What type of businesses benefit from PPC?', 'a' => 'Any business looking for fast, measurable lead generation can benefit from PPC advertising.'],
+            ['q' => 'Do you handle landing page optimization?', 'a' => 'Yes, we can optimize or build high-converting landing pages to maximize campaign results.']
         ]
     ],
 
     'social-media' => [
         'title' => 'Social Media Marketing',
-        'subtitle' => 'Building loyal communities and driving brand awareness across all platforms.',
+        'subtitle' => 'Building engaged communities and amplifying your brand presence across all major social media platforms.',
         'hero_highlight' => 'Social Growth',
         'hero_image' => 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1600&auto=format&fit=crop',
         'about_image' => 'https://images.unsplash.com/photo-1611162616475-46b635cb6868?q=80&w=800&auto=format&fit=crop',
         'trust_points' => ['Instagram', 'LinkedIn', 'Facebook', 'Content Creation'],
-        'about_text' => 'Social media is where your customers live. We create engaging content and manage your community to build trust, authority, and brand loyalty.',
+        'about_text' => 'Your customers are active on social media — and so should your brand be. We create compelling content, manage engagement, and build meaningful connections that strengthen trust, boost authority, and grow long-term brand loyalty.',
         'features' => [
             ['title' => 'Content Strategy', 'desc' => 'Planning what to post and when.', 'icon' => 'fa-calendar-alt'],
             ['title' => 'Creative Design', 'desc' => 'Stunning graphics and reels.', 'icon' => 'fa-pencil-ruler'],
@@ -400,19 +477,25 @@ return [
         ],
         'faq' => [
             ['q' => 'Do you create the graphics?', 'a' => 'Yes, our design team creates all static and video assets.'],
-            ['q' => 'Which platforms do you cover?', 'a' => 'We specialize in Instagram, LinkedIn, Facebook, and Twitter/X.']
+            ['q' => 'Which platforms do you cover?', 'a' => 'We specialize in Instagram, LinkedIn, Facebook, and Twitter/X.'],
+            ['q' => 'Do you handle content planning?', 'a' => 'Yes, we create a monthly content calendar aligned with your brand goals.'],
+            ['q' => 'Will you manage comments and messages?', 'a' => 'Yes, we monitor engagement and respond to comments and DMs professionally.'],
+            ['q' => 'Do you run paid social campaigns?', 'a' => 'Yes, we manage paid ads to boost reach, engagement, and lead generation.'],
+            ['q' => 'How often will you post?', 'a' => 'Posting frequency depends on your plan, typically 3–5 times per week.'],
+            ['q' => 'Do you provide performance reports?', 'a' => 'Yes, we share detailed monthly reports with growth and engagement metrics.'],
+            ['q' => 'Can you grow my followers?', 'a' => 'Yes, we use organic strategies and paid promotions to grow a targeted audience.']
         ]
     ],
 
     // --- BRANDING & DESIGN ---
     'logo-design' => [
         'title' => 'Logo & Brand Identity',
-        'subtitle' => 'Crafting memorable visual identities that resonate with your audience.',
+        'subtitle' => 'We design distinctive logos and cohesive brand identities that capture your vision, communicate your values, and leave a lasting impression on your audience.',
         'hero_highlight' => 'Visual Identity',
         'hero_image' => 'https://images.unsplash.com/photo-1626785774573-4b799314348d?q=80&w=1600&auto=format&fit=crop',
         'about_image' => 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=800&auto=format&fit=crop',
         'trust_points' => ['Unique Concepts', 'Vector Files', 'Brand Guide', 'Copyright Ownership'],
-        'about_text' => 'A logo is the face of your brand. We design unique, timeless logos and comprehensive identity systems that set you apart from the competition.',
+        'about_text' => 'Your logo is the foundation of your brand presence. We create unique, timeless logos and complete brand identity systems that reflect your vision, build recognition, and differentiate you from competitors.',
         'features' => [
             ['title' => 'Logo Design', 'desc' => 'Custom marks reflecting your values.', 'icon' => 'fa-signature'],
             ['title' => 'Typography', 'desc' => 'Font selection and hierarchy.', 'icon' => 'fa-font'],
@@ -431,18 +514,24 @@ return [
         ],
         'faq' => [
             ['q' => 'Do I own the copyright?', 'a' => 'Yes, full copyright is transferred to you upon final payment.'],
-            ['q' => 'How many revisions?', 'a' => 'Our standard package includes unlimited revisions until you are satisfied.']
+            ['q' => 'How many revisions?', 'a' => 'Our standard package includes unlimited revisions until you are satisfied.'],
+            ['q' => 'What files will I receive?', 'a' => 'You will receive high-resolution files in formats like AI, EPS, PNG, JPG, and PDF.'],
+            ['q' => 'Do you provide brand guidelines?', 'a' => 'Yes, we can create a complete brand guideline document covering colors, typography, and usage rules.'],
+            ['q' => 'Can you redesign my existing logo?', 'a' => 'Yes, we can modernize and refine your existing logo while preserving brand recognition.'],
+            ['q' => 'How long does the process take?', 'a' => 'Initial concepts are typically delivered within 5–7 business days.'],
+            ['q' => 'Will I get multiple concepts?', 'a' => 'Yes, we present multiple creative concepts to choose from.'],
+            ['q' => 'Do you design full brand identity systems?', 'a' => 'Yes, we design complete identity systems including stationery, social media kits, and more.']
         ]
     ],
 
     'ui-ux-design' => [
         'title' => 'UI/UX Design',
-        'subtitle' => 'Designing intuitive, user-centric digital experiences that delight and convert.',
+        'subtitle' => 'Designing intuitive, user-focused digital experiences that enhance usability, strengthen engagement, and drive meaningful conversions.',
         'hero_highlight' => 'User Experience',
         'hero_image' => 'https://images.unsplash.com/photo-1586717791821-3f44a5638d28?q=80&w=1600&auto=format&fit=crop',
         'about_image' => 'https://images.unsplash.com/photo-1545235617-9465d2a55698?q=80&w=800&auto=format&fit=crop',
         'trust_points' => ['User Research', 'Wireframing', 'Prototyping', 'Figma Experts'],
-        'about_text' => 'Great design is about how it works, not just how it looks. We create seamless user journeys and pixel-perfect interfaces that make your product a joy to use.',
+        'about_text' => 'Great design goes beyond visuals — it’s about functionality and flow. We craft seamless user journeys and pixel-perfect interfaces that enhance usability, improve engagement, and make your product effortless and enjoyable to use.',
         'features' => [
             ['title' => 'User Research', 'desc' => 'Understanding your audience needs.', 'icon' => 'fa-user-friends'],
             ['title' => 'Wireframing', 'desc' => 'Blueprinting the structure.', 'icon' => 'fa-border-none'],
@@ -458,19 +547,26 @@ return [
             ['name' => 'Consultancy', 'price' => '₹7,999/hr', 'desc' => 'Expert advice.', 'features' => ['UX Audit', 'Heuristic Analysis', 'Team Training', 'Strategy'], 'popular' => false]
         ],
         'faq' => [
-            ['q' => 'Do you do the coding too?', 'a' => 'This service is design-only, but our development team can perfectly implement our designs.'],
-            ['q' => 'What tools do you use?', 'a' => 'We primarily use Figma for real-time collaboration and seamless developer handoff.']
+            ['q' => 'Do you do the coding too?', 'a' => 'This service is design-only, but our development team can seamlessly implement the approved designs.'],
+            ['q' => 'What tools do you use?', 'a' => 'We primarily use Figma for real-time collaboration and smooth developer handoff.'],
+            ['q' => 'Do you conduct user research?', 'a' => 'Yes, we perform user research and competitor analysis to inform design decisions.'],
+            ['q' => 'Will I receive design files?', 'a' => 'Yes, you will receive organized Figma files ready for development.'],
+            ['q' => 'Do you create prototypes?', 'a' => 'Yes, we build interactive prototypes to visualize user flows before development.'],
+            ['q' => 'Can you redesign an existing app or website?', 'a' => 'Yes, we audit and redesign existing products to improve usability and performance.'],
+            ['q' => 'Do you design for mobile and web?', 'a' => 'Yes, we create responsive designs optimized for both mobile and desktop experiences.'],
+            ['q' => 'How long does a design project take?', 'a' => 'Timelines vary, but most UI/UX projects take 2–6 weeks depending on scope.']
         ]
+
     ],
 
     'graphic-design' => [
         'title' => 'Graphic Design',
-        'subtitle' => 'Compelling visuals for your marketing and communication needs.',
+        'subtitle' => 'Compelling, high-impact visuals crafted to elevate your marketing campaigns and strengthen your brand communication across all channels.',
         'hero_highlight' => 'Creative Visuals',
         'hero_image' => 'https://images.unsplash.com/photo-1626785774625-ddcddc3445e9?q=80&w=1600&auto=format&fit=crop',
         'about_image' => 'https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=800&auto=format&fit=crop',
         'trust_points' => ['Print', 'Digital', 'Brochures', 'Presentations'],
-        'about_text' => 'From brochures to billboards, we create striking graphic materials that communicate your message effectively and maintain brand consistency.',
+        'about_text' => 'From brochures to billboards, we design impactful graphic materials that clearly communicate your message while ensuring strong brand consistency across every touchpoint.',
         'features' => [
             ['title' => 'Marketing Material', 'desc' => 'Flyers, brochures, posters.', 'icon' => 'fa-file-pdf'],
             ['title' => 'Presentations', 'desc' => 'Pitch decks and slide designs.', 'icon' => 'fa-slideshare'],
@@ -485,14 +581,19 @@ return [
             ['name' => 'Monthly', 'price' => '₹1,19,999/mo', 'desc' => 'Unlimited requests.', 'features' => ['Unlimited Tasks', 'Priority Support', 'Dedicated Designer', 'Stock Assets'], 'popular' => false]
         ],
         'faq' => [
-            ['q' => 'Do you handle printing?', 'a' => 'We provide print-ready files but do not handle the physical printing process directly.']
+            ['q' => 'Do you handle printing?', 'a' => 'We provide print-ready files but do not handle the physical printing process directly.'],
+            ['q' => 'What file formats will I receive?', 'a' => 'You will receive high-resolution, print-ready files in formats such as PDF, AI, and PNG.'],
+            ['q' => 'Can you follow our brand guidelines?', 'a' => 'Yes, we strictly adhere to your existing brand guidelines to ensure consistency.'],
+            ['q' => 'Do you offer revisions?', 'a' => 'Yes, we include revisions to ensure the final design meets your expectations.'],
+            ['q' => 'Can you design for both print and digital?', 'a' => 'Yes, we create designs optimized for both print materials and digital platforms.'],
+            ['q' => 'How long does a design project take?', 'a' => 'Most graphic design projects are completed within 3–7 business days, depending on scope.']
         ]
     ],
 
     // --- SUPPORT & HOSTING ---
     'website-maintenance' => [
         'title' => 'Website Maintenance',
-        'subtitle' => 'Keep your website secure, fast, and up-to-date with our professional care plans.',
+        'subtitle' => 'Keep your website secure, optimized, and running at peak performance with our proactive maintenance and support plans.',
         'hero_highlight' => 'Peace of Mind',
         'hero_image' => 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1600&auto=format&fit=crop',
         'about_image' => 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop',
@@ -512,14 +613,20 @@ return [
             ['name' => 'Enterprise', 'price' => '₹39,999/mo', 'desc' => 'Mission critical.', 'features' => ['Priority Support', 'Unlimited Edits', 'Dev Environment', 'Consulting'], 'popular' => false]
         ],
         'faq' => [
-            ['q' => 'Does this include hosting?', 'a' => 'Hosting is separate, but we can bundle it for a discount.'],
-            ['q' => 'Can I cancel anytime?', 'a' => 'Yes, our plans are month-to-month with no long-term contracts.']
+            ['q' => 'Does this include hosting?', 'a' => 'Hosting is separate, but we can bundle it at a discounted rate.'],
+            ['q' => 'Can I cancel anytime?', 'a' => 'Yes, our plans are month-to-month with no long-term contracts.'],
+            ['q' => 'What does maintenance include?', 'a' => 'Our plans include updates, backups, security monitoring, and performance optimization.'],
+            ['q' => 'Do you provide emergency support?', 'a' => 'Yes, we offer priority support for urgent technical issues.'],
+            ['q' => 'Will you update plugins and themes?', 'a' => 'Yes, we regularly update plugins, themes, and core files to maintain security.'],
+            ['q' => 'Do you monitor website uptime?', 'a' => 'Yes, we use monitoring tools to ensure your website stays online and operational.'],
+            ['q' => 'Can you make small content changes?', 'a' => 'Yes, minor content updates are included in most maintenance plans.'],
+            ['q' => 'Do you provide performance optimization?', 'a' => 'Yes, we continuously optimize speed and performance for the best user experience.']
         ]
     ],
 
     'hosting-domain' => [
         'title' => 'Hosting & Domain',
-        'subtitle' => 'Fast, secure, and reliable cloud hosting solutions for your business.',
+        'subtitle' => 'Fast, secure, and scalable cloud hosting solutions designed to keep your business online, protected, and performing at its best 24/7.',
         'hero_highlight' => 'Cloud Power',
         'hero_image' => 'https://images.unsplash.com/photo-1544197150-b99a580bbcbf?q=80&w=1600&auto=format&fit=crop',
         'about_image' => 'https://images.unsplash.com/photo-1558494949-ef2bb6db879c?q=80&w=800&auto=format&fit=crop',
@@ -540,13 +647,19 @@ return [
         ],
         'faq' => [
             ['q' => 'Do you help migrate?', 'a' => 'Yes, we provide free migration from your current host.'],
-            ['q' => 'Are backups included?', 'a' => 'Yes, we take daily off-site automated backups.']
+            ['q' => 'Are backups included?', 'a' => 'Yes, we take daily off-site automated backups.'],
+            ['q' => 'Is SSL included?', 'a' => 'Yes, we provide free SSL certificates to ensure secure data transmission.'],
+            ['q' => 'Do you offer scalable plans?', 'a' => 'Yes, our cloud hosting plans can scale as your traffic and business grow.'],
+            ['q' => 'What about uptime guarantee?', 'a' => 'We provide a 99.9% uptime guarantee for maximum reliability.'],
+            ['q' => 'Is technical support available?', 'a' => 'Yes, our support team is available to assist with any hosting-related issues.'],
+            ['q' => 'Do you provide CDN integration?', 'a' => 'Yes, we integrate CDN services to improve global loading speed.'],
+            ['q' => 'Is server security managed?', 'a' => 'Yes, we implement firewalls, malware scanning, and proactive security monitoring.']
         ]
     ],
 
     'website-security' => [
         'title' => 'Website Security',
-        'subtitle' => 'Protect your digital assets with enterprise-grade security protocols.',
+        'subtitle' => 'Safeguard your digital assets with advanced, enterprise-grade security measures designed to prevent threats, detect vulnerabilities, and ensure continuous protection.',
         'hero_highlight' => 'Cyber Defense',
         'hero_image' => 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1600&auto=format&fit=crop',
         'about_image' => 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop',
@@ -566,14 +679,20 @@ return [
             ['name' => 'Enterprise', 'price' => 'Custom', 'desc' => 'Corporate security.', 'features' => ['Penetration Testing', 'Compliance (GDPR/HIPAA)', 'Training', 'SLA'], 'popular' => false]
         ],
         'faq' => [
-            ['q' => 'My site is already hacked!', 'a' => 'Contact us immediately. We offer emergency cleanup services to restoring your site.'],
-            ['q' => 'Do I really need this?', 'a' => 'Attacks are automated and target everyone. Prevention is much cheaper than recovery.']
+            ['q' => 'My site is already hacked!', 'a' => 'Contact us immediately. We offer emergency cleanup services to restore your site quickly and securely.'],
+            ['q' => 'Do I really need this?', 'a' => 'Yes. Cyber attacks are automated and target websites of all sizes. Prevention is far more affordable than recovery.'],
+            ['q' => 'What security measures do you implement?', 'a' => 'We implement firewalls, malware scanning, login protection, and proactive monitoring.'],
+            ['q' => 'Do you provide ongoing security monitoring?', 'a' => 'Yes, we continuously monitor your website for threats and vulnerabilities.'],
+            ['q' => 'Will security slow down my website?', 'a' => 'No, we optimize security configurations to ensure protection without compromising performance.'],
+            ['q' => 'Do you offer SSL installation?', 'a' => 'Yes, we install and configure SSL certificates for secure data encryption.'],
+            ['q' => 'Can you secure ecommerce websites?', 'a' => 'Yes, we implement additional protection layers for payment and customer data security.'],
+            ['q' => 'How often do you scan for vulnerabilities?', 'a' => 'We perform regular automated and manual scans to detect and fix vulnerabilities promptly.']
         ]
     ],
     // --- MISSING KEYS ---
     'woocommerce' => [
         'title' => 'WooCommerce Store',
-        'subtitle' => 'Flexible, open-source ecommerce stores built on WordPress.',
+        'subtitle' => 'Flexible, open-source ecommerce stores powered by WordPress, offering full ownership, customization, and scalable growth for your online business.',
         'hero_highlight' => 'Open Commerce',
         'hero_image' => 'https://images.unsplash.com/photo-1556740758-90de2929e701?q=80&w=1600&auto=format&fit=crop',
         'about_image' => 'https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=800&auto=format&fit=crop',
@@ -593,17 +712,24 @@ return [
             ['name' => 'Complex', 'price' => 'Custom', 'desc' => 'Large scale.', 'features' => ['Multi-Vendor', 'Custom Plugins', 'API Integrations', 'High Availability'], 'popular' => false]
         ],
         'faq' => [
-            ['q' => 'Is WooCommerce free?', 'a' => 'The software is free, but hosting, premium plugins, and development expertise have costs.']
+            ['q' => 'Is WooCommerce free?', 'a' => 'The core software is free, but hosting, premium plugins, and professional development may involve costs.'],
+            ['q' => 'Do I fully own my store?', 'a' => 'Yes, WooCommerce gives you complete ownership and control over your website and data.'],
+            ['q' => 'Can WooCommerce handle large stores?', 'a' => 'Yes, with proper hosting and optimization, WooCommerce can scale to handle large product catalogs.'],
+            ['q' => 'Can you integrate payment gateways?', 'a' => 'Yes, we integrate Stripe, Razorpay, PayPal, and other major payment providers.'],
+            ['q' => 'Is WooCommerce SEO-friendly?', 'a' => 'Yes, it is built on WordPress, which offers strong SEO capabilities.'],
+            ['q' => 'Will my store be mobile-friendly?', 'a' => 'Yes, we design fully responsive WooCommerce stores for seamless mobile shopping.'],
+            ['q' => 'Do you provide maintenance support?', 'a' => 'Yes, we offer ongoing updates, backups, and security monitoring.'],
+            ['q' => 'Can you customize features?', 'a' => 'Yes, we develop custom themes and plugins to match your business requirements.']
         ]
     ],
     'payment-gateway' => [
         'title' => 'Payment Gateway Integration',
-        'subtitle' => 'Secure, reliable payment processing integration for your app or website.',
+        'subtitle' => 'Secure and reliable payment gateway integration designed to ensure smooth transactions, data protection, and a seamless checkout experience for your app or website.',
         'hero_highlight' => 'Secure Payments',
         'hero_image' => 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=1600&auto=format&fit=crop',
         'about_image' => 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=800&auto=format&fit=crop',
         'trust_points' => ['Stripe', 'PayPal', 'Razorpay', 'PCI Compliant'],
-        'about_text' => 'Accept payments from customers worldwide. We integrate secure payment gateways into your website or application, ensuring smooth transactions and compliance with financial regulations.',
+        'about_text' => 'Accept payments from customers anywhere in the world with confidence. We integrate trusted, secure payment gateways into your website or application to ensure seamless transactions, encrypted data protection, and full compliance with financial regulations.',
         'features' => [
             ['title' => 'Global Gateways', 'desc' => 'Stripe, PayPal, Authorize.net.', 'icon' => 'fa-globe'],
             ['title' => 'Local Payments', 'desc' => 'Razorpay, UPI, regional wallets.', 'icon' => 'fa-wallet'],
@@ -621,3 +747,6 @@ return [
         ]
     ]
 ];
+
+
+

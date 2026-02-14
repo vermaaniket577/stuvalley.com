@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('header_class', 'scrolled')
+@section('header_class', '')
 
 @section('content')
     <div class="about-page-premium">
@@ -205,6 +205,15 @@
             font-family: var(--font-main);
             overflow-x: hidden;
             padding-bottom: 80px;
+        }
+
+        /* --- Container Layout Fix --- */
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            /* Adds left/right margin from screen edges */
         }
 
         .section-spacing {

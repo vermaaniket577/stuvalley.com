@@ -2,7 +2,7 @@
 
 @section('title', 'Our Services - Stuvalley Technology')
 
-@section('header_class', 'header-transparent')
+@section('header_class', '')
 
 @section('content')
     <!-- Services Hero Section -->
@@ -104,9 +104,10 @@
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: -60px;
-            /* Overlap effect */
+            gap: 50px;
+            /* Perfectly equal gap on all sides between cards */
+            margin-top: -80px;
+            /* Enhanced overlap with hero */
             position: relative;
             z-index: 10;
         }
@@ -117,7 +118,8 @@
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 20px;
-            padding: 40px 30px;
+            padding: 45px 40px;
+            /* Increased and balanced padding on all sides */
             transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             position: relative;
             overflow: hidden;

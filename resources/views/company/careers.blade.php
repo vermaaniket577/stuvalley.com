@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('header_class', 'scrolled')
+@section('header_class', '')
 
 @section('content')
     <div class="careers-page">

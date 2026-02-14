@@ -5,23 +5,41 @@
     <div class="service-detail-page">
 
         <!-- Hero Section -->
-        <section class="service-hero"
-            style="background-image: url('{{ asset('images/hero-tech.png') }}'); background-color: #0b1120;">
-            <div class="hero-overlay"></div>
+        <section class="service-hero" style="background-color: #050a14;">
+            <div class="hero-overlay"
+                style="background: radial-gradient(circle at 20% 30%, rgba(56, 189, 248, 0.15), transparent 50%), radial-gradient(circle at 80% 70%, rgba(129, 140, 248, 0.1), transparent 50%);">
+            </div>
             <div class="container relative z-10">
-                <div class="hero-content">
-                    <span class="hero-highlight">DIGITAL GROWTH ENGINE</span>
-                    <h1 class="service-title">Digital Marketing</h1>
-                    <p class="service-subtitle">Maximize ROI, generate high-quality leads, and dominate your market with our
-                        premium, results-oriented marketing strategies.</p>
+                <div class="hero-layout-grid">
+                    <div class="hero-content">
+                        <span class="hero-highlight">DIGITAL GROWTH ENGINE</span>
+                        <h1 class="service-title">Digital Marketing</h1>
+                        <p class="service-subtitle">Maximize ROI, generate
+                            high-quality leads, and dominate your market with our premium, results-oriented marketing
+                            strategies.</p>
 
-                    <div class="hero-trust-points">
-                        <span class="trust-pill"><i class="fas fa-check-circle"></i> 500+ Clients</span>
-                        <span class="trust-pill"><i class="fas fa-check-circle"></i> 4.9/5 Rating</span>
-                        <span class="trust-pill"><i class="fas fa-check-circle"></i> ₹50cr+ Revenue</span>
+                        <div class="hero-trust-points">
+                            <span class="trust-pill"><i class="fas fa-check-circle"></i> 500+ Clients</span>
+                            <span class="trust-pill"><i class="fas fa-check-circle"></i> 4.9/5 Rating</span>
+                            <span class="trust-pill"><i class="fas fa-check-circle"></i> ₹50cr+</span>
+                        </div>
+
+                        <a href="{{ route('quote.index') }}" class="btn-hero-glow">Get a Quote</a>
                     </div>
 
-                    <a href="{{ route('quote.index') }}" class="btn-hero-glow">Get a Quote</a>
+                    <!-- Right Side Image -->
+                    <div class="hero-image-right">
+                        <div class="hero-img-container">
+                            <div class="hero-img-glow"></div>
+                            <img src="{{ asset('images/hero-tech1.png') }}" alt="Digital Marketing Expert"
+                                class="hero-main-img">
+
+                            <!-- Floating Icons to match user's image request -->
+                            <div class="floating-icon fi-heart"><i class="fas fa-heart"></i></div>
+                            <div class="floating-icon fi-like"><i class="fas fa-thumbs-up"></i></div>
+                            <div class="floating-icon fi-like-left"><i class="fas fa-thumbs-up"></i></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -268,14 +286,16 @@
 
         /* Hero */
         .service-hero {
-            height: 55vh;
-            min-height: 500px;
+            min-height: 550px;
             background-size: cover;
             background-position: center;
             position: relative;
             display: flex;
             align-items: center;
-            padding-top: 60px;
+            padding-top: 40px;
+            /* Increased margin top */
+            padding-bottom: 80px;
+            overflow: visible !important;
         }
 
         .hero-overlay {
@@ -305,18 +325,166 @@
         }
 
         .service-title {
-            font-size: 4rem;
+            font-size: 4.5rem;
+            /* Larger */
             line-height: 1.1;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: #ffffff !important;
+            font-weight: 900;
+            /* Chunkier as in screen */
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .service-subtitle {
-            font-size: 1.25rem;
-            color: #cbd5e1 !important;
-            margin-bottom: 25px;
-            font-weight: 300;
-            max-width: 600px;
+            font-size: 1.15rem;
+            color: #94a3b8 !important;
+            margin-bottom: 30px;
+            font-weight: 400;
+            max-width: 550px;
+            line-height: 1.6;
+        }
+
+        /* Hero Grid Layout */
+        .hero-layout-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            /* Reduced gap */
+            align-items: center;
+        }
+
+        .hero-image-right {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: translateY(50px);
+            /* Moved further down */
+            overflow: visible !important;
+        }
+
+        .hero-img-container {
+            position: relative;
+            width: 100%;
+            max-width: 420px;
+            /* Reduced from 500px */
+        }
+
+        .hero-main-img {
+            width: 100%;
+            height: auto;
+            position: relative;
+            z-index: 2;
+            animation: floatSlow 6s ease-in-out infinite;
+        }
+
+        .hero-img-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120%;
+            height: 120%;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.2) 0%, transparent 70%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Floating Icons matching user image */
+        .floating-icon {
+            position: absolute;
+            background: #FFB800;
+            /* Match yellow from image */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 25px rgba(255, 184, 0, 0.4);
+            /* Stronger shadow */
+            z-index: 5;
+            animation: floatIcon 4s ease-in-out infinite;
+        }
+
+        .fi-heart {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            top: 5%;
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .fi-like {
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            top: 35%;
+            left: -15%;
+            animation-delay: 1.5s;
+        }
+
+        .fi-like-left {
+            width: 70px;
+            /* Large prominence like in screen */
+            height: 70px;
+            border-radius: 20px;
+            top: 25%;
+            left: -150px;
+            /* Floating between text and girl */
+            animation-delay: 0.8s;
+            box-shadow: 0 15px 40px rgba(255, 184, 0, 0.6);
+            font-size: 1.8rem;
+        }
+
+        @keyframes floatIcon {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(8deg);
+            }
+        }
+
+        @keyframes floatSlow {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @media (max-width: 991px) {
+            .hero-layout-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .hero-image-right {
+                order: -1;
+                /* Image on top on mobile */
+            }
+
+            .hero-content {
+                margin: 0 auto;
+            }
+
+            .hero-subtitle {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-trust-points {
+                justify-content: center;
+            }
         }
 
         .hero-trust-points {
@@ -675,22 +843,23 @@
             box-shadow: 0 10px 30px rgba(56, 189, 248, 0.3);
         }
 
-        /* Sticky Bar */
+        /* Sticky Bar - Floating Pill Design */
         .sticky-cta-bar {
             position: fixed;
-            bottom: 20px;
+            bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(15, 23, 42, 0.9);
+            background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 12px 30px;
-            border-radius: 50px;
+            padding: 12px 35px;
+            border-radius: 60px;
             z-index: 999;
-            width: 90%;
-            max-width: 800px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            width: auto;
+            min-width: 650px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
             display: block;
+            transition: all 0.3s ease;
         }
 
         .flex-cta {

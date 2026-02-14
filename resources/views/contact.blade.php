@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('header_class', 'scrolled')
+@section('header_class', '')
 
 @section('content')
     <div class="contact-page-wrapper">
@@ -208,7 +208,7 @@
                                 }
                             }
                         @endphp
-                        <iframe src="{{ $map_url }}" width="100%" height="500" style="border:0;" allowfullscreen=""
+                        <iframe src="{{ $map_url }}" width="100%" height="400" style="border:0;" allowfullscreen=""
                             loading="lazy"></iframe>
                         <div class="map-overlay-v2"></div>
                     </div>
@@ -299,6 +299,30 @@
             overflow-x: hidden;
             position: relative;
             z-index: 10;
+        }
+
+        /* --- Layout Gutter Fix --- */
+        .container {
+            padding: 0 100px !important;
+            max-width: 1440px !important;
+        }
+
+        @media (max-width: 1300px) {
+            .container {
+                padding: 0 60px !important;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .container {
+                padding: 0 40px !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 25px !important;
+            }
         }
 
         /* Hero Section v2 Light */
@@ -619,7 +643,7 @@
             border-radius: 24px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            height: 500px;
+            height: 400px;
         }
 
         .map-overlay-v2 {
