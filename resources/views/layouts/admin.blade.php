@@ -414,6 +414,10 @@
                     class="nav-link {{ request()->routeIs('admin.leads.*') ? 'active' : '' }}">
                     <i class="fas fa-envelope-open-text"></i> Leads (Messages)
                 </a>
+                <a href="{{ route('admin.enquiries.index') }}"
+                    class="nav-link {{ request()->routeIs('admin.enquiries.*') ? 'active' : '' }}">
+                    <i class="fas fa-comment-dots"></i> Service Enquiries
+                </a>
                 <a href="{{ route('social-links.index') }}"
                     class="nav-link {{ request()->routeIs('social-links.*') ? 'active' : '' }}">
                     <i class="fas fa-share-alt"></i> Social Links

@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.classList.add('js-enabled');</script>
 
     @php
         // Determine current page ID based on route name or URI
@@ -11,11 +12,18 @@
         $page_id = 'home'; // default
         if ($current_route == 'about')
             $page_id = 'about';
+        if ($current_route == 'contact')
+            $page_id = 'contact';
         if ($current_route == 'services.index')
             $page_id = 'services';
         if ($current_route == 'services.show')
             $page_id = 'services-' . request('slug'); // dynamic services
-        // ... add more logic for contact etc.
+        if ($current_route == 'industries.show')
+            $page_id = 'industries-' . request('slug'); // dynamic industries
+        if ($current_route == 'services.digital-marketing')
+            $page_id = 'services-digital-marketing';
+        if ($current_route == 'quote.index')
+            $page_id = 'contact';
 
         // Fetch SEO data directly (since we didn't add a Composer yet, this is direct injection for speed)
         $seo_meta = \App\Models\SeoPage::where('page_identifier', $page_id)->first();
@@ -48,7 +56,7 @@
             padding: 0;
             overflow-x: hidden;
             font-family: 'Manrope', sans-serif;
-            scroll-behavior: smooth;
+            /* scroll-behavior: smooth;  -- REMOVED: Conflicts with Lenis/Smooth Scroll JS */
             background-color: #0b1120;
             /* Ensure dark bg behind everything */
             min-height: 100%;
@@ -1609,7 +1617,7 @@
         /* Top Bar Refinement */
         .top-bar {
             background: #000000 !important;
-            height: 40px !important;
+            height: 32px !important;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
         }
 
@@ -1934,11 +1942,10 @@
             -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5) !important;
-            min-height: 65px !important;
-            /* Increased for balance */
+            min-height: 55px !important;
+            /* Adjusted for balance */
             display: flex !important;
             align-items: center !important;
-            transition: all 0.3s ease !important;
             width: 100%;
             /* Ensure full width */
         }
@@ -1954,6 +1961,8 @@
             /* Maximally opaque on scroll */
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
             animation: slideDownHeader 0.3s ease forwards;
+            transition: all 0.3s ease !important;
+            /* Only animate when scrolling */
         }
 
         @keyframes slideDownHeader {
@@ -2008,6 +2017,18 @@
 <body
     style="background-color: #050a14 !important; margin: 0; padding: 0; min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden;">
 
+    <script>
+        // High-Priority: Prevent Browser Scroll Jump on Reload
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        // Force top with immediate attempt and fail-safe
+        window.scrollTo(0, 0);
+        window.addEventListener('beforeunload', () => {
+            window.scrollTo(0, 0);
+        });
+    </script>
+
     <!-- Tech Loader -->
     <div id="tech-loader">
         <div class="loader-content">
@@ -2020,7 +2041,7 @@
     <!-- Mobile Nav Backdrop -->
     <div id="nav-backdrop"></div>
 
-    <div id="header-wrapper">
+    <div id="header-wrapper" style="min-height: 87px;">
         <!-- Top Bar -->
         <div class="top-bar" style="background: #050a14 !important; z-index: 2000;">
             <div class="tb-flex"
@@ -2061,7 +2082,7 @@
             </div>
         </div>
         <header class="@yield('header_class')">
-            <div class="container header-flex-container">
+            <div class="container header-flex-container" style="position: relative !important;">
 
                 <!-- 1. LEFT: Logo -->
                 <div class="logo-wrapper"> <!-- Push everything else right -->
@@ -2079,7 +2100,7 @@
                 <!-- 2. CENTER: Navigation (Now Right Aligned) -->
                 <!-- 2. CENTER: Navigation (Right Aligned Group) -->
                 <!-- 2. CENTER: Navigation (Right Aligned Group) -->
-                <nav class="nav-center-wrapper">
+                <nav class="nav-center-wrapper" style="position: static !important;">
                     <!-- Mobile Only Header in Drawer -->
                     <div class="mobile-drawer-header lg:hidden" id="mobile_drawer_header"
                         style="display: none !important;">
@@ -2088,15 +2109,16 @@
                         </div>
                     </div>
 
-                    <ul class="nav-links">
+                    <ul class="nav-links" style="position: static !important;">
                         <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="/"><i
                                     class="fas fa-home nav-icon"></i> <span>HOME</span></a></li>
                         <li class="{{ request()->is('about*') ? 'active' : '' }}"><a href="/about"><i
                                     class="fas fa-user-circle nav-icon"></i> <span>ABOUT</span></a></li>
 
                         <!-- Mega Menu Trigger -->
-                        <li class="dropdown mega-dropdown {{ request()->is('services*') ? 'active' : '' }}">
-                            <a href="{{ route('services.index') }}" class="dropbtn">
+                        <li class="dropdown mega-dropdown {{ request()->is('services*') ? 'active' : '' }}"
+                            style="position: static !important;">
+                            <a href="{{ route('services.index') }}" class="dropbtn" data-bs-display="static">
                                 <i class="fas fa-briefcase nav-icon"></i> <span>SERVICES</span> <span
                                     class="nav-arrow">▼</span>
                             </a>
@@ -2266,9 +2288,9 @@
                             </div>
                         </li>
 
-                        <li
-                            class="dropdown mega-dropdown industries-menu {{ request()->is('industries*') ? 'active' : '' }}">
-                            <a href="{{ route('industries.index') }}" class="dropbtn">
+                        <li class="dropdown mega-dropdown industries-menu {{ request()->is('industries*') ? 'active' : '' }}"
+                            style="position: static !important;">
+                            <a href="{{ route('industries.index') }}" class="dropbtn" data-bs-display="static">
                                 <i class="fas fa-layer-group nav-icon"></i> <span>INDUSTRIES</span> <span
                                     class="nav-arrow">▼</span>
                             </a>
@@ -2562,33 +2584,41 @@
                     }
 
                     /* CENTER DROPDOWN & COLOR FIX */
-                    .header-flex-container,
-                    .nav-center-wrapper,
-                    .nav-links,
-                    .mega-dropdown,
-                    .industries-menu {
+                    /* AGGRESSIVE FIX: Force static positioning & disable transforms on active items to prevent anchor shift */
+                    #header-wrapper .nav-center-wrapper,
+                    #header-wrapper .nav-links,
+                    #header-wrapper .nav-links li.mega-dropdown,
+                    #header-wrapper .nav-links li.mega-dropdown.active,
+                    #header-wrapper .nav-links li.industries-menu,
+                    #header-wrapper .nav-links li.industries-menu.active,
+                    #header-wrapper .nav-links li.dropdown,
+                    #header-wrapper .nav-links li.dropdown.active {
                         position: static !important;
-                        /* Allow positioning relative to #header-wrapper */
+                        transform: none !important;
+                        /* Critical: transforms create containing blocks */
+                        perspective: none !important;
+                        filter: none !important;
+                    }
+
+                    /* Align Dropdown to Header Container */
+                    .header-flex-container {
+                        position: relative !important;
                     }
 
                     .mega-dropdown-content,
                     .industries-mega {
                         position: absolute !important;
                         top: 100% !important;
-                        left: 0 !important;
-                        right: 0 !important;
-                        margin: 15px auto 0 auto !important;
-                        /* Center horizontally */
+                        left: 50% !important;
+                        right: auto !important;
+                        /* Robuster Centering */
+                        transform: translateX(-50%) !important;
+                        margin: 15px 0 0 0 !important;
                         width: 90vw !important;
-                        /* Reduced from 96vw */
-                        max-width: 1200px !important;
-                        /* Reduced from 1400px */
-                        transform: none !important;
-                        /* Reset previous transforms */
+                        max-width: 1350px !important;
 
                         /* Ensure Visibility */
                         background: #ffffff !important;
-                        /* display: none;  <-- REMOVED to allow transition */
                         text-align: left;
                         color: #1e293b !important;
                     }
@@ -2644,11 +2674,22 @@
                         visibility: visible !important;
                         opacity: 1 !important;
                         display: block !important;
-                        animation: slideDown 0.3s ease forwards;
+                        /* Keep translateX(-50%) during animation */
+                        animation: slideDownFade 0.3s ease forwards;
                         pointer-events: auto !important;
-                        /* CRITICAL: Capture hover */
                         transition-delay: 0s !important;
-                        /* Open instantly */
+                    }
+
+                    @keyframes slideDownFade {
+                        from {
+                            opacity: 0;
+                            transform: translateX(-50%) translateY(20px);
+                        }
+
+                        to {
+                            opacity: 1;
+                            transform: translateX(-50%) translateY(0);
+                        }
                     }
 
                     /* FIX DROPDOWN ARAOW VISIBILITY */
@@ -3142,6 +3183,28 @@
                         <i class="fab fa-cc-paypal"></i>
                         <i class="fab fa-stripe"></i>
                     </div>
+                </div>
+            </div>
+            <!-- Locations Section for Local SEO -->
+            <div class="footer-seo-locations"
+                style="margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); padding: 30px 0; text-align: center;">
+                <h4
+                    style="color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">
+                    Top Cities & Locations We Serve</h4>
+                <div
+                    style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; opacity: 0.4; font-size: 0.7rem; line-height: 2; max-width: 1200px; margin: 0 auto;">
+                    @php
+                        $cities = ['Mumbai', 'Delhi', 'Bangalore', 'Pune', 'Hyderabad', 'Chennai', 'Kolkata', 'Ahmedabad', 'Surat', 'Jaipur', 'Lucknow', 'Nagpur', 'Indore', 'Thane', 'Bhopal', 'Patna', 'Vadodara', 'Ghaziabad', 'Ludhiana', 'Coimbatore', 'Agra', 'Madurai', 'Nashik', 'Faridabad', 'Meerut', 'Rajkot', 'Varanasi', 'Srinagar', 'Aurangabad', 'Dhanbad', 'Amritsar', 'Navi Mumbai', 'Allahabad', 'Ranchi', 'Howrah', 'Gwalior', 'Vijayawada', 'Jodhpur', 'Raipur', 'Kota', 'Guwahati', 'Chandigarh'];
+                        $services_seo = ['Web Development', 'Digital Marketing', 'App Development', 'SEO Services'];
+                    @endphp
+                    @foreach($cities as $city)
+                        @foreach($services_seo as $s_seo)
+                            <span style="white-space: nowrap;">{{ $s_seo }} {{ $city }}</span>
+                            @if(!$loop->last)
+                                <span style="color: #38bdf8; margin: 0 4px;">•</span>
+                            @endif
+                        @endforeach
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -4212,6 +4275,19 @@
             padding: 0 !important;
         }
 
+        /* Prevent GSAP Snap-Down: Ensure initial state matches CSS */
+        .js-enabled .hero h1,
+        .js-enabled .hero p,
+        .js-enabled .hero-btns,
+        .js-enabled .reveal,
+        .js-enabled .reveal-text,
+        .js-enabled .reveal-card,
+        .js-enabled .reveal-section {
+            opacity: 0;
+            transform: translateY(60px);
+            will-change: transform, opacity;
+        }
+
         body>*:last-child {
             margin-bottom: 0 !important;
             padding-bottom: 0 !important;
@@ -4428,6 +4504,53 @@
                 }
             });
         });
+
+        // 3. Instant Close Mega Menu on Click
+        document.querySelectorAll('.mega-dropdown-content a, .industries-mega a, .ind-link-col a').forEach(link => {
+            link.addEventListener('click', function () {
+                const dropdown = this.closest('.mega-dropdown-content, .industries-mega');
+                const parentLi = this.closest('li.dropdown');
+
+                if (dropdown) {
+                    dropdown.style.setProperty('display', 'none', 'important');
+                    if (parentLi) {
+                        parentLi.addEventListener('mouseleave', () => {
+                            dropdown.style.removeProperty('display');
+                        }, { once: true });
+                    }
+                }
+            });
+        });
+
+        // 4. Header Height Stability Fix [REFINED]
+        (function () {
+            const headerWrapper = document.getElementById('header-wrapper');
+            const mainHeader = document.querySelector('header');
+            const topBar = document.querySelector('.top-bar');
+
+            const stabilizeHeader = () => {
+                if (headerWrapper && mainHeader) {
+                    // Get actual heights
+                    const hHeight = mainHeader.offsetHeight;
+                    const tbHeight = topBar ? topBar.offsetHeight : 0;
+                    const totalHeight = hHeight + tbHeight;
+
+                    if (totalHeight > 0) {
+                        headerWrapper.style.minHeight = totalHeight + 'px';
+                        headerWrapper.style.height = totalHeight + 'px'; // Stronger reserve
+                    }
+                }
+            };
+
+            // Run immediately
+            stabilizeHeader();
+
+            // Run on load to catch logo images etc
+            window.addEventListener('load', stabilizeHeader);
+
+            // Handle window resize
+            window.addEventListener('resize', stabilizeHeader);
+        })();
     </script>
 </body>
 

@@ -339,7 +339,7 @@
             position: relative;
             display: flex;
             align-items: flex-start;
-            padding-top: 180px;
+            padding-top: 50px;
             /* Adjusted for new 85px header + 40px top bar */
         }
 

@@ -89,6 +89,7 @@ Route::get('/blog/{slug}', [App\Http\Controllers\BlogController::class, 'show'])
 
 // Contact Form
 Route::post('/contact/submit', [App\Http\Controllers\ContactController::class, 'submit'])->name('contact.submit');
+Route::post('/enquiry-submit', [App\Http\Controllers\EnquiryController::class, 'store'])->name('enquiry.submit');
 
 // Get a Quote
 Route::get('/get-a-quote', [App\Http\Controllers\QuoteController::class, 'index'])->name('quote.index');
@@ -210,6 +211,9 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
     // Products Management
     Route::resource('products', App\Http\Controllers\Admin\ProductController::class)->names('admin.products');
+
+    // Enquiry Management
+    Route::resource('enquiries', App\Http\Controllers\Admin\EnquiryController::class)->names('admin.enquiries');
 });
 
 // Demo Preview

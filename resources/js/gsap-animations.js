@@ -28,6 +28,9 @@ window.addEventListener('load', () => {
     // Synch Lenis with GSAP ScrollTrigger
     lenis.on('scroll', ScrollTrigger.update);
 
+    // Force top on initialization to prevent shifts
+    lenis.scrollTo(0, { immediate: true });
+
     gsap.ticker.add((time) => {
         lenis.raf(time * 1000); // 1000 for milliseconds
     });

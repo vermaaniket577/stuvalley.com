@@ -63,11 +63,42 @@
                         </ul>
                     </div>
                     <div class="image-col">
-                        <div class="image-wrapper-tech"
-                            style="min-height: 400px; background: #1e293b; display: flex; align-items: center; justify-content: center;">
-                            <!-- Abstract Illustration representation -->
-                            <i class="fas fa-chart-line" style="font-size: 10rem; color: #38bdf8; opacity: 0.2;"></i>
-                            <div class="tech-blob"></div>
+                        <div class="enquiry-form-card">
+                            <h3 class="form-title">Boost Your Growth</h3>
+                            <p class="form-subtitle">Get a custom digital marketing strategy for your business.</p>
+
+                            <form id="enquiryForm" action="{{ route('enquiry.submit') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="service" value="Digital Marketing">
+
+                                <div class="form-group-custom">
+                                    <input type="text" name="name" placeholder="Full Name" required>
+                                    <i class="fas fa-user"></i>
+                                </div>
+
+                                <div class="form-group-custom">
+                                    <input type="email" name="email" placeholder="Email Address" required>
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+
+                                <div class="form-group-custom">
+                                    <input type="tel" name="phone" placeholder="Phone Number" maxlength="10"
+                                        pattern="[0-9]{10}" required
+                                        oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+
+                                <div class="form-group-custom">
+                                    <textarea name="message" placeholder="Brief about your project (Optional)"
+                                        rows="3"></textarea>
+                                    <i class="fas fa-comment-dots"></i>
+                                </div>
+
+                                <button type="submit" class="btn-submit-enquiry">
+                                    <span>Send Enquiry</span>
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -602,6 +633,119 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
+        /* Enquiry Form Card (Refined Light Theme) */
+        .enquiry-form-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 40px;
+            border-radius: 24px;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.15);
+            max-width: 500px;
+            width: 100%;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        .enquiry-form-card * {
+            box-sizing: border-box;
+        }
+
+        .form-title {
+            color: #0f172a;
+            font-size: 2rem;
+            margin: 0 0 10px 0;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+        }
+
+        .form-subtitle {
+            color: #64748b;
+            margin-bottom: 35px;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .form-group-custom {
+            position: relative;
+            margin-bottom: 22px;
+            width: 100%;
+        }
+
+        .form-group-custom input,
+        .form-group-custom textarea {
+            width: 100%;
+            background: #f8fafc;
+            border: 1.5px solid #f1f5f9;
+            padding: 16px 15px 16px 50px !important;
+            border-radius: 12px;
+            color: #1e293b !important;
+            font-family: inherit;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .form-group-custom input::placeholder,
+        .form-group-custom textarea::placeholder {
+            color: #94a3b8;
+            opacity: 0.8;
+        }
+
+        .form-group-custom input:focus,
+        .form-group-custom textarea:focus {
+            border-color: #38bdf8;
+            background: #ffffff;
+            box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.1);
+        }
+
+        .form-group-custom i {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            color: #38bdf8;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
+
+        .form-group-custom input:focus+i,
+        .form-group-custom textarea:focus+i {
+            color: #818cf8;
+            transform: scale(1.1);
+        }
+
+        .btn-submit-enquiry {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            border: none;
+            border-radius: 14px;
+            color: #fff;
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.95rem;
+            margin-top: 15px;
+            box-shadow: 0 10px 20px -5px rgba(56, 189, 248, 0.4);
+        }
+
+        .btn-submit-enquiry:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 20px 30px -10px rgba(56, 189, 248, 0.5);
+            filter: brightness(1.1);
+        }
+
+        .btn-submit-enquiry:active {
+            transform: translateY(0) scale(0.98);
+        }
+
         /* Features Grid */
         .features-grid {
             display: grid;
@@ -951,4 +1095,90 @@
             }
         }
     </style>
+
+    <!-- Add SweetAlert2 and Form Script -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const enquiryForm = document.getElementById('enquiryForm');
+            if (!enquiryForm) return;
+
+            enquiryForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const form = this;
+                const btn = form.querySelector('.btn-submit-enquiry');
+                const originalBtnContent = btn.innerHTML;
+
+                // Clear previous errors
+                form.querySelectorAll('.err-msg').forEach(el => el.remove());
+
+                // Disable button & show loader
+                btn.disabled = true;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+                const formData = new FormData(form);
+
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'Accept': 'application/json'
+                    }
+                })
+                    .then(response => response.json().then(data => ({ status: response.status, body: data })))
+                    .then(res => {
+                        if (res.status === 200 && res.body.status === 'success') {
+                            Swal.fire({
+                                title: 'Thank You!',
+                                text: res.body.message,
+                                icon: 'success',
+                                confirmButtonColor: '#38bdf8',
+                                customClass: {
+                                    popup: 'premium-swal-popup'
+                                }
+                            });
+
+                            form.reset();
+                        } else if (res.status === 422) {
+                            const errors = res.body.errors;
+                            Object.keys(errors).forEach(key => {
+                                const input = form.querySelector(`[name="${key}"]`);
+                                if (input) {
+                                    const errorDiv = document.createElement('div');
+                                    errorDiv.className = 'err-msg';
+                                    errorDiv.style.color = '#ef4444';
+                                    errorDiv.style.fontSize = '0.75rem';
+                                    errorDiv.style.marginTop = '5px';
+                                    errorDiv.textContent = errors[key][0];
+                                    input.after(errorDiv);
+                                }
+                            });
+
+                            Swal.fire({
+                                title: 'Validation Error',
+                                text: 'Please correct the highlighted fields.',
+                                icon: 'warning',
+                                confirmButtonColor: '#38bdf8'
+                            });
+                        } else {
+                            throw new Error(res.body.message || 'Something went wrong');
+                        }
+                    })
+                    .catch(error => {
+                        Swal.fire({
+                            title: 'Oops!',
+                            text: error.message || 'Something went wrong. Please try again.',
+                            icon: 'error',
+                            confirmButtonColor: '#38bdf8'
+                        });
+                    })
+                    .finally(() => {
+                        btn.disabled = false;
+                        btn.innerHTML = originalBtnContent;
+                    });
+            });
+        });
+    </script>
 @endsection
