@@ -63,43 +63,11 @@
                         </ul>
                     </div>
                     <div class="image-col">
-                        <div class="enquiry-form-card">
-                            <h3 class="form-title">Boost Your Growth</h3>
-                            <p class="form-subtitle">Get a custom digital marketing strategy for your business.</p>
-
-                            <form id="enquiryForm" action="{{ route('enquiry.submit') }}" method="POST">
-                                @csrf
-                                <input type="hidden" name="service" value="Digital Marketing">
-
-                                <div class="form-group-custom">
-                                    <input type="text" name="name" placeholder="Full Name" required>
-                                    <i class="fas fa-user"></i>
-                                </div>
-
-                                <div class="form-group-custom">
-                                    <input type="email" name="email" placeholder="Email Address" required>
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-
-                                <div class="form-group-custom">
-                                    <input type="tel" name="phone" placeholder="Phone Number" maxlength="10"
-                                        pattern="[0-9]{10}" required
-                                        oninput="this.value = this.value.replace(/[^0-9]/g, '');">
-                                    <i class="fas fa-phone"></i>
-                                </div>
-
-                                <div class="form-group-custom">
-                                    <textarea name="message" placeholder="Brief about your project (Optional)"
-                                        rows="3"></textarea>
-                                    <i class="fas fa-comment-dots"></i>
-                                </div>
-
-                                <button type="submit" class="btn-submit-enquiry">
-                                    <span>Send Enquiry</span>
-                                    <i class="fas fa-paper-plane"></i>
-                                </button>
-                            </form>
-                        </div>
+                        @include('partials.enquiry-form', [
+                            'title' => 'Boost Your Growth',
+                            'subtitle' => 'Get a custom digital marketing strategy for your business.',
+                            'serviceName' => 'Digital Marketing'
+                        ])
                     </div>
                 </div>
             </div>

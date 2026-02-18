@@ -40,10 +40,11 @@
                         </ul>
                     </div>
                     <div class="image-col">
-                        <div class="image-wrapper-tech">
-                            <img src="{{ $service->about_image }}" alt="{{ $service->title }}">
-                            <div class="tech-blob"></div>
-                        </div>
+                        @include('partials.enquiry-form', [
+                            'title' => 'Boost Your Growth',
+                            'subtitle' => 'Get a custom ' . $service->title . ' strategy for your business.',
+                            'serviceName' => $service->title
+                        ])
                     </div>
                 </div>
             </div>

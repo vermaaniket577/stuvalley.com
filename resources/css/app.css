@@ -151,9 +151,9 @@ a {
     transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-body.scrolled-active #header-wrapper {
+/* body.scrolled-active #header-wrapper {
     transform: translateY(-36px);
-}
+} */
 
 /* Top Bar: Relative layout inside wrapper */
 .top-bar {
@@ -172,10 +172,10 @@ body.scrolled-active #header-wrapper {
 }
 
 /* Hide Top Bar content clearly when scrolled */
-body.scrolled-active .top-bar {
+/* body.scrolled-active .top-bar {
     opacity: 0;
     pointer-events: none;
-}
+} */
 
 .tb-flex {
     display: flex !important;
@@ -399,26 +399,29 @@ header.scrolled {
     color: #38bdf8;
 }
 
-/* Desktop Hover Line Effect - Positioned Below Text */
+/* Desktop Hover Line Effect - Centered Gradient (UI/UX Prompt) */
 @media (min-width: 992px) {
     .nav-links a::after {
         content: '';
         position: absolute;
-        bottom: 0;
-        /* Positioned at the very bottom of the link/header */
-        left: 0;
-        width: 0%;
-        height: 3px;
-        background: linear-gradient(90deg, #38bdf8, #818cf8);
-        transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
-        border-radius: 2px 2px 0 0;
+        bottom: 3px;
+        /* Slightly above border-bottom of header */
+        left: 50%;
+        transform: translateX(-50%) scaleX(0);
+        width: 80%;
+        height: 4px;
+        background: linear-gradient(90deg, #00E5FF, #6C63FF);
+        transition: transform 0.3s ease;
+        box-shadow: 0 0 12px rgba(0, 229, 255, 0.8);
+        border-radius: 10px;
+        transform-origin: center;
+        z-index: 10;
     }
 
     .nav-links a:hover::after,
     .nav-links li.active a::after,
     .nav-links a.active::after {
-        width: 100%;
+        transform: translateX(-50%) scaleX(1) !important;
     }
 }
 

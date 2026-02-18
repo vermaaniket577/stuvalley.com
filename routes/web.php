@@ -52,7 +52,7 @@ Route::get('/', function () {
     $blog_posts = \App\Models\BlogPost::published()->latest('published_at')->limit(3)->get();
 
     return view('home', compact('partners', 'industries', 'global_solutions', 'pricing_plans', 'blog_posts', 'featured_products'));
-});
+})->name('home');
 
 Route::get('/about', [App\Http\Controllers\CompanyController::class, 'about'])->name('about');
 Route::get('/contact', [App\Http\Controllers\CompanyController::class, 'contact'])->name('contact');

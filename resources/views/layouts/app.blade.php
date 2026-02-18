@@ -2,8 +2,18 @@
 <html lang="en">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XQRKE304DK"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-XQRKE304DK');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <script>document.documentElement.classList.add('js-enabled');</script>
 
     @php
@@ -1487,11 +1497,11 @@
         /* --- FINAL HEADER FIXES (AFTER VITE) --- */
         /* 1. Force White Text */
         #header-wrapper .nav-links a,
-        #header-wrapper .nav-links .dropbtn,
-        #header-wrapper .nav-links a:visited,
-        #header-wrapper .nav-links .dropbtn:visited,
-        #header-wrapper .nav-links a:link,
-        #header-wrapper .nav-links .dropbtn:link {
+        .nav-links .dropbtn,
+        .nav-links a:visited,
+        .nav-links .dropbtn:visited,
+        .nav-links a:link,
+        .nav-links .dropbtn:link {
             color: #ffffff !important;
             text-decoration: none !important;
             /* FIXED: Remove Underline */
@@ -1499,70 +1509,54 @@
 
         /* 2. Premium Navbar Selection & Hover Effect */
         /* Text Glow & Color */
-        #header-wrapper .nav-links li.active>a,
-        #header-wrapper .nav-links li a.active,
-        #header-wrapper .nav-links li a:hover,
-        #header-wrapper .nav-links .dropbtn:hover,
-        #header-wrapper .nav-links li.dropdown:hover>.dropbtn,
+        .nav-links li.active>a,
+        .nav-links li a.active,
+        .nav-links li a:hover,
+        .nav-links .dropbtn:hover,
+        .nav-links li.dropdown:hover>.dropbtn,
         /* Keep active when menu open */
-        #header-wrapper .nav-links li.industries-menu:hover>.dropbtn {
+        .nav-links li.industries-menu:hover>.dropbtn {
             color: #38bdf8 !important;
             text-shadow: 0 0 15px rgba(56, 189, 248, 0.6);
         }
 
         /* FORCE ICON COLOR on Active/Hover */
-        #header-wrapper .nav-links li.active>a i,
-        #header-wrapper .nav-links li a.active i,
-        #header-wrapper .nav-links li a:hover i,
-        #header-wrapper .nav-links .dropbtn:hover i,
-        #header-wrapper .nav-links li.dropdown:hover>.dropbtn i,
-        #header-wrapper .nav-links li.industries-menu:hover>.dropbtn i,
-        #header-wrapper .nav-links li.active>a .nav-arrow,
-        #header-wrapper .nav-links li a.active .nav-arrow,
-        #header-wrapper .nav-links li a:hover .nav-arrow,
-        #header-wrapper .nav-links .dropbtn:hover .nav-arrow,
-        #header-wrapper .nav-links li.dropdown:hover>.dropbtn .nav-arrow,
-        #header-wrapper .nav-links li.industries-menu:hover>.dropbtn .nav-arrow {
+        .nav-links li.active>a i,
+        .nav-links li a.active i,
+        .nav-links li a:hover i,
+        .nav-links .dropbtn:hover i,
+        .nav-links li.dropdown:hover>.dropbtn i,
+        .nav-links li.industries-menu:hover>.dropbtn i,
+        .nav-links li.active>a .nav-arrow,
+        .nav-links li a.active .nav-arrow,
+        .nav-links li a:hover .nav-arrow,
+        .nav-links .dropbtn:hover .nav-arrow,
+        .nav-links li.dropdown:hover>.dropbtn .nav-arrow,
+        .nav-links li.industries-menu:hover>.dropbtn .nav-arrow {
             color: #38bdf8 !important;
             text-shadow: 0 0 15px rgba(56, 189, 248, 0.6);
         }
 
-        /* The Glowing Bottom Bar */
-        .nav-links a {
-            position: relative;
-            font-family: 'Outfit', sans-serif !important;
+        /* Nav Line: Ensure li doesn't clip the ::after pseudo-element */
+        .nav-links li {
+            overflow: visible !important;
         }
 
-        .nav-links a span {
-            position: relative;
-            display: inline-block;
+        .nav-links>li>a,
+        .nav-links>li>.dropbtn {
+            position: relative !important;
+            overflow: visible !important;
         }
 
-        .nav-links a span::after {
-            content: '' !important;
-            display: block !important;
-            position: absolute;
-            bottom: -5px;
-            /* Tighter to text */
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, #38bdf8, #818cf8);
-            border-radius: 20px;
-            transform: scaleX(0);
-            transform-origin: center;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.8);
-            opacity: 0;
-        }
-
-        /* Trigger Bar on Active/Hover - Updated for Span */
-        .nav-links li.active>a span::after,
-        .nav-links li a.active span::after,
-        .nav-links li a:hover span::after,
-        .nav-links .dropdown:hover>.dropbtn span::after {
-            transform: scaleX(1);
-            opacity: 1;
+        /* Override: Centered Gradient Line - Active & Hover */
+        .nav-links>li.active>a::after,
+        .nav-links>li>a.active::after,
+        .nav-links>li:hover>a::after,
+        .nav-links>li>a:hover::after,
+        .nav-links>li.dropdown:hover>.dropbtn::after,
+        .nav-links>li>.dropbtn:hover::after,
+        .nav-links>li.industries-menu:hover>.dropbtn::after {
+            transform: translateX(-50%) scaleX(1) !important;
         }
 
         /* 4. Ensure Icons Inherit Color */
@@ -1744,24 +1738,27 @@
 
         .mega-dropdown-content {
             display: none;
-            /* Hidden by default */
             position: absolute;
-            left: 0;
-            top: 85px;
-            /* Header Height increased */
-            width: 100%;
+            left: 50% !important;
+            transform: translateX(-50%) translateY(10px) !important;
+            top: 70px !important;
+            width: 95vw !important;
+            max-width: 1200px !important;
             background: #ffffff !important;
-            color: #1e293b !important;
-            padding: 40px 0;
-            /* Vertical Padding */
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-            border-top: 1px solid #e2e8f0;
-            z-index: 1000;
+            border-radius: 25px !important;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15) !important;
+            border: 1px solid rgba(0, 0, 0, 0.05) !important;
+            border-top: 3px solid #3b82f6 !important;
+            /* Premium blue accent border */
+            padding: 25px !important;
+            /* Reduced from 40px */
+            z-index: 10000 !important;
+            overflow: visible !important;
         }
 
         .mega-dropdown:hover .mega-dropdown-content {
             display: block !important;
-            animation: slideDownFade 0.3s ease forwards;
+            animation: slideDownFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         @keyframes slideDownFade {
@@ -1778,112 +1775,144 @@
 
         .mega-grid-horizontal {
             display: flex;
-            gap: 60px;
-            max-width: 1440px;
-            /* Match container max-width */
+            gap: 40px;
+            max-width: 1150px;
             margin: 0 auto;
-            padding: 0 20px;
-            /* Match container padding */
+            padding: 10px;
+            /* Reduced padding */
+            background: #ffffff;
         }
 
-        /* Left Column */
+        /* Left Column Alignment */
         .mega-col-left {
-            width: 300px;
+            width: 280px;
             flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start !important;
+            /* Force left align */
+            text-align: left !important;
         }
 
         .mega-badge {
             display: inline-block;
-            background: #e0f2fe;
-            color: #0284c7 !important;
-            font-size: 11px;
+            background: #e0f2fe !important;
+            color: #38bdf8 !important;
+            font-size: 10px;
             font-weight: 800;
             text-transform: uppercase;
-            padding: 6px 12px;
-            border-radius: 20px;
-            margin-bottom: 20px;
-            letter-spacing: 0.5px;
+            padding: 6px 14px;
+            border-radius: 50px;
+            margin-bottom: 15px;
+            /* Reduced from 25px */
+            letter-spacing: 1px;
         }
 
         .mega-intro-title {
-            font-size: 22px;
-            font-weight: 800;
+            font-size: 24px !important;
+            /* Slightly smaller */
+            font-weight: 900 !important;
             color: #0f172a !important;
-            line-height: 1.4;
-            margin-bottom: 25px;
-            font-family: 'Outfit', sans-serif;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            /* Reduced from 30px */
+            font-family: 'Outfit', sans-serif !important;
+            max-width: 250px;
         }
 
+        /* Highlight Card Positioning (Bottom of Left Column) - Compact */
         .mega-highlight-card {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            padding: 25px;
-            border-radius: 12px;
-            position: relative;
-            overflow: hidden;
+            background: #f1f5f9 !important;
+            padding: 15px !important;
+            /* Extra compact padding */
+            border-radius: 18px !important;
+            border: 1px solid #e2e8f0 !important;
+            margin-top: 12px !important;
+            /* Minimal top margin */
         }
 
         .mhc-count {
-            font-size: 36px;
-            font-weight: 800;
+            font-size: 28px !important;
+            /* Compact size */
+            font-weight: 900 !important;
             color: #0f172a !important;
-            margin-bottom: 5px;
+            margin: 0 !important;
             line-height: 1;
         }
 
         .mhc-label {
             color: #64748b !important;
-            font-size: 14px;
-            margin-bottom: 15px;
+            font-size: 12px !important;
+            font-weight: 600 !important;
+            margin: 3px 0 10px 0 !important;
             display: block;
         }
 
         .mhc-tags {
             display: flex;
             gap: 8px;
-            flex-wrap: wrap;
         }
 
         .mhc-tag {
-            background: #fff;
-            border: 1px solid #cbd5e1;
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 11px;
-            font-weight: 600;
+            background: #ffffff !important;
+            border-radius: 6px !important;
+            padding: 4px 8px !important;
+            font-size: 10px !important;
+            font-weight: 700 !important;
             color: #475569 !important;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+            border: 1px solid #f1f5f9 !important;
         }
 
-        /* Right Column Grid */
+        .mhc-tag i {
+            color: #3b82f6 !important;
+        }
+
+        /* Right Services Grid - Compact */
         .mega-services-horizontal {
             flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
+            display: grid;
+            grid-template-rows: auto auto;
+            gap: 20px 0;
+            /* Minimal gap between rows */
         }
 
         .mega-services-row {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            gap: 0;
+        }
+
+        .mega-cat-col {
+            padding: 0 20px !important;
+            /* Compact horizontal padding */
+            border-left: 1px solid #f1f5f9 !important;
+        }
+
+        .mega-cat-col:first-child {
+            border-left: none !important;
         }
 
         .mega-cat-title {
-            font-size: 15px;
-            font-weight: 700;
+            font-size: 14px !important;
+            font-weight: 800 !important;
             color: #0f172a !important;
-            margin-bottom: 15px;
+            margin-bottom: 10px !important;
+            /* Compact spacing */
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            font-family: 'Outfit', sans-serif !important;
             text-transform: capitalize;
         }
 
         .mega-cat-title i {
-            color: #38bdf8 !important;
+            color: #3b82f6 !important;
+            font-size: 1.1em;
         }
 
         .mega-links {
@@ -1893,7 +1922,8 @@
         }
 
         .mega-links li {
-            margin-bottom: 10px;
+            margin-bottom: 0px;
+            /* No gap - ultra compact */
         }
 
         .mega-links a {
@@ -1907,26 +1937,9 @@
             transition: all 0.2s ease;
         }
 
+        /* OLD HOVER RULES REMOVED FOR CONSISTENCY */
         .mega-links a:hover {
-            color: #0284c7 !important;
-            padding-left: 5px;
-        }
-
-        /* Remove underline if inherited */
-        .mega-links a::after {
-            display: none !important;
-        }
-
-        .mega-links a .arrow-anim {
-            font-size: 10px;
-            opacity: 0;
-            transform: translateX(-5px);
-            transition: all 0.2s ease;
-        }
-
-        .mega-links a:hover .arrow-anim {
-            opacity: 1;
-            transform: translateX(0);
+            text-decoration: none !important;
         }
 
         /* 9. Glassmorphism Header */
@@ -2010,6 +2023,213 @@
         .nav-links li {
             display: inline-flex !important;
             float: none !important;
+        }
+
+        /* REMOVED: Legacy conflicting styles - now using unified premium SaaS styling below */
+
+        /* ============================================================
+           PREMIUM SAAS HOVER & ACTIVE STYLE (Stripe/Webflow style)
+           ============================================================ */
+
+        /* Base Link Style - All States - Compact */
+        #header-wrapper .nav-links .mega-dropdown-content a,
+        #header-wrapper .nav-links .mega-dropdown-content a:link,
+        #header-wrapper .nav-links .mega-dropdown-content a:visited,
+        .mega-links a,
+        .mega-links a:link,
+        .mega-links a:visited,
+        .ind-link-col a,
+        .ind-link-col a:link,
+        .ind-link-col a:visited {
+            position: relative !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            padding: 6px 16px !important;
+            /* Compact vertical padding */
+            color: #475569 !important;
+            /* Slate 600 - Dark enough to be visible */
+            font-size: 14px !important;
+            /* Slightly smaller */
+            font-weight: 500 !important;
+            text-decoration: none !important;
+            border-radius: 999px !important;
+            /* Full Pill */
+            transition: all 250ms ease !important;
+            background: transparent !important;
+            overflow: hidden !important;
+            cursor: pointer !important;
+        }
+
+        /* Ensure spans and text inherit link color */
+        #header-wrapper .nav-links .mega-dropdown-content a span,
+        #header-wrapper .nav-links .mega-dropdown-content a:link span,
+        #header-wrapper .nav-links .mega-dropdown-content a:visited span,
+        .mega-links a span,
+        .mega-links a:link span,
+        .mega-links a:visited span,
+        .ind-link-col a span,
+        .ind-link-col a:link span,
+        .ind-link-col a:visited span {
+            color: #475569 !important;
+            transition: all 250ms ease !important;
+        }
+
+        /* Keyboard Focus & Hover Shared State: Complete coverage for all link states */
+        #header-wrapper .nav-links .mega-dropdown-content a:hover,
+        #header-wrapper .nav-links .mega-dropdown-content a:link:hover,
+        #header-wrapper .nav-links .mega-dropdown-content a:visited:hover,
+        #header-wrapper .nav-links .mega-dropdown-content a:hover span,
+        #header-wrapper .nav-links .mega-dropdown-content a:link:hover span,
+        #header-wrapper .nav-links .mega-dropdown-content a:visited:hover span,
+        #header-wrapper .nav-links .mega-dropdown-content a:hover i,
+        #header-wrapper .nav-links .mega-dropdown-content a:focus,
+        .mega-links a:hover,
+        .mega-links a:link:hover,
+        .mega-links a:visited:hover,
+        .mega-links a:hover span,
+        .mega-links a:link:hover span,
+        .mega-links a:visited:hover span,
+        .mega-links a:hover i,
+        .ind-link-col a:hover,
+        .ind-link-col a:link:hover,
+        .ind-link-col a:visited:hover,
+        .ind-link-col a:hover span,
+        .ind-link-col a:link:hover span,
+        .ind-link-col a:visited:hover span,
+        .ind-link-col a:hover i {
+            color: #3b82f6 !important;
+            /* Primary Blue */
+            background: rgba(59, 130, 246, 0.08) !important;
+            /* Very subtle blue pill */
+            padding-left: 20px !important;
+            /* Compact micro-animation: slide right */
+            outline: none !important;
+        }
+
+        /* Active State: Persistent highlight for current page - all link states */
+        #header-wrapper .nav-links .mega-dropdown-content a.active,
+        #header-wrapper .nav-links .mega-dropdown-content a.active:link,
+        #header-wrapper .nav-links .mega-dropdown-content a.active:visited,
+        #header-wrapper .nav-links .mega-dropdown-content a.active span,
+        #header-wrapper .nav-links .mega-dropdown-content a.active:link span,
+        #header-wrapper .nav-links .mega-dropdown-content a.active:visited span,
+        #header-wrapper .nav-links .mega-dropdown-content a.active i,
+        .mega-links a.active,
+        .mega-links a.active:link,
+        .mega-links a.active:visited,
+        .mega-links a.active span,
+        .mega-links a.active:link span,
+        .mega-links a.active:visited span,
+        .mega-links a.active i,
+        .ind-link-col a.active,
+        .ind-link-col a.active:link,
+        .ind-link-col a.active:visited,
+        .ind-link-col a.active span,
+        .ind-link-col a.active:link span,
+        .ind-link-col a.active:visited span,
+        .ind-link-col a.active i {
+            color: #3b82f6 !important;
+            background: rgba(59, 130, 246, 0.12) !important;
+            font-weight: 700 !important;
+        }
+
+        /* Accent Bar for Active State */
+        #header-wrapper .nav-links .mega-dropdown-content a.active::before,
+        .mega-links a.active::before,
+        .ind-link-col a.active::before {
+            content: '' !important;
+            position: absolute !important;
+            left: 8px !important;
+            top: 25% !important;
+            height: 50% !important;
+            width: 3px !important;
+            background: #3b82f6 !important;
+            border-radius: 10px !important;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5) !important;
+            display: block !important;
+        }
+
+        /* Chevron Animation */
+        #header-wrapper .nav-links .mega-dropdown-content a::after,
+        .mega-links a::after,
+        .ind-link-col a::after {
+            content: '›' !important;
+            font-size: 20px !important;
+            color: rgba(71, 85, 105, 0.3) !important;
+            transition: all 250ms ease !important;
+            margin-left: 10px !important;
+        }
+
+        #header-wrapper .nav-links .mega-dropdown-content a:hover::after,
+        #header-wrapper .nav-links .mega-dropdown-content a.active::after,
+        .mega-links a:hover::after,
+        .mega-links a.active::after,
+        .ind-link-col a:hover::after,
+        .ind-link-col a.active::after {
+            color: #3b82f6 !important;
+            transform: translateX(5px) !important;
+        }
+
+        /* Hide any legacy icons */
+        #header-wrapper .nav-links .mega-dropdown-content a i,
+        .mega-links a i,
+        .ind-link-col a i {
+            display: none !important;
+        }
+
+        /* Sync global text selection color */
+        ::selection {
+            background: rgba(59, 130, 246, 0.2) !important;
+            color: #3b82f6 !important;
+        }
+
+        ::-moz-selection {
+            background: rgba(59, 130, 246, 0.2) !important;
+            color: #3b82f6 !important;
+        }
+
+        /* RESTORE: Category titles and headers must be dark */
+        #header-wrapper .nav-links .mega-dropdown-content .mega-cat-title,
+        #header-wrapper .nav-links .mega-dropdown-content .mega-intro-title,
+        #header-wrapper .nav-links .mega-dropdown-content .ind-title,
+        .mega-cat-title,
+        .mega-intro-title,
+        .ind-title {
+            color: #0f172a !important;
+            text-shadow: none !important;
+            font-weight: 800 !important;
+        }
+
+        /* RESTORE: Descriptions and labels */
+        #header-wrapper .nav-links .mega-dropdown-content .mhc-label,
+        #header-wrapper .nav-links .mega-dropdown-content .ind-desc,
+        .mhc-label,
+        .ind-desc {
+            color: #64748b !important;
+            text-shadow: none !important;
+            line-height: 1.6 !important;
+        }
+
+        /* Industries Intro Column Alignment */
+        .ind-info-col {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            text-align: left !important;
+            padding-right: 40px !important;
+        }
+
+        .ind-wrapper {
+            display: flex !important;
+            gap: 40px !important;
+            text-align: left !important;
+        }
+
+        /* Hide the glowing underlined bar for mega menu items */
+        #header-wrapper .nav-links .mega-dropdown-content a span::after,
+        .mega-dropdown-content a span::after {
+            display: none !important;
         }
     </style>
 </head>
@@ -2110,9 +2330,10 @@
                     </div>
 
                     <ul class="nav-links" style="position: static !important;">
-                        <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="/"><i
+                        <li><a href="/"
+                                class="{{ (request()->is('/') || request()->routeIs('home')) ? 'active' : '' }}"><i
                                     class="fas fa-home nav-icon"></i> <span>HOME</span></a></li>
-                        <li class="{{ request()->is('about*') ? 'active' : '' }}"><a href="/about"><i
+                        <li><a href="/about" class="{{ request()->is('about*') ? 'active' : '' }}"><i
                                     class="fas fa-user-circle nav-icon"></i> <span>ABOUT</span></a></li>
 
                         <!-- Mega Menu Trigger -->
@@ -2158,18 +2379,21 @@
                                                     Development
                                                 </h4>
                                                 <ul class="mega-links">
-                                                    <li><a href="{{ route('services.show', 'business-website') }}">Business
+                                                    <li><a href="{{ route('services.show', 'business-website') }}"
+                                                            class="{{ request()->is('*/business-website') ? 'active' : '' }}">Business
                                                             Website <i class="fas fa-chevron-right arrow-anim"></i></a>
                                                     </li>
-                                                    <li><a
-                                                            href="{{ route('services.show', 'custom-web-development') }}">Custom
+                                                    <li><a href="{{ route('services.show', 'custom-web-development') }}"
+                                                            class="{{ request()->is('*/custom-web-development') ? 'active' : '' }}">Custom
                                                             Web Dev <i class="fas fa-chevron-right arrow-anim"></i></a>
                                                     </li>
-                                                    <li><a href="{{ route('services.show', 'wordpress-development') }}">WordPress
+                                                    <li><a href="{{ route('services.show', 'wordpress-development') }}"
+                                                            class="{{ request()->is('*/wordpress-development') ? 'active' : '' }}">WordPress
                                                             development <i
                                                                 class="fas fa-chevron-right arrow-anim"></i></a>
                                                     </li>
-                                                    <li><a href="{{ route('services.show', 'website-redesign') }}">Website
+                                                    <li><a href="{{ route('services.show', 'website-redesign') }}"
+                                                            class="{{ request()->is('*/website-redesign') ? 'active' : '' }}">Website
                                                             redesign <i class="fas fa-chevron-right arrow-anim"></i></a>
                                                     </li>
                                                 </ul>
@@ -2181,17 +2405,21 @@
                                                     Ecommerce
                                                     Solutions</h4>
                                                 <ul class="mega-links">
-                                                    <li><a href="{{ route('services.show', 'ecommerce-website') }}">Ecommerce
+                                                    <li><a href="{{ route('services.show', 'ecommerce-website') }}"
+                                                            class="{{ request()->is('*/ecommerce-website') ? 'active' : '' }}">Ecommerce
                                                             website <i class="fas fa-chevron-right arrow-anim"></i></a>
                                                     </li>
-                                                    <li><a href="{{ route('services.show', 'shopify-development') }}">Shopify
+                                                    <li><a href="{{ route('services.show', 'shopify-development') }}"
+                                                            class="{{ request()->is('*/shopify-development') ? 'active' : '' }}">Shopify
                                                             development <i
                                                                 class="fas fa-chevron-right arrow-anim"></i></a>
                                                     </li>
-                                                    <li><a href="{{ route('services.show', 'woocommerce') }}">WooCommerce
+                                                    <li><a href="{{ route('services.show', 'woocommerce') }}"
+                                                            class="{{ request()->is('*/woocommerce') ? 'active' : '' }}">WooCommerce
                                                             store
                                                             <i class="fas fa-chevron-right arrow-anim"></i></a></li>
-                                                    <li><a href="{{ route('services.show', 'payment-gateway') }}">Payment
+                                                    <li><a href="{{ route('services.show', 'payment-gateway') }}"
+                                                            class="{{ request()->is('*/payment-gateway') ? 'active' : '' }}">Payment
                                                             gateway <i class="fas fa-chevron-right arrow-anim"></i></a>
                                                     </li>
                                                 </ul>
@@ -2203,15 +2431,16 @@
                                                     Development
                                                 </h4>
                                                 <ul class="mega-links">
-                                                    <li><a
-                                                            href="{{ route('services.show', 'android-app-development') }}">Android
+                                                    <li><a href="{{ route('services.show', 'android-app-development') }}"
+                                                            class="{{ request()->is('*/android-app-development') ? 'active' : '' }}">Android
                                                             app <i class="fas fa-chevron-right arrow-anim"></i></a>
                                                     </li>
-                                                    <li><a href="{{ route('services.show', 'ios-app-development') }}">iOS
+                                                    <li><a href="{{ route('services.show', 'ios-app-development') }}"
+                                                            class="{{ request()->is('*/ios-app-development') ? 'active' : '' }}">iOS
                                                             app <i class="fas fa-chevron-right arrow-anim"></i></a>
                                                     </li>
-                                                    <li><a
-                                                            href="{{ route('services.show', 'hybrid-app-development') }}">Hybrid
+                                                    <li><a href="{{ route('services.show', 'hybrid-app-development') }}"
+                                                            class="{{ request()->is('*/hybrid-app-development') ? 'active' : '' }}">Hybrid
                                                             app development <i
                                                                 class="fas fa-chevron-right arrow-anim"></i></a>
                                                     </li>
@@ -2227,19 +2456,23 @@
                                                     Marketing
                                                 </h4>
                                                 <ul class="mega-links">
-                                                    <li><a href="{{ route('services.show', 'digital-marketing') }}">Digital
+                                                    <li><a href="{{ route('services.show', 'digital-marketing') }}"
+                                                            class="{{ request()->is('*/digital-marketing') ? 'active' : '' }}">Digital
                                                             Marketing <i
                                                                 class="fas fa-chevron-right arrow-anim"></i></a>
                                                     </li>
-                                                    <li><a href="{{ route('services.show', 'seo-services') }}">SEO
+                                                    <li><a href="{{ route('services.show', 'seo-services') }}"
+                                                            class="{{ request()->is('*/seo-services') ? 'active' : '' }}">SEO
                                                             services
                                                             <i class="fas fa-chevron-right arrow-anim"></i></a></li>
-                                                    <li><a href="{{ route('services.show', 'google-ads') }}">Google
+                                                    <li><a href="{{ route('services.show', 'google-ads') }}"
+                                                            class="{{ request()->is('*/google-ads') ? 'active' : '' }}">Google
                                                             Ads
                                                             management <i
                                                                 class="fas fa-chevron-right arrow-anim"></i></a>
                                                     </li>
-                                                    <li><a href="{{ route('services.show', 'social-media') }}">Social
+                                                    <li><a href="{{ route('services.show', 'social-media') }}"
+                                                            class="{{ request()->is('*/social-media') ? 'active' : '' }}">Social
                                                             media
                                                             marketing <i
                                                                 class="fas fa-chevron-right arrow-anim"></i></a>
@@ -2253,13 +2486,16 @@
                                                     Design
                                                 </h4>
                                                 <ul class="mega-links">
-                                                    <li><a href="{{ route('services.show', 'logo-design') }}">Logo
+                                                    <li><a href="{{ route('services.show', 'logo-design') }}"
+                                                            class="{{ request()->is('*/logo-design') ? 'active' : '' }}">Logo
                                                             design <i class="fas fa-chevron-right arrow-anim"></i></a>
                                                     </li>
-                                                    <li><a href="{{ route('services.show', 'ui-ux-design') }}">UI/UX
+                                                    <li><a href="{{ route('services.show', 'ui-ux-design') }}"
+                                                            class="{{ request()->is('*/ui-ux-design') ? 'active' : '' }}">UI/UX
                                                             design
                                                             <i class="fas fa-chevron-right arrow-anim"></i></a></li>
-                                                    <li><a href="{{ route('services.show', 'graphic-design') }}">Graphic
+                                                    <li><a href="{{ route('services.show', 'graphic-design') }}"
+                                                            class="{{ request()->is('*/graphic-design') ? 'active' : '' }}">Graphic
                                                             design
                                                             <i class="fas fa-chevron-right arrow-anim"></i></a></li>
                                                 </ul>
@@ -2271,13 +2507,16 @@
                                                     Hosting
                                                 </h4>
                                                 <ul class="mega-links">
-                                                    <li><a href="{{ route('services.show', 'website-maintenance') }}">Maintenance
+                                                    <li><a href="{{ route('services.show', 'website-maintenance') }}"
+                                                            class="{{ request()->is('*/website-maintenance') ? 'active' : '' }}">Maintenance
                                                             <i class="fas fa-chevron-right arrow-anim"></i></a></li>
-                                                    <li><a href="{{ route('services.show', 'hosting-domain') }}">Hosting
+                                                    <li><a href="{{ route('services.show', 'hosting-domain') }}"
+                                                            class="{{ request()->is('*/hosting-domain') ? 'active' : '' }}">Hosting
                                                             &
                                                             domain <i class="fas fa-chevron-right arrow-anim"></i></a>
                                                     </li>
-                                                    <li><a href="{{ route('services.show', 'website-security') }}">Website
+                                                    <li><a href="{{ route('services.show', 'website-security') }}"
+                                                            class="{{ request()->is('*/website-security') ? 'active' : '' }}">Website
                                                             security <i class="fas fa-chevron-right arrow-anim"></i></a>
                                                     </li>
                                                 </ul>
@@ -2314,39 +2553,54 @@
                                     <!-- Col 2: Links Grid -->
                                     <div class="ind-links-grid">
                                         <div class="ind-link-col">
-                                            <a href="{{ route('industries.show', 'on-demand') }}">On-Demand <i
+                                            <a href="{{ route('industries.show', 'on-demand') }}"
+                                                class="{{ request()->is('*/on-demand') ? 'active' : '' }}">On-Demand <i
                                                     class="fas fa-chevron-right"></i></a>
-                                            <a href="{{ route('industries.show', 'enterprise') }}">Enterprise <i
+                                            <a href="{{ route('industries.show', 'enterprise') }}"
+                                                class="{{ request()->is('*/enterprise') ? 'active' : '' }}">Enterprise
+                                                <i class="fas fa-chevron-right"></i></a>
+                                            <a href="{{ route('industries.show', 'finance') }}"
+                                                class="{{ request()->is('*/finance') ? 'active' : '' }}">Finance <i
                                                     class="fas fa-chevron-right"></i></a>
-                                            <a href="{{ route('industries.show', 'finance') }}">Finance <i
-                                                    class="fas fa-chevron-right"></i></a>
-                                            <a href="{{ route('industries.show', 'e-commerce') }}">E-commerce <i
-                                                    class="fas fa-chevron-right"></i></a>
-                                            <a href="{{ route('industries.show', 'game') }}">Game <i
+                                            <a href="{{ route('industries.show', 'e-commerce') }}"
+                                                class="{{ request()->is('*/e-commerce') ? 'active' : '' }}">E-commerce
+                                                <i class="fas fa-chevron-right"></i></a>
+                                            <a href="{{ route('industries.show', 'game') }}"
+                                                class="{{ request()->is('*/game') ? 'active' : '' }}">Game <i
                                                     class="fas fa-chevron-right"></i></a>
                                         </div>
                                         <div class="ind-link-col">
-                                            <a href="{{ route('industries.show', 'healthcare') }}">Healthcare <i
+                                            <a href="{{ route('industries.show', 'healthcare') }}"
+                                                class="{{ request()->is('*/healthcare') ? 'active' : '' }}">Healthcare
+                                                <i class="fas fa-chevron-right"></i></a>
+                                            <a href="{{ route('industries.show', 'travel') }}"
+                                                class="{{ request()->is('*/travel') ? 'active' : '' }}">Travel <i
                                                     class="fas fa-chevron-right"></i></a>
-                                            <a href="{{ route('industries.show', 'travel') }}">Travel <i
+                                            <a href="{{ route('industries.show', 'logistics') }}"
+                                                class="{{ request()->is('*/logistics') ? 'active' : '' }}">Logistics <i
                                                     class="fas fa-chevron-right"></i></a>
-                                            <a href="{{ route('industries.show', 'logistics') }}">Logistics <i
+                                            <a href="{{ route('industries.show', 'start-up') }}"
+                                                class="{{ request()->is('*/start-up') ? 'active' : '' }}">Start-Up <i
                                                     class="fas fa-chevron-right"></i></a>
-                                            <a href="{{ route('industries.show', 'start-up') }}">Start-Up <i
-                                                    class="fas fa-chevron-right"></i></a>
-                                            <a href="{{ route('industries.show', 'entertainment') }}">Entertainment
+                                            <a href="{{ route('industries.show', 'entertainment') }}"
+                                                class="{{ request()->is('*/entertainment') ? 'active' : '' }}">Entertainment
                                                 <i class="fas fa-chevron-right"></i></a>
                                         </div>
                                         <div class="ind-link-col">
-                                            <a href="{{ route('industries.show', 'real-estate') }}">Real Estate <i
+                                            <a href="{{ route('industries.show', 'real-estate') }}"
+                                                class="{{ request()->is('*/real-estate') ? 'active' : '' }}">Real Estate
+                                                <i class="fas fa-chevron-right"></i></a>
+                                            <a href="{{ route('industries.show', 'education') }}"
+                                                class="{{ request()->is('*/education') ? 'active' : '' }}">Education <i
                                                     class="fas fa-chevron-right"></i></a>
-                                            <a href="{{ route('industries.show', 'education') }}">Education <i
-                                                    class="fas fa-chevron-right"></i></a>
-                                            <a href="{{ route('industries.show', 'electric-vehicle') }}">Electric
+                                            <a href="{{ route('industries.show', 'electric-vehicle') }}"
+                                                class="{{ request()->is('*/electric-vehicle') ? 'active' : '' }}">Electric
                                                 Vehicle <i class="fas fa-chevron-right"></i></a>
-                                            <a href="{{ route('industries.show', 'automotive') }}">Automotive <i
-                                                    class="fas fa-chevron-right"></i></a>
-                                            <a href="{{ route('industries.show', 'wearable') }}">Wearable <i
+                                            <a href="{{ route('industries.show', 'automotive') }}"
+                                                class="{{ request()->is('*/automotive') ? 'active' : '' }}">Automotive
+                                                <i class="fas fa-chevron-right"></i></a>
+                                            <a href="{{ route('industries.show', 'wearable') }}"
+                                                class="{{ request()->is('*/wearable') ? 'active' : '' }}">Wearable <i
                                                     class="fas fa-chevron-right"></i></a>
                                         </div>
                                     </div>
@@ -3185,29 +3439,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Locations Section for Local SEO -->
-            <div class="footer-seo-locations"
-                style="margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); padding: 30px 0; text-align: center;">
-                <h4
-                    style="color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">
-                    Top Cities & Locations We Serve</h4>
-                <div
-                    style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; opacity: 0.4; font-size: 0.7rem; line-height: 2; max-width: 1200px; margin: 0 auto;">
-                    @php
-                        $cities = ['Mumbai', 'Delhi', 'Bangalore', 'Pune', 'Hyderabad', 'Chennai', 'Kolkata', 'Ahmedabad', 'Surat', 'Jaipur', 'Lucknow', 'Nagpur', 'Indore', 'Thane', 'Bhopal', 'Patna', 'Vadodara', 'Ghaziabad', 'Ludhiana', 'Coimbatore', 'Agra', 'Madurai', 'Nashik', 'Faridabad', 'Meerut', 'Rajkot', 'Varanasi', 'Srinagar', 'Aurangabad', 'Dhanbad', 'Amritsar', 'Navi Mumbai', 'Allahabad', 'Ranchi', 'Howrah', 'Gwalior', 'Vijayawada', 'Jodhpur', 'Raipur', 'Kota', 'Guwahati', 'Chandigarh'];
-                        $services_seo = ['Web Development', 'Digital Marketing', 'App Development', 'SEO Services'];
-                    @endphp
-                    @foreach($cities as $city)
-                        @foreach($services_seo as $s_seo)
-                            <span style="white-space: nowrap;">{{ $s_seo }} {{ $city }}</span>
-                            @if(!$loop->last)
-                                <span style="color: #38bdf8; margin: 0 4px;">•</span>
-                            @endif
-                        @endforeach
-                    @endforeach
-                </div>
             </div>
-        </div>
 
         <style>
             /* --- FOOTER MAIN STYLES --- */

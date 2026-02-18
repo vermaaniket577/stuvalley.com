@@ -140,76 +140,7 @@
             /* Provides margin from screen edges */
         }
 
-        /* --- Header Overrides (Match Home Page) --- */
-        #header-wrapper {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 50;
-        }
 
-        #header-wrapper .top-bar {
-            background: #020617 !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-            backdrop-filter: blur(10px) !important;
-        }
-
-        /* Flex Fix for Top Bar */
-        #header-wrapper .top-bar .tb-flex {
-            display: flex !important;
-            justify-content: space-between !important;
-            align-items: center !important;
-            width: 100%;
-            padding: 0 40px;
-        }
-
-        #header-wrapper .top-bar .tb-social {
-            display: flex !important;
-            gap: 15px;
-        }
-
-        #header-wrapper header {
-            background: linear-gradient(to right, rgba(15, 23, 42, 0.95), rgba(2, 6, 23, 0.98)) !important;
-            backdrop-filter: blur(20px) !important;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
-        }
-
-        /* Force White Text for Header */
-        #header-wrapper .top-bar,
-        #header-wrapper .top-bar a,
-        #header-wrapper .nav-links>li>a,
-        #header-wrapper .dropbtn {
-            color: #ffffff !important;
-            transition: color 0.3s ease;
-        }
-
-        /* Hover Effect */
-        #header-wrapper .nav-links>li>a:hover,
-        #header-wrapper .dropbtn:hover {
-            color: #38bdf8 !important;
-            /* Blue Hover */
-        }
-
-        /* Highlight Active BLOG Link */
-        #header-wrapper .nav-links>li>a[href*="blog"] {
-            color: #38bdf8 !important;
-            position: relative;
-        }
-
-        /* Active Link Glow Effect */
-        #header-wrapper .nav-links>li>a[href*="blog"]::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: #38bdf8;
-            box-shadow: 0 0 12px rgba(56, 189, 248, 0.8);
-            border-radius: 10px;
-        }
 
         /* --- Hero Section --- */
         .blog-hero {
@@ -435,7 +366,8 @@
 
         .read-more-btn {
             background: white;
-            color: #0f172a !important; /* Force dark text for visibility */
+            color: #0f172a !important;
+            /* Force dark text for visibility */
             padding: 10px 24px;
             border-radius: 30px;
             font-weight: 700;
